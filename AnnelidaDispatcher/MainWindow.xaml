@@ -1,0 +1,64 @@
+﻿<Window x:Class="AnnelidaDispatcher.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:local="clr-namespace:AnnelidaDispatcher"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0">
+                <TextBox>Views Conectadas</TextBox>
+                <ListView  
+                    ItemsSource="{Binding ViewClients}"  />
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                <TextBox>Controles Conectados</TextBox>
+                <ListView 
+                    ItemsSource="{Binding ControlClients}"/>
+            </StackPanel>
+            <StackPanel Grid.Column="2">
+                <TextBox>Robôs Conectados</TextBox>
+                <ListView 
+                    ItemsSource="{Binding RobotClients}"/>
+            </StackPanel>
+        </Grid>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <TextBlock Margin="5">MongoDb Uri: </TextBlock>
+            <xctk:WatermarkTextBox
+                MinWidth="200"
+                Watermark="mongodb://informatica:inf@ds127300.mlab.com:27300/">
+                
+            </xctk:WatermarkTextBox>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left">
+            <TextBlock>IP do Dispatcher:</TextBlock>
+            <TextBlock Text="{Binding MyIP}" />
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+        <TextBlock>Porta do Dispatcher: </TextBlock>
+            <TextBlock Text="{Binding MyPort}" />
+        </StackPanel>
+        <Button
+            Grid.Row="3"
+            Content="Iniciar Dispatcher"
+            Command="{Binding StartCommand}"
+            />
+
+    </Grid>
+</Window>
