@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace AnnelidaDispatcher.Model
 {
     // State object for reading client data asynchronously
-    public class ClientState
+    public class ClientTyp
     {
         // Client  socket.
         public Socket workSocket = null;
@@ -24,7 +24,7 @@ namespace AnnelidaDispatcher.Model
 
         public ClientTypes.Types myType;
 
-        public ClientState(int buffSize)
+        public ClientTyp(int buffSize)
         {
             //Uppon init we expect and int32
             bufferSize = 4;

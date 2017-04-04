@@ -10,6 +10,8 @@ using System.Windows.Threading;
 
 
 using MongoDB.Bson;
+using MongoDB.Driver;
+
 namespace AnnelidaDispatcher.Model
 {
     public class DispatcherServer
@@ -80,7 +82,7 @@ namespace AnnelidaDispatcher.Model
             //var connectedClients = (Dictionary<ClientTypes.Types, List<Socket>>)state[1];
             connectedClients[ClientTypes.Types.Undefined].Add(client);
 
-            var so = new ClientState(bufferSize);
+            var so = new ClientTyp(bufferSize);
             so.workSocket = client;
             client.BeginReceive(so.buffer, 0, so.bufferSize, 0, new AsyncCallback(ReadHandler), so);
         }
@@ -89,7 +91,7 @@ namespace AnnelidaDispatcher.Model
         {
             // Retrieve the state object and the handler socket
             // from the asynchronous state object.
-            ClientState state = (ClientState)ar.AsyncState;
+            ClientTyp state = (ClientTyp)ar.AsyncState;
             Socket handler = state.workSocket;
 
             // Read data from the client socket. 
@@ -164,21 +166,35 @@ namespace AnnelidaDispatcher.Model
             }
         }
 
-        public void HandleMessage(byte[] bytes, ClientState state)
+        public void HandleMessage(byte[] bytes, ClientTyp state)
         {
-            Console.WriteLine("Read {0} bytes from socket.",
-            bytes.Length);
+            Console.WriteLine($"Read {bytes.Length} bytes from socket.");
             var document = new RawBsonDocument(bytes);
             switch(state.myType)
             {
                 case ClientTypes.Types.Controller:
                     //Save to control DB
-                    //Do mething else to fake movement for now
+                    //Do nothing else to fake movement for now
                     break;
                 case ClientTypes.Types.Robot:
                     //Save to sensor DB async
                     //Notify all views that the DB was updated inside async method
                     break;
+            }
+        }
+
+        private void NotifyNetworkViewListeners(IAsyncResult result)
+        {
+
+            Object[] paramData = (Object[])result.AsyncState;
+
+            ClientTypes.Types destClientType = (ClientTypes.Types)paramData[0];
+            BsonDocument document = (BsonDocument)paramData[1];
+            
+            int lastTimeStamp = document["Time"].AsInt32;
+            foreach(var socket in connectedClients[destClientType])
+            {
+                socket.Send(BitConverter.GetBytes(lastTimeStamp));
             }
         }
 
