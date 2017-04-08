@@ -20,7 +20,7 @@ namespace AnnelidaDispatcher.Model
     /// classifies them and handle message propagation.
     /// </summary>
     
-    //TODO: Remove Mongo initialization from here
+    
     public class DispatcherServer
     {
         public static ManualResetEvent allDone = new ManualResetEvent(false);
@@ -32,12 +32,13 @@ namespace AnnelidaDispatcher.Model
         public event ClientConnectionDelegate clientConnectedEvent;
         public event ClientConnectionDelegate clientDisconnectedEvent;
 
-        private MongoWrapper sensorDB;
+        private MongoWrapper sensorDB, controlDB;
+        private string missionName;
 
         /// <summary>
         /// Class constructor. Initialize the client lists
         /// </summary>
-        public DispatcherServer()
+        public DispatcherServer(MongoWrapper sensorDB, MongoWrapper controlDB, string missionName)
         {
             connectedClients = new Dictionary<ClientTypes.Types, List<Socket>>();
             connectedClients.Add(ClientTypes.Types.Undefined, new List<Socket>());
@@ -45,8 +46,9 @@ namespace AnnelidaDispatcher.Model
             connectedClients.Add(ClientTypes.Types.View, new List<Socket>());
             connectedClients.Add(ClientTypes.Types.Robot, new List<Socket>());
 
-            //Connects to the MongoDB
-            sensorDB = new MongoWrapper(null, "dispatcherTest");
+            this.sensorDB = sensorDB;
+            this.controlDB = controlDB;
+            this.missionName = missionName;
         }
 
         /// <summary>
@@ -211,7 +213,7 @@ namespace AnnelidaDispatcher.Model
                     break;
                 case ClientTypes.Types.Robot:
                     //Save to sensor DB async
-                    Task write = sensorDB.WriteSingleToCollection(bytes, "2017-04-08"); 
+                    Task write = sensorDB.WriteSingleToCollection(bytes, missionName); 
                     //Notify all views that the DB was updated inside async method
                     NotifyNetworkViewListeners(state.myType, bytes);
                     break;

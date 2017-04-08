@@ -37,20 +37,45 @@
             </StackPanel>
         </Grid>
 
-        <StackPanel Grid.Row="1" Orientation="Horizontal">
-            <TextBlock Margin="5">MongoDb Uri: </TextBlock>
-            <xctk:WatermarkTextBox
-                MinWidth="200"
-                Watermark="mongodb://informatica:inf@ds127300.mlab.com:27300/">
-                
-            </xctk:WatermarkTextBox>
-        </StackPanel>
-        
-        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left">
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <TextBlock Margin="5" Grid.Column="0" Grid.Row="0">MongoDb Uri:</TextBlock>
+            <xctk:WatermarkTextBox Grid.Column="1" Grid.Row="0"
+                Watermark="mongodb://informatica:inf@ds127300.mlab.com:27300/"
+                Text="{Binding MongoURL}"/>
+
+            <TextBlock Margin="5" Grid.Column="0" Grid.Row="1">Banco dos sensores</TextBlock>
+            <xctk:WatermarkTextBox Grid.Column="1" Grid.Row="1"
+                Watermark="sensors"
+                Text="{Binding SensorDBName}"/>
+
+            <TextBlock Margin="5" Grid.Column="0" Grid.Row="2">Banco de controle</TextBlock>
+            <xctk:WatermarkTextBox Grid.Column="1" Grid.Row="2"
+                Watermark="control"
+                Text="{Binding ControlDBName}"/>
+
+            <TextBlock Margin="5" Grid.Column="0" Grid.Row="3">Nome da missão</TextBlock>
+            <xctk:WatermarkTextBox Grid.Column="1" Grid.Row="3"
+                Watermark="2017-04-08"
+                Text="{Binding MissionName}"/>
+        </Grid>
+         
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" Margin="5">
             <TextBlock>IP do Dispatcher:</TextBlock>
             <TextBlock Text="{Binding MyIP}" />
         </StackPanel>
-        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="5">
         <TextBlock>Porta do Dispatcher: </TextBlock>
             <TextBlock Text="{Binding MyPort}" />
         </StackPanel>
@@ -58,6 +83,7 @@
             Grid.Row="3"
             Content="Iniciar Dispatcher"
             Command="{Binding StartCommand}"
+            IsEnabled="{Binding StartButtonEnabled}"
             />
 
     </Grid>

@@ -8,10 +8,12 @@ using System.Windows.Input;
 using AnnelidaDispatcher.Utilities;
 using AnnelidaDispatcher.Model;
 using System.Collections.ObjectModel;
+using System.Windows;
+using System.ComponentModel;
 
 namespace AnnelidaDispatcher.ViewModel
 {
-    class MainViewViewModel
+    class MainViewViewModel: INotifyPropertyChanged
     {
         #region Properties
         #region StartCommand
@@ -26,33 +28,63 @@ namespace AnnelidaDispatcher.ViewModel
             }
         }
         #endregion
+        #region StartButtonState
+        private Boolean startButtonEnabled;
+        public Boolean StartButtonEnabled
+        {
+            get { return startButtonEnabled;}
+            set
+            {
+                startButtonEnabled = value;
+                OnPropertyChanged(nameof(StartButtonEnabled));
+            }
+        }
+            
+
         #endregion
+        
 
         public MTObservableCollection<string> ViewClients { get; private set; }
         public MTObservableCollection<string> ControlClients { get; private set; }
         public MTObservableCollection<string> RobotClients { get; private set; }
         public string MyIP { get; }
         public string MyPort { get; }
+        public string MongoURL { get; set;}
+        public string SensorDBName { get; set; }
+        public string ControlDBName { get; set; }
+        public string MissionName { get; set; }
+        #endregion
 
+        public event PropertyChangedEventHandler PropertyChanged;
         private DispatcherServer disp;
+               
 
         public MainViewViewModel()
         {
             ViewClients = new MTObservableCollection<string>();
             ControlClients = new MTObservableCollection<string>();
             RobotClients = new MTObservableCollection<string>();
-            disp = new DispatcherServer();
-            disp.clientConnectedEvent += ClientConnected;
-            disp.clientDisconnectedEvent += ClientDisconnected;
             MyIP = DispatcherServer.GetLocalIPAddress();
             MyPort = "9999";
 
-
+            StartButtonEnabled = true;
         }
         async void StartListening()
         {
+            if (SensorDBName == null || ControlDBName == null || MissionName == null)
+            {
+                MessageBox.Show("Por favor, preencha todos os campos");
+                return;
+            }
+            StartButtonEnabled = false;
             
+
+            var sensorDB = new MongoWrapper(MongoURL, SensorDBName);
+            disp = new DispatcherServer(sensorDB, null, MissionName);
+            disp.clientConnectedEvent += ClientConnected;
+            disp.clientDisconnectedEvent += ClientDisconnected;
             await Task.Run(() => disp.Start(9999));
+
         }
 
         private void ClientConnected(ClientTypes.Types type, string addr)
@@ -89,6 +121,11 @@ namespace AnnelidaDispatcher.ViewModel
                 default:
                     break;
             }
+        }
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
