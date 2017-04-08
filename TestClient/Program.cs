@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using AnnelidaDispatcher.Model;
 using MongoDB.Bson;
 using System.Collections.ObjectModel;
+using MongoDB.Bson.Serialization;
 
 namespace TestClient
 {
@@ -50,7 +51,22 @@ namespace TestClient
             stream.Write(BitConverter.GetBytes(b.Length), 0, 4);
             stream.Write(b, 0, b.Length);
             stream.Flush();
+            //c.Client.Shutdown(SocketShutdown.Both);
+            //c.Client.Close();
+
+
+            //If we want to receive data 
+            //byte[] size = new byte[4];
+            //byte[] buff;
+            //c.Client.Receive(size, 4, 0);
+            //int s = BitConverter.ToInt32(size, 0);
+            //buff = new byte[s];
+            //c.Client.Receive(buff, s, 0);
+
+            //var d = BsonSerializer.Deserialize<BsonDocument>(buff);
+
             Console.ReadKey();
+
 
         }
     }

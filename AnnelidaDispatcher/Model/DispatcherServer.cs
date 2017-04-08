@@ -10,10 +10,17 @@ using System.Windows.Threading;
 
 
 using MongoDB.Bson;
-using MongoDB.Driver;
+
 
 namespace AnnelidaDispatcher.Model
 {
+
+    /// <summary>
+    /// Dispatcher model class. Handles accepting client connections,
+    /// classifies them and handle message propagation.
+    /// </summary>
+    
+    //TODO: Remove Mongo initialization from here
     public class DispatcherServer
     {
         public static ManualResetEvent allDone = new ManualResetEvent(false);
@@ -25,16 +32,27 @@ namespace AnnelidaDispatcher.Model
         public event ClientConnectionDelegate clientConnectedEvent;
         public event ClientConnectionDelegate clientDisconnectedEvent;
 
+        private MongoWrapper sensorDB;
+
+        /// <summary>
+        /// Class constructor. Initialize the client lists
+        /// </summary>
         public DispatcherServer()
         {
             connectedClients = new Dictionary<ClientTypes.Types, List<Socket>>();
-
             connectedClients.Add(ClientTypes.Types.Undefined, new List<Socket>());
             connectedClients.Add(ClientTypes.Types.Controller, new List<Socket>());
             connectedClients.Add(ClientTypes.Types.View, new List<Socket>());
             connectedClients.Add(ClientTypes.Types.Robot, new List<Socket>());
+
+            //Connects to the MongoDB
+            sensorDB = new MongoWrapper(null, "dispatcherTest");
         }
 
+        /// <summary>
+        /// Starts listening for incomming connections
+        /// </summary>
+        /// <param name="port">The port to listen for connections</param>
         public void Start(int port)
         {
             //Data buffer
@@ -45,7 +63,7 @@ namespace AnnelidaDispatcher.Model
             IPAddress ipAddress = ipHostInfo.AddressList[0];
             IPEndPoint localEndPoint = new IPEndPoint(IPAddress.Any, port);
 
-            //Create the listener socket, TCP becase we need delivery guarantee
+            //Create the listener socket, TCP because we need delivery guarantee
             Socket listener = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
             //Set network layer
@@ -54,7 +72,7 @@ namespace AnnelidaDispatcher.Model
                 listener.Bind(localEndPoint);
                 listener.Listen(10);
 
-                //Manages connections, will the break the UI thread I ask...
+                //Manages connections, will the while break the UI thread I ask...
                 while(true)
                 {
                     allDone.Reset();
@@ -70,28 +88,36 @@ namespace AnnelidaDispatcher.Model
             }
         }
 
+        /// <summary>
+        /// Handle accepting each individual client connection
+        /// outside of the main thread
+        /// </summary>
+        /// <param name="result"></param>
         public  void AcceptHandler(IAsyncResult result)
         {
             allDone.Set();
 
-            //object[] state = (object[])result.AsyncState;
-
             Socket listener = (Socket)result.AsyncState;
             Socket client = listener.EndAccept(result);
 
-            //var connectedClients = (Dictionary<ClientTypes.Types, List<Socket>>)state[1];
+            //When a client connects we do not know what type he is yet
             connectedClients[ClientTypes.Types.Undefined].Add(client);
 
-            var so = new ClientTyp(bufferSize);
+            var so = new DispatcherClientObject(bufferSize);
             so.workSocket = client;
+            //Starts receving messages
             client.BeginReceive(so.buffer, 0, so.bufferSize, 0, new AsyncCallback(ReadHandler), so);
         }
 
+        /// <summary>
+        /// Message handler for each individual client outside of the main thread
+        /// </summary>
+        /// <param name="ar"></param>
         public void ReadHandler(IAsyncResult ar)
         {
             // Retrieve the state object and the handler socket
             // from the asynchronous state object.
-            ClientTyp state = (ClientTyp)ar.AsyncState;
+            DispatcherClientObject state = (DispatcherClientObject)ar.AsyncState;
             Socket handler = state.workSocket;
 
             // Read data from the client socket. 
@@ -100,6 +126,7 @@ namespace AnnelidaDispatcher.Model
             {
                 bytesRead = handler.EndReceive(ar);
             }
+            //TOOD: handle disonnection messages (SHUTODOWNMODES)
             catch(SocketException e)
             {
                 Console.WriteLine($"Socket error {e.ToString()}");
@@ -111,20 +138,25 @@ namespace AnnelidaDispatcher.Model
                 state = null;
             }
 
+            //if our client has not identified itself the first
+            //message he sends is his ID
             if (bytesRead > 0 && !state.isInitialized)
             {
 
                 //We are expecting and int representing the client type
-
                 int type = BitConverter.ToInt32(state.buffer,0);
                 state.isInitialized = true;
                 state.myType = (ClientTypes.Types)type;
                 var clientAddr = state.workSocket.RemoteEndPoint as IPEndPoint;
                 connectedClients[ClientTypes.Types.Undefined].Remove(state.workSocket);
                 connectedClients[(ClientTypes.Types)type].Add(state.workSocket);
+                
+                //Raise and event so the UI can update the client list
                 clientConnectedEvent?.Invoke((ClientTypes.Types)type, clientAddr.Address.ToString());
+                //Continue handling messages
                 handler.BeginReceive(state.buffer, 0, state.bufferSize, 0,
                     new AsyncCallback(ReadHandler), state);
+                //sets the buffer to 0 because the next message contains the size
                 state.bufferSize = 0;
             }
             else if (bytesRead > 0 && state.isInitialized)
@@ -156,20 +188,21 @@ namespace AnnelidaDispatcher.Model
                         handler.BeginReceive(state.buffer, 0, 4, 0,
                             new AsyncCallback(ReadHandler), state);
                     }
-
-
-                        //int acqSize = 1024;
-                        //if (size - recvBytes < 1024)
-                        //    acqSize = size - recvBytes;
-                        //recvBytes += stream.Read(anchor, recvBytes, acqSize);
-                    }
+                 }
             }
         }
 
-        public void HandleMessage(byte[] bytes, ClientTyp state)
+        /// <summary>
+        /// After we have then entire message defragmented
+        /// this method sorts the message to according to the source.
+        /// Handles saving the message to the DB and dispatching to others
+        /// clients asynchronouslly 
+        /// </summary>
+        /// <param name="bytes">The message bytes</param>
+        /// <param name="state">The client who sent the message originally</param>
+        public void HandleMessage(byte[] bytes, DispatcherClientObject state)
         {
             Console.WriteLine($"Read {bytes.Length} bytes from socket.");
-            var document = new RawBsonDocument(bytes);
             switch(state.myType)
             {
                 case ClientTypes.Types.Controller:
@@ -178,27 +211,41 @@ namespace AnnelidaDispatcher.Model
                     break;
                 case ClientTypes.Types.Robot:
                     //Save to sensor DB async
+                    Task write = sensorDB.WriteSingleToCollection(bytes, "2017-04-08"); 
                     //Notify all views that the DB was updated inside async method
+                    NotifyNetworkViewListeners(state.myType, bytes);
                     break;
             }
         }
 
-        private void NotifyNetworkViewListeners(IAsyncResult result)
+        /// <summary>
+        /// Network dispatcher method
+        /// </summary>
+        /// <param name="sender">The original client type</param>
+        /// <param name="document">The byte array containing the list</param>
+        private void NotifyNetworkViewListeners(ClientTypes.Types sender, byte[] document)
         {
-
-            Object[] paramData = (Object[])result.AsyncState;
-
-            ClientTypes.Types destClientType = (ClientTypes.Types)paramData[0];
-            BsonDocument document = (BsonDocument)paramData[1];
-            
-            int lastTimeStamp = document["Time"].AsInt32;
-            foreach(var socket in connectedClients[destClientType])
+            switch(sender)
             {
-                socket.Send(BitConverter.GetBytes(lastTimeStamp));
-            }
+                //Notifiy the view clients
+                case ClientTypes.Types.Robot:
+                    foreach (var c in connectedClients[ClientTypes.Types.View])
+                    {
+                        c.Send(BitConverter.GetBytes(document.Length), 4, 0);
+                        c.BeginSend(document, 0, document.Length, 0, null, c);
+                    }
+                    break;
+                //Notify the roboy
+                case ClientTypes.Types.Controller:
+                    foreach (var c in connectedClients[ClientTypes.Types.Robot])
+                    {
+                        c.Send(BitConverter.GetBytes(document.Length), 4, 0);
+                        c.BeginSend(document, 0, document.Length, 0, null, c);
+                    }
+                    break;
+            }      
+
         }
-
-
         public static string GetLocalIPAddress()
         {
             var host = Dns.GetHostEntry(Dns.GetHostName());

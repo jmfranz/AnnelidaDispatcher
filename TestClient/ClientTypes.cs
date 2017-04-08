@@ -8,7 +8,7 @@ namespace AnnelidaDispatcher.Model
 {
     public static class ClientTypes
     {
-        public enum Types { Undefined, View, Controller };
+        public enum Types { Undefined, View, Controller, Robot };
 
     }
 }

@@ -98,6 +98,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\MongoWrapper.cs" />
     <Compile Include="Utilities\MTObservableCollection.cs" />
     <Compile Include="Utilities\RelayCommand.cs" />
     <Compile Include="ViewModel\MainViewViewModel.cs" />
