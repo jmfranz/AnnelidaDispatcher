@@ -205,15 +205,17 @@ namespace AnnelidaDispatcher.Model
         public void HandleMessage(byte[] bytes, DispatcherClientObject state)
         {
             Console.WriteLine($"Read {bytes.Length} bytes from socket.");
-            switch(state.myType)
+            Task write;
+            switch (state.myType)
             {
                 case ClientTypes.Types.Controller:
                     //Save to control DB
+                    write = controlDB.WriteSingleToCollection(bytes, missionName);
                     //Do nothing else to fake movement for now
                     break;
                 case ClientTypes.Types.Robot:
                     //Save to sensor DB async
-                    Task write = sensorDB.WriteSingleToCollection(bytes, missionName); 
+                    write = sensorDB.WriteSingleToCollection(bytes, missionName); 
                     //Notify all views that the DB was updated inside async method
                     NotifyNetworkViewListeners(state.myType, bytes);
                     break;

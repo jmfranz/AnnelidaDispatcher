@@ -17,9 +17,8 @@ namespace AnnelidaDispatcher.Model
     public class MongoWrapper
     {
 
-        protected static IMongoClient client;
-        protected static IMongoDatabase database;
-        protected static int count;
+        protected IMongoClient client;
+        protected IMongoDatabase database;
         
         /// <summary>
         /// Constructor for the wrapper class using a known external server

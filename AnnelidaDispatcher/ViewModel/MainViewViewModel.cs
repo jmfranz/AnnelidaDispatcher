@@ -80,7 +80,8 @@ namespace AnnelidaDispatcher.ViewModel
             
 
             var sensorDB = new MongoWrapper(MongoURL, SensorDBName);
-            disp = new DispatcherServer(sensorDB, null, MissionName);
+            var controlDB = new MongoWrapper(MongoURL, ControlDBName);
+            disp = new DispatcherServer(sensorDB, controlDB, MissionName);
             disp.clientConnectedEvent += ClientConnected;
             disp.clientDisconnectedEvent += ClientDisconnected;
             await Task.Run(() => disp.Start(9999));
