@@ -5,6 +5,9 @@ Rule based many-to-many BsonDocument dispatcher. Messages received are saved in 
 TCP conections on (for now) fixed port 9999.
 Messages should be send in two stages. First one is an Int32 containing the size of the BsonDocument byte array. Second message is the serialized BsonDocument.
 
+Client Test folder contains a very simple, and poorly documented, code that connects, identifies itself and sends a serialized `BsonDocument`. 
+It also shows commented in the end how to receive a serialized `BsonDocument`
+
 ### Step-by-step
 1. Connect to dispatcher  using TCP on port 9999
 2. Self-identify to the dispatcher. While the client is not identified all messages to it are dropped
