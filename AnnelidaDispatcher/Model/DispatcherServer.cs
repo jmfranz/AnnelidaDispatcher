@@ -211,7 +211,8 @@ namespace AnnelidaDispatcher.Model
                 case ClientTypes.Types.Controller:
                     //Save to control DB
                     write = controlDB.WriteSingleToCollection(bytes, missionName);
-                    //Do nothing else to fake movement for now
+                    //Notify
+                    NotifyNetworkViewListeners(state.myType, bytes);
                     break;
                 case ClientTypes.Types.Robot:
                     //Save to sensor DB async
@@ -239,7 +240,7 @@ namespace AnnelidaDispatcher.Model
                         c.BeginSend(document, 0, document.Length, 0, null, c);
                     }
                     break;
-                //Notify the roboy
+                //Notify the robot
                 case ClientTypes.Types.Controller:
                     foreach (var c in connectedClients[ClientTypes.Types.Robot])
                     {
