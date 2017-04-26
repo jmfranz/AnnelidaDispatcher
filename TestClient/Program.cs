@@ -48,7 +48,6 @@ namespace TestClient
                 };
 
             byte[] b = document.ToBson();
-            stream.Write(BitConverter.GetBytes(b.Length), 0, 4);
             stream.Write(b, 0, b.Length);
             stream.Flush();
             //c.Client.Shutdown(SocketShutdown.Both);

@@ -46,8 +46,7 @@ namespace SendBsonToDispatcher
             {
                 while (!Console.KeyAvailable)
                 {
-                    byte[] b = document.ToBson();
-                    stream.Write(BitConverter.GetBytes(b.Length), 0, 4);
+                    byte[] b = document.ToBson();                   
                     stream.Write(b, 0, b.Length);
                     stream.Flush();
                     Thread.Sleep(1000);

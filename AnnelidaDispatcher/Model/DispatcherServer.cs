@@ -163,14 +163,18 @@ namespace AnnelidaDispatcher.Model
             }
             else if (bytesRead > 0 && state.isInitialized)
             {
-                //We are receiving the size of the package which is an int32
+                //We are receiving the package but don't know the size yet
+                //Serialized bson contains the size in the first 4 bytes.
                 if(state.bufferSize == 0)
                 {
                     int size = BitConverter.ToInt32(state.buffer, 0);
-                    state.bufferSize = size;
-                    state.buffer = new byte[size];
+                    //We take 4 out because we already red those bytes
+                    state.bufferSize = size - 4;
+                    //Resize the array because we need the full set of
+                    //bytes in order to deserialize the Bson
+                    Array.Resize(ref state.buffer, size);
                     state.recvBytesCount = 0;
-                    handler.BeginReceive(state.buffer, 0, state.bufferSize, 0,
+                    handler.BeginReceive(state.buffer, 4, state.bufferSize , 0,
                         new AsyncCallback(ReadHandler), state);
                 }
                 //we already know the package size
@@ -178,7 +182,7 @@ namespace AnnelidaDispatcher.Model
                 {
                     state.recvBytesCount += bytesRead;
                     if (state.recvBytesCount < state.bufferSize)
-                        handler.BeginReceive(state.buffer, state.recvBytesCount - 1, state.bufferSize, 0,
+                        handler.BeginReceive(state.buffer, 3 + state.recvBytesCount - 1, state.bufferSize, 0,
                        new AsyncCallback(ReadHandler), state);
                     else
                     {
@@ -236,7 +240,6 @@ namespace AnnelidaDispatcher.Model
                 case ClientTypes.Types.Robot:
                     foreach (var c in connectedClients[ClientTypes.Types.View])
                     {
-                        c.Send(BitConverter.GetBytes(document.Length), 4, 0);
                         c.BeginSend(document, 0, document.Length, 0, null, c);
                     }
                     break;
@@ -244,7 +247,6 @@ namespace AnnelidaDispatcher.Model
                 case ClientTypes.Types.Controller:
                     foreach (var c in connectedClients[ClientTypes.Types.Robot])
                     {
-                        c.Send(BitConverter.GetBytes(document.Length), 4, 0);
                         c.BeginSend(document, 0, document.Length, 0, null, c);
                     }
                     break;
