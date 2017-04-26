@@ -182,7 +182,7 @@ namespace AnnelidaDispatcher.Model
                 {
                     state.recvBytesCount += bytesRead;
                     if (state.recvBytesCount < state.bufferSize)
-                        handler.BeginReceive(state.buffer, 3 + state.recvBytesCount - 1, state.bufferSize, 0,
+                        handler.BeginReceive(state.buffer, 4 + state.recvBytesCount - 1, state.bufferSize, 0,
                        new AsyncCallback(ReadHandler), state);
                     else
                     {
