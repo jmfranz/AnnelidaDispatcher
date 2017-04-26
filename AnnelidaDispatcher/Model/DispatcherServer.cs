@@ -10,7 +10,7 @@ using System.Windows.Threading;
 
 
 using MongoDB.Bson;
-
+using System.Diagnostics;
 
 namespace AnnelidaDispatcher.Model
 {
@@ -34,6 +34,8 @@ namespace AnnelidaDispatcher.Model
 
         private MongoWrapper sensorDB, controlDB;
         private string missionName;
+
+        private Stopwatch mongoWriteTimer, tcpSendTimer;
 
         /// <summary>
         /// Class constructor. Initialize the client lists
@@ -204,13 +206,16 @@ namespace AnnelidaDispatcher.Model
         /// <param name="state">The client who sent the message originally</param>
         public void HandleMessage(byte[] bytes, DispatcherClientObject state)
         {
-            Console.WriteLine($"Read {bytes.Length} bytes from socket.");
+            
             Task write;
             switch (state.myType)
             {
                 case ClientTypes.Types.Controller:
                     //Save to control DB
+                    mongoWriteTimer = Stopwatch.StartNew();
+                    tcpSendTimer = Stopwatch.StartNew();
                     write = controlDB.WriteSingleToCollection(bytes, missionName);
+                    write.ContinueWith((t) => {  Console.WriteLine("Mongo: " + mongoWriteTimer.ElapsedMilliseconds); });
                     //Notify
                     NotifyNetworkViewListeners(state.myType, bytes);
                     break;
@@ -239,6 +244,7 @@ namespace AnnelidaDispatcher.Model
                         c.Send(BitConverter.GetBytes(document.Length), 4, 0);
                         c.BeginSend(document, 0, document.Length, 0, null, c);
                     }
+                    
                     break;
                 //Notify the robot
                 case ClientTypes.Types.Controller:
@@ -247,7 +253,9 @@ namespace AnnelidaDispatcher.Model
                         c.Send(BitConverter.GetBytes(document.Length), 4, 0);
                         c.BeginSend(document, 0, document.Length, 0, null, c);
                     }
+                    Console.WriteLine("Robot: " + tcpSendTimer.ElapsedMilliseconds);
                     break;
+                    
             }      
 
         }
