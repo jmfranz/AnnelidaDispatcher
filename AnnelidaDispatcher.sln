@@ -5,8 +5,6 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnnelidaDispatcher", "AnnelidaDispatcher\AnnelidaDispatcher.csproj", "{CD57BD03-19D7-4D6B-9597-E51525BC214C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestClient", "TestClient\TestClient.csproj", "{746FC4E9-C688-4753-8E8D-C75DE3C61F7A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReceiveBsonFromDispatcher", "ReceiveBsonFromDispatcher\ReceiveBsonFromDispatcher.csproj", "{A17AC5C0-945D-4C21-B68B-5FC67BFFBB25}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendBsonToDispatcher", "SendBsonToDispatcher\SendBsonToDispatcher.csproj", "{E62775A2-0ED9-4BBA-9F25-E93E212BF308}"
@@ -21,10 +19,6 @@ Global
 		{CD57BD03-19D7-4D6B-9597-E51525BC214C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD57BD03-19D7-4D6B-9597-E51525BC214C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD57BD03-19D7-4D6B-9597-E51525BC214C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{746FC4E9-C688-4753-8E8D-C75DE3C61F7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{746FC4E9-C688-4753-8E8D-C75DE3C61F7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{746FC4E9-C688-4753-8E8D-C75DE3C61F7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{746FC4E9-C688-4753-8E8D-C75DE3C61F7A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A17AC5C0-945D-4C21-B68B-5FC67BFFBB25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A17AC5C0-945D-4C21-B68B-5FC67BFFBB25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A17AC5C0-945D-4C21-B68B-5FC67BFFBB25}.Release|Any CPU.ActiveCfg = Release|Any CPU
