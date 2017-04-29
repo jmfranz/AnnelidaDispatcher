@@ -34,12 +34,11 @@ namespace ReceiveBsonFromDispatcher
             {
                 while (!Console.KeyAvailable)
                 {
-                    byte[] size = new byte[4];
-                    byte[] buff;
-                    c.Client.Receive(size, 4, 0);
-                    int s = BitConverter.ToInt32(size, 0);
-                    buff = new byte[s];
-                    c.Client.Receive(buff, s, 0);
+                    byte[] buff = new byte[4];
+                    c.Client.Receive(buff, 4, 0);
+                    int s = BitConverter.ToInt32(buff, 0);
+                    Array.Resize(ref buff, s);
+                    c.Client.Receive(buff,4, s - 4, 0);
 
                     var d = BsonSerializer.Deserialize<BsonDocument>(buff);
                     Console.WriteLine(d.ToString());
