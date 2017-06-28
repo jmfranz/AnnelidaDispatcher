@@ -235,7 +235,7 @@ namespace AnnelidaDispatcher.Model
                     {
                         sensorDB.WriteSingleToCollection(record, missionName);
                         record = new Record();
-                        record.timestamp = DateTime.UtcNow;
+                        record.timestamp = t;
                         record.sensors.Add(d);                        
                     }
                     else

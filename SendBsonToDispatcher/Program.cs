@@ -49,7 +49,7 @@ namespace SendBsonToDispatcher
                     byte[] b = document.ToBson();                   
                     stream.Write(b, 0, b.Length);
                     stream.Flush();
-                    Thread.Sleep(50);
+                    Thread.Sleep(5);
                 }
             } while (Console.ReadKey(true).Key != ConsoleKey.Escape);
         }
