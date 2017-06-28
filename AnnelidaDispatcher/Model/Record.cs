@@ -16,13 +16,14 @@ namespace AnnelidaDispatcher.Model
         public ObjectId Id { get; set; }
         [BsonRepresentation(BsonType.Document)]
         public DateTime timestamp { get; set; }
-        public List<Sensors> sensors;
+        //public List<Sensors> sensors;
+        public List<BsonDocument> sensors;
 
 
         public Record()
         {
             timestamp = DateTime.UtcNow;
-            sensors = new List<Sensors>();
+            sensors = new List<BsonDocument>();
         }
 
     }

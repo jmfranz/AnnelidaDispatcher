@@ -10,7 +10,8 @@ using System.Windows.Threading;
 
 
 using MongoDB.Bson;
-
+using MongoDB.Bson.Serialization;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace AnnelidaDispatcher.Model
 {
@@ -35,6 +36,9 @@ namespace AnnelidaDispatcher.Model
         private MongoWrapper sensorDB, controlDB;
         private string missionName;
 
+        private Record record;
+        private DateTime lastEntry;
+
         /// <summary>
         /// Class constructor. Initialize the client lists
         /// </summary>
@@ -49,6 +53,8 @@ namespace AnnelidaDispatcher.Model
             this.sensorDB = sensorDB;
             this.controlDB = controlDB;
             this.missionName = missionName;
+
+            record = new Record();
         }
 
         /// <summary>
@@ -59,6 +65,8 @@ namespace AnnelidaDispatcher.Model
         {
             //Data buffer
             byte[] buffer = new byte[bufferSize];
+
+            record.timestamp = DateTime.UtcNow;
 
             //Set the local end point
             IPHostEntry ipHostInfo = Dns.GetHostEntry("127.0.0.1");
@@ -128,7 +136,7 @@ namespace AnnelidaDispatcher.Model
             {
                 bytesRead = handler.EndReceive(ar);
             }
-            //TOOD: handle disonnection messages (SHUTODOWNMODES)
+            //TODO: handle disonnection messages (SHUTODOWNMODES)
             catch(SocketException e)
             {
                 Console.WriteLine($"Socket error {e.ToString()}");
@@ -220,7 +228,22 @@ namespace AnnelidaDispatcher.Model
                     break;
                 case ClientTypes.Types.Robot:
                     //Save to sensor DB async
-                    write = sensorDB.WriteSingleToCollection(bytes, missionName); 
+                    var d = processSerializedBson(bytes);
+                    DateTime t = d["timestamp"].ToUniversalTime();
+
+                    if( (t - record.timestamp).TotalSeconds > 1)
+                    {
+                        sensorDB.WriteSingleToCollection(record, missionName);
+                        record = new Record();
+                        record.timestamp = DateTime.UtcNow;
+                        record.sensors.Add(d);                        
+                    }
+                    else
+                    {
+                        record.sensors.Add(d);
+                    }
+
+                    //write = sensorDB.WriteSingleToCollection(d, missionName);
                     //Notify all views that the DB was updated inside async method
                     NotifyNetworkViewListeners(state.myType, bytes);
                     break;
@@ -265,5 +288,14 @@ namespace AnnelidaDispatcher.Model
             }
             throw new Exception("Local IP Address Not Found!");
         }
+
+        private BsonDocument processSerializedBson(byte[] bytes)
+        {
+            var doc = BsonSerializer.Deserialize<BsonDocument>(bytes);
+            BsonDateTime timestamp = DateTime.UtcNow;
+            doc.Add("timestamp", timestamp);
+            return doc;
+        }
+
     }
 }
