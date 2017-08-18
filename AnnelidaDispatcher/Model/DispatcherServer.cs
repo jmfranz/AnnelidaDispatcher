@@ -225,10 +225,7 @@ namespace AnnelidaDispatcher.Model
             {
                 case ClientTypes.Types.Controller:
                     //Save to control DB
-                    mongoWriteTimer = Stopwatch.StartNew();
-                    tcpSendTimer = Stopwatch.StartNew();
                     write = controlDB.WriteSingleToCollection(bytes, missionName);
-                    write.ContinueWith((t) => {  Console.WriteLine("Mongo: " + mongoWriteTimer.ElapsedMilliseconds); });
                     //Notify
                     NotifyNetworkViewListeners(state.myType, bytes);
                     break;
@@ -279,7 +276,6 @@ namespace AnnelidaDispatcher.Model
                     {
                         c.BeginSend(document, 0, document.Length, 0, null, c);
                     }
-                    Console.WriteLine("Robot: " + tcpSendTimer.ElapsedMilliseconds);
                     break;
                     
             }      
