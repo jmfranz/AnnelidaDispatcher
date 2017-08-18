@@ -75,6 +75,19 @@ namespace AnnelidaDispatcher.Model
         }
 
         /// <summary>
+        /// Write a single Record to the desired collection
+        /// </summary>
+        /// <param name="record">The record object to be stored</param>
+        /// <param name="collectionName">The target collection</param>
+        /// <returns></returns>
+        //TODO: Should this be async too?
+        public void WriteSingleToCollection(Record record, string collectionName)
+        {
+            var collection = database.GetCollection<Record>(collectionName);
+            collection.InsertOne(record);
+        }
+
+        /// <summary>
         /// Write a list of documents in bulk
         /// </summary>
         /// <param name="documents">A list of BSon documents</param>
