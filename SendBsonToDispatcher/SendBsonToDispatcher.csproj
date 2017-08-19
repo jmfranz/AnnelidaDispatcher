@@ -66,6 +66,12 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AnnelidaDispatcher\AnnelidaDispatcher.csproj">
+      <Project>{cd57bd03-19d7-4d6b-9597-e51525bc214c}</Project>
+      <Name>AnnelidaDispatcher</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
