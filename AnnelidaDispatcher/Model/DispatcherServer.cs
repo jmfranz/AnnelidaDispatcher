@@ -298,7 +298,7 @@ namespace AnnelidaDispatcher.Model
         {
             var doc = BsonSerializer.Deserialize<BsonDocument>(bytes);
             BsonDateTime timestamp = DateTime.UtcNow;
-            doc.Add("timestamp", timestamp);
+            doc["timestamp"] = timestamp;
             return doc;
         }
 

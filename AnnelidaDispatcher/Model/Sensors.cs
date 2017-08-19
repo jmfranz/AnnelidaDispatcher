@@ -12,8 +12,8 @@ namespace AnnelidaDispatcher.Model
 {
     public class Sensors
     {
-        public double s8 { get; set; }
-        public ObjectId Id { get; set; }
+        [BsonRepresentation(BsonType.Document)]
+        public DateTime timestamp;
         public BackwardSector backward;
         public CentralSector central;
         public ForwardSector forward;
