@@ -31,22 +31,8 @@ namespace SendBsonToDispatcher
             Console.WriteLine("Press ESC to stop");
             uint count = 0;
 
-            var document = new BsonDocument
-            {
-                { "Time", count },
-                { "Sensors", //new BsonArray
-                new BsonDocument
-                    {
-                        { "Depth", 2},
-                        { "Distance", 3},
-                        { "Temp", 3},
-                        { "Rotation", 3},
-                        { "Voltage", 3},
-                        { "Current", 3},
-                        { "Power", 3},
-                    }
-                }
-            };
+            var document = new AnnelidaDispatcher.Model.Sensors();
+            document.backward.enclosure1.temperature = 1;
 
             do
             {
@@ -56,7 +42,7 @@ namespace SendBsonToDispatcher
                     stream.Write(b, 0, b.Length);
                     stream.Flush();
 
-                    Thread.Sleep(5);
+                    Thread.Sleep(500);
 
                 }
             } while (Console.ReadKey(true).Key != ConsoleKey.Escape);
