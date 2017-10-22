@@ -264,11 +264,19 @@ namespace AnnelidaDispatcher.Model
             {
                 //Notifiy the view clients
                 case ClientTypes.Types.Robot:
-                    foreach (var c in connectedClients[ClientTypes.Types.View])
+                    try
                     {
-                        c.BeginSend(document, 0, document.Length, 0, null, c);
+                        foreach (var c in connectedClients[ClientTypes.Types.View])
+                        {
+
+                            c.BeginSend(document, 0, document.Length, 0, null, c);
+                        }
                     }
-                    
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.ToString());
+                    }
+
                     break;
                 //Notify the robot
                 case ClientTypes.Types.Controller:
