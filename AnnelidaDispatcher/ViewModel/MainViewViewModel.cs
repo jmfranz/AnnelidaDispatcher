@@ -81,9 +81,9 @@ namespace AnnelidaDispatcher.ViewModel
             StartButtonEnabled = false;
             
 
-            var sensorDB = new MongoWrapper(MongoURL, SensorDBName);
-            var controlDB = new MongoWrapper(MongoURL, ControlDBName);
-            disp = new DispatcherServer(sensorDB, controlDB, MissionName);
+            
+            //We don't want to connect to anything....
+            disp = new DispatcherServer(null, null, MissionName);
             disp.clientConnectedEvent += ClientConnected;
             disp.clientDisconnectedEvent += ClientDisconnected;
             await Task.Run(() => disp.Start(9999));

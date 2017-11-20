@@ -236,7 +236,8 @@ namespace AnnelidaDispatcher.Model
 
                     if( (t - record.timestamp).TotalSeconds > 1)
                     {
-                        sensorDB.WriteSingleToCollection(record, missionName);
+                        //Keep te entire logic the same but don't store
+                        //sensorDB.WriteSingleToCollection(record, missionName);
                         record = new Record();
                         record.timestamp = t;
                         record.sensors.Add(d);                        
