@@ -73,8 +73,10 @@ namespace AnnelidaDispatcher.ViewModel
         {
             if (SensorDBName == null || ControlDBName == null || MissionName == null)
             {
-                MessageBox.Show("Por favor, preencha todos os campos");
-                return;
+                //Sets values to default
+                SensorDBName = "sensors";
+                ControlDBName = "control";
+                MissionName = "default";
             }
             StartButtonEnabled = false;
             

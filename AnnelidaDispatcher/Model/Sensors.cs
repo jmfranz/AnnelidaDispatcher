@@ -34,7 +34,7 @@ namespace AnnelidaDispatcher.Model
 
             public Enclosure1()
             {
-                orientation = new List<double>();
+                orientation = new List<double>(3);
             }
         }
         public class Enclosure2
