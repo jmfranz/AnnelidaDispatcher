@@ -39,7 +39,7 @@ namespace SendBsonToDispatcher
 
             document.backward.enclosure1.pressure = rnd.NextDouble();
             document.backward.enclosure1.temperature = rnd.NextDouble();
-            document.backward.enclosure1.traction = rnd.NextDouble();
+            document.backward.enclosure1.traction = 5 * Math.Sin(count * Math.PI / 180); 
             document.backward.enclosure1.orientation.Add(rnd.NextDouble());
             document.backward.enclosure1.orientation.Add(rnd.NextDouble());
             document.backward.enclosure1.orientation.Add(rnd.NextDouble());
@@ -85,6 +85,8 @@ namespace SendBsonToDispatcher
             document.forward.enclosure8.externalPressure = rnd.NextDouble();
             document.forward.enclosure8.externalTemperature = rnd.NextDouble();
 
+           
+
 
             do
             {
@@ -95,13 +97,14 @@ namespace SendBsonToDispatcher
                     stream.Flush();
                     Thread.Sleep(100);
                     document.timestamp = DateTime.UtcNow;
+                    count++;
 
-                    document.backward.enclosure1.pressure = rnd.NextDouble();
-                    document.backward.enclosure1.temperature = rnd.NextDouble();
-                    document.backward.enclosure1.traction = rnd.NextDouble();
-                    document.backward.enclosure1.orientation[0] = rnd.NextDouble();
-                    document.backward.enclosure1.orientation[1] = rnd.NextDouble();
-                    document.backward.enclosure1.orientation[2] = rnd.NextDouble();
+                    document.backward.enclosure1.pressure = 2 * Math.Sin(count * Math.PI / 180);
+                    document.backward.enclosure1.temperature = 2 * Math.Sin(count * Math.PI / 180 + 5 * Math.PI / 180); ;
+                    document.backward.enclosure1.traction = 2 * Math.Sin(count * Math.PI / 180 + 10 * Math.PI / 180);
+                    document.backward.enclosure1.orientation[0] = 2 * Math.Sin(count * Math.PI / 180 + 15 * Math.PI / 180);
+                    document.backward.enclosure1.orientation[1] = 2 * Math.Sin(count * Math.PI / 180 + 20 * Math.PI / 180);
+                    document.backward.enclosure1.orientation[2] = 2 * Math.Sin(count * Math.PI / 180 + 25 * Math.PI / 180);
 
                     document.backward.enclosure2.temperature = rnd.NextDouble();
                     document.backward.enclosure2.pressure = rnd.NextDouble();
