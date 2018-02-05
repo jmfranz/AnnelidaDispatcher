@@ -1,19 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-
+using System.ComponentModel;
+using System.Globalization;
 using AnnelidaDispatcher.Utilities;
 using AnnelidaDispatcher.Model;
-using System.Collections.ObjectModel;
-using System.Windows;
-using System.ComponentModel;
+
 
 namespace AnnelidaDispatcher.ViewModel
 {
-    class MainViewViewModel: INotifyPropertyChanged
+    /// <summary>
+    /// Class that binds the ispacher view with the model
+    /// </summary>
+    internal class MainViewViewModel: INotifyPropertyChanged
     {
         #region Properties
         #region StartCommand
@@ -47,43 +46,49 @@ namespace AnnelidaDispatcher.ViewModel
         public MTObservableCollection<string> ViewClients { get; private set; }
         public MTObservableCollection<string> ControlClients { get; private set; }
         public MTObservableCollection<string> RobotClients { get; private set; }
-        public string MyIP { get; }
+        public string MyIp { get; }
         public string MyPort { get; }
-        public string MongoURL { get; set;}
-        public string SensorDBName { get; set; }
-        public string ControlDBName { get; set; }
+        public string MongoUrl { get; set;}
+        public string SensorDbName { get; set; }
+        public string ControlDbName { get; set; }
         public string MissionName { get; set; }
         #endregion
 
         public event PropertyChangedEventHandler PropertyChanged;
         private DispatcherServer disp;
                
-
+        /// <summary>
+        /// Initializes all the necessary objects for the dispacher to work.
+        /// Port is fixed on 9999
+        /// </summary>
+        //TODO: allow for default port to be defined by the user
+        //TODO: if allowed to change then fix disp.Start(9999)
         public MainViewViewModel()
         {
             ViewClients = new MTObservableCollection<string>();
             ControlClients = new MTObservableCollection<string>();
             RobotClients = new MTObservableCollection<string>();
-            MyIP = DispatcherServer.GetLocalIPAddress();
+            MyIp = GetLocalIpAddress();
             MyPort = "9999";
 
             StartButtonEnabled = true;
         }
         async void StartListening()
         {
-            if (SensorDBName == null || ControlDBName == null || MissionName == null)
+            //If the user hasn't set the parameters pre define ones
+            if (SensorDbName == null || ControlDbName == null || MissionName == null)
             {
                 //Sets values to default
-                SensorDBName = "sensors";
-                ControlDBName = "control";
-                MissionName = "default";
+                SensorDbName = "sensors";
+                ControlDbName = "control";
+                MissionName = DateTime.UtcNow.ToString(CultureInfo.InvariantCulture);
             }
             StartButtonEnabled = false;
             
 
-            var sensorDB = new MongoWrapper(MongoURL, SensorDBName);
-            var controlDB = new MongoWrapper(MongoURL, ControlDBName);
-            disp = new DispatcherServer(sensorDB, controlDB, MissionName);
+            var sensorDb = new MongoWrapper(MongoUrl, SensorDbName);
+            var controlDb = new MongoWrapper(MongoUrl, ControlDbName);
+            disp = new DispatcherServer(sensorDb, controlDb, MissionName);
             disp.ClientConnectedEvent += ClientConnected;
             disp.ClientDisconnectedEvent += ClientDisconnected;
             await Task.Run(() => disp.Start(9999));
@@ -103,7 +108,7 @@ namespace AnnelidaDispatcher.ViewModel
                 case ClientTypes.Types.Robot:
                     RobotClients.Add(addr);
                     break;
-                default:
+                case ClientTypes.Types.Undefined:
                     break;
             }
         }
@@ -121,14 +126,27 @@ namespace AnnelidaDispatcher.ViewModel
                 case ClientTypes.Types.Robot:
                     RobotClients.Remove(addr);
                     break;
-                default:
+                case ClientTypes.Types.Undefined:
                     break;
+                
             }
         }
 
         protected virtual void OnPropertyChanged(string propertyName)
         {
-            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        // ReSharper disable once UnusedMember.Local
+        public static string GetLocalIpAddress()
+        {
+            var host = System.Net.Dns.GetHostEntry(System.Net.Dns.GetHostName());
+            foreach (var ip in host.AddressList)
+            {
+                if (ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
+                    return ip.ToString();
+            }
+            throw new Exception("Local IP Address Not Found!");
         }
     }
 }

@@ -72,7 +72,7 @@ namespace AnnelidaDispatcher.Model
         /// <param name="port">The port to listen for connections</param>
         public void Start(int port)
         {
-            record.timestamp = DateTime.UtcNow;
+            record.Timestamp = DateTime.UtcNow;
 
             //Set the local end point
             var localEndPoint = new IPEndPoint(IPAddress.Any, port);
@@ -117,9 +117,9 @@ namespace AnnelidaDispatcher.Model
             //When a client connects we do not know what type he is yet
             connectedClients[ClientTypes.Types.Undefined].Add(client);
 
-            var so = new DispatcherClientObject(BufferSize) {workSocket = client};
+            var so = new DispatcherClientObject() {WorkSocket = client};
             //Starts receving messages
-            client.BeginReceive(so.buffer, 0, so.bufferSize, 0, ReadHandler, so);
+            client.BeginReceive(so.Buffer, 0, so.BufferSize, 0, ReadHandler, so);
         }
 
         /// <summary>
@@ -130,8 +130,8 @@ namespace AnnelidaDispatcher.Model
         {
             // Retrieve the state object and the handler socket
             // from the asynchronous state object.
-            DispatcherClientObject state = (DispatcherClientObject)ar.AsyncState;
-            Socket handler = state.workSocket;
+            var state = (DispatcherClientObject)ar.AsyncState;
+            Socket handler = state.WorkSocket;
 
             // Read data from the client socket. 
             int bytesRead = 0;
@@ -143,30 +143,30 @@ namespace AnnelidaDispatcher.Model
             catch(SocketException e)
             {
                 // ReSharper disable once LocalizableElement
-                Console.WriteLine($"Socket error {e.ToString()}");
+                Console.WriteLine($"Socket error {e}");
                 //probably our client disconnected
-                connectedClients[state.myType].Remove(state.workSocket);
-                var clientAddr = state.workSocket.RemoteEndPoint as IPEndPoint;
+                connectedClients[state.MyType].Remove(state.WorkSocket);
+                var clientAddr = state.WorkSocket.RemoteEndPoint as IPEndPoint;
                 if (clientAddr != null)
-                    ClientDisconnectedEvent?.Invoke(state.myType, clientAddr.Address.ToString());
+                    ClientDisconnectedEvent?.Invoke(state.MyType, clientAddr.Address.ToString());
                 else
                     throw new ArgumentNullException();
-                state.workSocket.Close();
+                state.WorkSocket.Close();
                 state = null;
             }
 
             //if our client has not identified itself the first
             //message he sends is his ID
-            if (state != null && (bytesRead > 0 && !state.isInitialized))
+            if (state != null && (bytesRead > 0 && !state.IsInitialized))
             {
 
                 //We are expecting and int representing the client type
-                var type = BitConverter.ToInt32(state.buffer,0);
-                state.isInitialized = true;
-                state.myType = (ClientTypes.Types)type;
-                var clientAddr = state.workSocket.RemoteEndPoint as IPEndPoint;
-                connectedClients[ClientTypes.Types.Undefined].Remove(state.workSocket);
-                connectedClients[(ClientTypes.Types)type].Add(state.workSocket);
+                var type = BitConverter.ToInt32(state.Buffer,0);
+                state.IsInitialized = true;
+                state.MyType = (ClientTypes.Types)type;
+                var clientAddr = state.WorkSocket.RemoteEndPoint as IPEndPoint;
+                connectedClients[ClientTypes.Types.Undefined].Remove(state.WorkSocket);
+                connectedClients[(ClientTypes.Types)type].Add(state.WorkSocket);
                 
                 //Raise and event so the UI can update the client list
                 if (clientAddr != null)
@@ -174,42 +174,42 @@ namespace AnnelidaDispatcher.Model
                 else
                     throw new ArgumentNullException();
                 //Continue handling messages
-                handler.BeginReceive(state.buffer, 0, state.bufferSize, 0,
+                handler.BeginReceive(state.Buffer, 0, state.BufferSize, 0,
                     ReadHandler, state);
                 //sets the buffer to 0 because the next message contains the size
-                state.bufferSize = 0;
+                state.BufferSize = 0;
             }
-            else if (state != null && (bytesRead > 0 && state.isInitialized))
+            else if (state != null && (bytesRead > 0 && state.IsInitialized))
             {
                 //We are receiving the package but don't know the size yet
                 //Serialized bson contains the size in the first 4 bytes.
-                if(state.bufferSize == 0)
+                if(state.BufferSize == 0)
                 {
-                    int size = BitConverter.ToInt32(state.buffer, 0);
+                    int size = BitConverter.ToInt32(state.Buffer, 0);
                     //We take 4 out because we already red those bytes
-                    state.bufferSize = size - 4;
+                    state.BufferSize = size - 4;
                     //Resize the array because we need the full set of
                     //bytes in order to deserialize the Bson
-                    Array.Resize(ref state.buffer, size);
-                    state.recvBytesCount = 0;
-                    handler.BeginReceive(state.buffer, 4, state.bufferSize , 0,
+                    Array.Resize(ref state.Buffer, size);
+                    state.RecvBytesCount = 0;
+                    handler.BeginReceive(state.Buffer, 4, state.BufferSize , 0,
                         ReadHandler, state);
                 }
                 //we already know the package size
                 else
                 {
-                    state.recvBytesCount += bytesRead;
-                    if (state.recvBytesCount < state.bufferSize)
-                        handler.BeginReceive(state.buffer, 4 + state.recvBytesCount - 1, state.bufferSize, 0,
+                    state.RecvBytesCount += bytesRead;
+                    if (state.RecvBytesCount < state.BufferSize)
+                        handler.BeginReceive(state.Buffer, 4 + state.RecvBytesCount - 1, state.BufferSize, 0,
                        ReadHandler, state);
                     else
                     {
-                        HandleMessage(state.buffer, state);
+                        HandleMessage(state.Buffer, state);
                         //Prep to receive another package
-                        state.bufferSize = 0;
+                        state.BufferSize = 0;
                         //int32 with the size
-                        state.buffer = new byte[4];
-                        handler.BeginReceive(state.buffer, 0, 4, 0,
+                        state.Buffer = new byte[4];
+                        handler.BeginReceive(state.Buffer, 0, 4, 0,
                             ReadHandler, state);
                     }
                  }
@@ -226,13 +226,13 @@ namespace AnnelidaDispatcher.Model
         /// <param name="state">The client who sent the message originally</param>
         public void HandleMessage(byte[] bytes, DispatcherClientObject state)
         {
-            switch (state.myType)
+            switch (state.MyType)
             {
                 case ClientTypes.Types.Controller:
                     //Save to control DB
                     controlDb?.WriteSingleToCollection(bytes, missionName);
                     //Notify
-                    NotifyNetworkViewListeners(state.myType, bytes);
+                    NotifyNetworkViewListeners(state.MyType, bytes);
                     break;
                 case ClientTypes.Types.Robot:
                     //Save to sensor DB async
@@ -240,19 +240,19 @@ namespace AnnelidaDispatcher.Model
                     var t = deserializedDocument["timestamp"].ToUniversalTime();
 
                     //Send data to DB in batches of 1s
-                    if( (t - record.timestamp).TotalSeconds > 1)
+                    if( (t - record.Timestamp).TotalSeconds > 1)
                     {
                         sensorDb.WriteSingleToCollection(record, missionName);
-                        record = new Record {timestamp = t};
-                        record.sensors.Add(deserializedDocument);                        
+                        record = new Record {Timestamp = t};
+                        record.Sensors.Add(deserializedDocument);                        
                     }
                     else
                     {
-                        record.sensors.Add(deserializedDocument);
+                        record.Sensors.Add(deserializedDocument);
                     }
 
                     //Notify all views that the DB was updated inside async method
-                    NotifyNetworkViewListeners(state.myType, bytes);
+                    NotifyNetworkViewListeners(state.MyType, bytes);
                     break;
                 case ClientTypes.Types.Undefined:
                     throw  new InvalidOperationException();
@@ -299,19 +299,7 @@ namespace AnnelidaDispatcher.Model
             }      
 
         }
-        // ReSharper disable once UnusedMember.Local
-        private static string GetLocalIPAddress()
-        {
-            var host = Dns.GetHostEntry(Dns.GetHostName());
-            foreach (var ip in host.AddressList)
-            {
-                if (ip.AddressFamily == AddressFamily.InterNetwork)
-                {
-                    return ip.ToString();
-                }
-            }
-            throw new Exception("Local IP Address Not Found!");
-        }
+
 
         private static BsonDocument ProcessSerializedBson(byte[] bytes)
         {
