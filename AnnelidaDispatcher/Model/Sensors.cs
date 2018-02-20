@@ -21,12 +21,14 @@ namespace AnnelidaDispatcher.Model
         public BackwardSector backward;
         public CentralSector central;
         public ForwardSector forward;
+        public List<string> faultList { get; set; }
 
         public Sensors()
         {
             backward = new BackwardSector();
             central = new CentralSector();
             forward = new ForwardSector();
+            faultList = new List<string>();
         }
 
         public class Enclosure1

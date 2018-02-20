@@ -1,0 +1,16 @@
+﻿<Window x:Class="SendGUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SendGUI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <StackPanel>
+            <Button x:Name="StartButton" Content="Initialize" Click="StartButton_Click" />
+            <Button x:Name="AddFault" Content="Add Fault" Click="AddFault_Click"/>
+            <Button x:Name="RemoveFault" Content="Remove Fault" Click="RemoveFault_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
