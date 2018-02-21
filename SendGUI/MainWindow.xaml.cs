@@ -78,15 +78,14 @@ namespace SendGUI
 
         private void RemoveFault_Click(object sender, RoutedEventArgs e)
         {
-            currentFault--;
-            faultList.Remove(currentFault.ToString());
+            
+            faultList.Remove(faultValue.Text);
             
         }
 
         private void AddFault_Click(object sender, RoutedEventArgs e)
         {
-            faultList.Add(currentFault.ToString());
-            currentFault++;
+            faultList.Add(faultValue.Text);
         }
 
         private void StartButton_Click(object sender, RoutedEventArgs e)

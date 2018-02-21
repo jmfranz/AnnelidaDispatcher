@@ -8,9 +8,13 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <StackPanel>
-            <Button x:Name="StartButton" Content="Initialize" Click="StartButton_Click" />
-            <Button x:Name="AddFault" Content="Add Fault" Click="AddFault_Click"/>
-            <Button x:Name="RemoveFault" Content="Remove Fault" Click="RemoveFault_Click"/>
+            <Button x:Name="StartButton" Content="Iniciar" Click="StartButton_Click" />
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Código da Falha: "></TextBlock>
+                <TextBox x:Name="faultValue" Text="DF1"></TextBox>
+            </StackPanel>
+            <Button x:Name="AddFault" Content="Adicionar Falha" Click="AddFault_Click"/>
+            <Button x:Name="RemoveFault" Content="Remover Falha" Click="RemoveFault_Click"/>
         </StackPanel>
     </Grid>
 </Window>
