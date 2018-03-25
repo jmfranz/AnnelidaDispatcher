@@ -199,9 +199,15 @@ namespace AnnelidaDispatcher.Model
                 else
                 {
                     state.RecvBytesCount += bytesRead;
+                    
                     if (state.RecvBytesCount < state.BufferSize)
-                        handler.BeginReceive(state.Buffer, 4 + state.RecvBytesCount - 1, state.BufferSize, 0,
-                       ReadHandler, state);
+                    {
+                        var revLeft = state.BufferSize - state.RecvBytesCount;
+
+                        handler.BeginReceive(state.Buffer, 4 + state.RecvBytesCount - 1,
+                            revLeft, 0,
+                            ReadHandler, state);
+                    }
                     else
                     {
                         HandleMessage(state.Buffer, state);
@@ -237,6 +243,8 @@ namespace AnnelidaDispatcher.Model
                 case ClientTypes.Types.Robot:
                     //Save to sensor DB async
                     var deserializedDocument = ProcessSerializedBson(bytes);
+                    if(deserializedDocument == null)
+                        return;
                     var t = deserializedDocument["timestamp"].ToUniversalTime();
 
                     //Send data to DB in batches of 1s
@@ -303,10 +311,20 @@ namespace AnnelidaDispatcher.Model
 
         private static BsonDocument ProcessSerializedBson(byte[] bytes)
         {
-            var doc = BsonSerializer.Deserialize<BsonDocument>(bytes);
-            BsonDateTime timestamp = DateTime.UtcNow;
-            doc["timestamp"] = timestamp;
-            return doc;
+            try
+            {
+                var doc = BsonSerializer.Deserialize<BsonDocument>(bytes);
+                BsonDateTime timestamp = DateTime.UtcNow;
+                doc["timestamp"] = timestamp;
+                return doc;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return null;
+            }
+            
+            
         }
 
     }
