@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 using MongoDB.Bson;
@@ -13,8 +16,9 @@ namespace AnnelidaDispatcher.Model
     /// </summary>
     public class MongoWrapper
     {
-        private IMongoClient client;
-        private IMongoDatabase database;
+
+        protected IMongoClient client;
+        protected IMongoDatabase database;
         
         /// <summary>
         /// Constructor for the wrapper class using a known external server
@@ -25,8 +29,8 @@ namespace AnnelidaDispatcher.Model
         {
             if (mongoAddress != null)
             {
-                var mongoUrl = new MongoUrl(mongoAddress);
-                client = new MongoClient(mongoUrl);
+                MongoUrl mongoURL = new MongoUrl(mongoAddress);
+                client = new MongoClient(mongoURL);
             }
             else
             {
@@ -98,7 +102,7 @@ namespace AnnelidaDispatcher.Model
         /// <summary>
         /// Write a list of serialized BsonDocuments in bulk
         /// </summary>
-        /// <param name="bytesList">A list containing the BsonDocuments byte arrays</param>
+        /// <param name="documents">A list containing the BsonDocuments byte arrays</param>
         /// <param name="collectionName">The target colletion</param>
         /// <returns></returns>
         public async Task WriteManyToCollection(List<byte[]> bytesList, string collectionName)

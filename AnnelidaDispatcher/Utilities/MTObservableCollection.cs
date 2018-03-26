@@ -1,22 +1,19 @@
 ﻿//THIS CLASS IS WAS NOT CREATED BY ME
 //origin maybe: http://stackoverflow.com/users/740378/nathan-phillips
 
-#pragma warning disable 1591
-
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Threading;
 
 namespace AnnelidaDispatcher.Utilities
 {
-    /// <summary>
-    /// Multi-thread Observable collection class taht allows for non-UI threads to dispach events in the UI-thread
-    /// </summary>
-    /// <typeparam name="T">Type</typeparam>
     public class MTObservableCollection<T> : ObservableCollection<T>
     {
-
         public override event NotifyCollectionChangedEventHandler CollectionChanged;
         protected override void OnCollectionChanged(NotifyCollectionChangedEventArgs e)
         {

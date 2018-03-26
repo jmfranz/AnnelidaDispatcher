@@ -22,6 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Annelida Dispatcher
+   &#160;<span id="projectnumber">pre-release</span>
    </div>
   </td>
  </tr>
@@ -64,6 +65,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="#events">Events</a> &#124;
 <a href="class_annelida_dispatcher_1_1_model_1_1_dispatcher_server-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -76,12 +79,12 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a44d05f08a84eaa4dadbb1fcbe6edae52"><td class="memItemLeft" align="right" valign="top">delegate void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_annelida_dispatcher_1_1_model_1_1_dispatcher_server.html#a44d05f08a84eaa4dadbb1fcbe6edae52">ClientConnectionDelegate</a> (ClientTypes.Types type, string addr)</td></tr>
-<tr class="memdesc:a44d05f08a84eaa4dadbb1fcbe6edae52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delegate method for client connect/disconnect actions  <a href="#a44d05f08a84eaa4dadbb1fcbe6edae52">More...</a><br /></td></tr>
+<tr class="memitem:a44d05f08a84eaa4dadbb1fcbe6edae52"><td class="memItemLeft" align="right" valign="top"><a id="a44d05f08a84eaa4dadbb1fcbe6edae52"></a>
+delegate void&#160;</td><td class="memItemRight" valign="bottom"><b>ClientConnectionDelegate</b> (ClientTypes.Types type, string addr)</td></tr>
 <tr class="separator:a44d05f08a84eaa4dadbb1fcbe6edae52"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf73ff0bbf48e0c32a75b442914e3c25"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_annelida_dispatcher_1_1_model_1_1_dispatcher_server.html#aaf73ff0bbf48e0c32a75b442914e3c25">DispatcherServer</a> (<a class="el" href="class_annelida_dispatcher_1_1_model_1_1_mongo_wrapper.html">MongoWrapper</a> sensorDb, <a class="el" href="class_annelida_dispatcher_1_1_model_1_1_mongo_wrapper.html">MongoWrapper</a> controlDb, string missionName)</td></tr>
-<tr class="memdesc:aaf73ff0bbf48e0c32a75b442914e3c25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class constructor. Initialize the client lists  <a href="#aaf73ff0bbf48e0c32a75b442914e3c25">More...</a><br /></td></tr>
-<tr class="separator:aaf73ff0bbf48e0c32a75b442914e3c25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5ebdfbe871755e700cdf545f7cfe557"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_annelida_dispatcher_1_1_model_1_1_dispatcher_server.html#af5ebdfbe871755e700cdf545f7cfe557">DispatcherServer</a> (<a class="el" href="class_annelida_dispatcher_1_1_model_1_1_mongo_wrapper.html">MongoWrapper</a> sensorDB, <a class="el" href="class_annelida_dispatcher_1_1_model_1_1_mongo_wrapper.html">MongoWrapper</a> controlDB, string missionName)</td></tr>
+<tr class="memdesc:af5ebdfbe871755e700cdf545f7cfe557"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class constructor. Initialize the client lists  <a href="#af5ebdfbe871755e700cdf545f7cfe557">More...</a><br /></td></tr>
+<tr class="separator:af5ebdfbe871755e700cdf545f7cfe557"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d089a200d335b649e1320d55b9a8642"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_annelida_dispatcher_1_1_model_1_1_dispatcher_server.html#a3d089a200d335b649e1320d55b9a8642">Start</a> (int port)</td></tr>
 <tr class="memdesc:a3d089a200d335b649e1320d55b9a8642"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts listening for incomming connections  <a href="#a3d089a200d335b649e1320d55b9a8642">More...</a><br /></td></tr>
 <tr class="separator:a3d089a200d335b649e1320d55b9a8642"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -95,20 +98,35 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ae95f81cddfe24682f45b7a7a50abcb50"><td class="mdescLeft">&#160;</td><td class="mdescRight">After we have then entire message defragmented this method sorts the message to according to the source. Handles saving the message to the DB and dispatching to others clients asynchronouslly  <a href="#ae95f81cddfe24682f45b7a7a50abcb50">More...</a><br /></td></tr>
 <tr class="separator:ae95f81cddfe24682f45b7a7a50abcb50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:af831949c8d66e63857fb3e30a4a2b736"><td class="memItemLeft" align="right" valign="top"><a id="af831949c8d66e63857fb3e30a4a2b736"></a>
+static string&#160;</td><td class="memItemRight" valign="bottom"><b>GetLocalIPAddress</b> ()</td></tr>
+<tr class="separator:af831949c8d66e63857fb3e30a4a2b736"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a85bf3ffa12d403e31fc05466fdc533db"><td class="memItemLeft" align="right" valign="top"><a id="a85bf3ffa12d403e31fc05466fdc533db"></a>
+static ManualResetEvent&#160;</td><td class="memItemRight" valign="bottom"><b>allDone</b> = new ManualResetEvent(false)</td></tr>
+<tr class="separator:a85bf3ffa12d403e31fc05466fdc533db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a885954f2e6a464da6b45ead311a08448"><td class="memItemLeft" align="right" valign="top"><a id="a885954f2e6a464da6b45ead311a08448"></a>
+static readonly int&#160;</td><td class="memItemRight" valign="bottom"><b>bufferSize</b> = 1024</td></tr>
+<tr class="separator:a885954f2e6a464da6b45ead311a08448"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="events"></a>
 Events</h2></td></tr>
-<tr class="memitem:a21560cce5cc277d5842f9e60b57a1187"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_annelida_dispatcher_1_1_model_1_1_dispatcher_server.html#a44d05f08a84eaa4dadbb1fcbe6edae52">ClientConnectionDelegate</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_annelida_dispatcher_1_1_model_1_1_dispatcher_server.html#a21560cce5cc277d5842f9e60b57a1187">ClientConnectedEvent</a></td></tr>
-<tr class="memdesc:a21560cce5cc277d5842f9e60b57a1187"><td class="mdescLeft">&#160;</td><td class="mdescRight">Client connected event  <a href="#a21560cce5cc277d5842f9e60b57a1187">More...</a><br /></td></tr>
-<tr class="separator:a21560cce5cc277d5842f9e60b57a1187"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec0e860c7b8da6c893e5ddaf646bbdb5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_annelida_dispatcher_1_1_model_1_1_dispatcher_server.html#a44d05f08a84eaa4dadbb1fcbe6edae52">ClientConnectionDelegate</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_annelida_dispatcher_1_1_model_1_1_dispatcher_server.html#aec0e860c7b8da6c893e5ddaf646bbdb5">ClientDisconnectedEvent</a></td></tr>
-<tr class="memdesc:aec0e860c7b8da6c893e5ddaf646bbdb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Client disconnected event  <a href="#aec0e860c7b8da6c893e5ddaf646bbdb5">More...</a><br /></td></tr>
-<tr class="separator:aec0e860c7b8da6c893e5ddaf646bbdb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1c8df7438c3e04076016cc17472998b"><td class="memItemLeft" align="right" valign="top"><a id="af1c8df7438c3e04076016cc17472998b"></a>
+ClientConnectionDelegate&#160;</td><td class="memItemRight" valign="bottom"><b>clientConnectedEvent</b></td></tr>
+<tr class="separator:af1c8df7438c3e04076016cc17472998b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7871aa425849761d56b4b7fceee65e5"><td class="memItemLeft" align="right" valign="top"><a id="ac7871aa425849761d56b4b7fceee65e5"></a>
+ClientConnectionDelegate&#160;</td><td class="memItemRight" valign="bottom"><b>clientDisconnectedEvent</b></td></tr>
+<tr class="separator:ac7871aa425849761d56b4b7fceee65e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Dispatcher model class. Handles accepting client connections, classifies them and handle message propagation. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aaf73ff0bbf48e0c32a75b442914e3c25"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf73ff0bbf48e0c32a75b442914e3c25">&#9670;&nbsp;</a></span>DispatcherServer()</h2>
+<a id="af5ebdfbe871755e700cdf545f7cfe557"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5ebdfbe871755e700cdf545f7cfe557">&#9670;&nbsp;</a></span>DispatcherServer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -117,13 +135,13 @@ Events</h2></td></tr>
           <td class="memname">AnnelidaDispatcher.Model.DispatcherServer.DispatcherServer </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_annelida_dispatcher_1_1_model_1_1_mongo_wrapper.html">MongoWrapper</a>&#160;</td>
-          <td class="paramname"><em>sensorDb</em>, </td>
+          <td class="paramname"><em>sensorDB</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="class_annelida_dispatcher_1_1_model_1_1_mongo_wrapper.html">MongoWrapper</a>&#160;</td>
-          <td class="paramname"><em>controlDb</em>, </td>
+          <td class="paramname"><em>controlDB</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -164,43 +182,6 @@ Events</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">result</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a44d05f08a84eaa4dadbb1fcbe6edae52"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a44d05f08a84eaa4dadbb1fcbe6edae52">&#9670;&nbsp;</a></span>ClientConnectionDelegate()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">delegate void AnnelidaDispatcher.Model.DispatcherServer.ClientConnectionDelegate </td>
-          <td>(</td>
-          <td class="paramtype">ClientTypes.Types&#160;</td>
-          <td class="paramname"><em>type</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>addr</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Delegate method for client connect/disconnect actions </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">type</td><td>The type of the client</td></tr>
-    <tr><td class="paramname">addr</td><td>The address of the client</td></tr>
   </table>
   </dd>
 </dl>
@@ -296,41 +277,8 @@ Events</h2></td></tr>
 
 </div>
 </div>
-<h2 class="groupheader">Event Documentation</h2>
-<a id="a21560cce5cc277d5842f9e60b57a1187"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a21560cce5cc277d5842f9e60b57a1187">&#9670;&nbsp;</a></span>ClientConnectedEvent</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_annelida_dispatcher_1_1_model_1_1_dispatcher_server.html#a44d05f08a84eaa4dadbb1fcbe6edae52">ClientConnectionDelegate</a> AnnelidaDispatcher.Model.DispatcherServer.ClientConnectedEvent</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Client connected event </p>
-
-</div>
-</div>
-<a id="aec0e860c7b8da6c893e5ddaf646bbdb5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec0e860c7b8da6c893e5ddaf646bbdb5">&#9670;&nbsp;</a></span>ClientDisconnectedEvent</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_annelida_dispatcher_1_1_model_1_1_dispatcher_server.html#a44d05f08a84eaa4dadbb1fcbe6edae52">ClientConnectionDelegate</a> AnnelidaDispatcher.Model.DispatcherServer.ClientDisconnectedEvent</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Client disconnected event </p>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>Model/<a class="el" href="_dispatcher_server_8cs.html">DispatcherServer.cs</a></li>
+<li>AnnelidaDispatcher/Model/DispatcherServer.cs</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -39,10 +39,10 @@ namespace SendBsonToDispatcher
 
             document.backward.enclosure1.pressure = rnd.NextDouble();
             document.backward.enclosure1.temperature = rnd.NextDouble();
-            document.backward.enclosure1.traction = 5 * Math.Sin(count * Math.PI / 180); 
-            document.backward.enclosure1.orientation.Add(0);
-            document.backward.enclosure1.orientation.Add(0);
-            document.backward.enclosure1.orientation.Add(0);
+            document.backward.enclosure1.traction = rnd.NextDouble();
+            document.backward.enclosure1.orientation.Add(rnd.NextDouble());
+            document.backward.enclosure1.orientation.Add(rnd.NextDouble());
+            document.backward.enclosure1.orientation.Add(rnd.NextDouble());
 
             document.backward.enclosure2.temperature = rnd.NextDouble();
             document.backward.enclosure2.pressure = rnd.NextDouble();
@@ -51,12 +51,12 @@ namespace SendBsonToDispatcher
             document.backward.enclosure2.outputCurrent = rnd.NextDouble();
             document.backward.enclosure2.outputVoltage = rnd.NextDouble();
 
-            document.backward.enclosure3.engineSpeed.Add(0);
-            document.backward.enclosure3.engineSpeed.Add(0);
-            document.backward.enclosure3.engineSpeed.Add(0);
-            document.backward.enclosure3.appliedPower.Add(0);
-            document.backward.enclosure3.appliedPower.Add(0);
-            document.backward.enclosure3.appliedPower.Add(0);
+            document.backward.enclosure3.engineSpeed.Add(rnd.NextDouble());
+            document.backward.enclosure3.engineSpeed.Add(rnd.NextDouble());
+            document.backward.enclosure3.engineSpeed.Add(rnd.NextDouble());
+            document.backward.enclosure3.appliedPower.Add(rnd.NextDouble());
+            document.backward.enclosure3.appliedPower.Add(rnd.NextDouble());
+            document.backward.enclosure3.appliedPower.Add(rnd.NextDouble());
 
             document.central.enclosure4.temperature = rnd.NextDouble();
             document.central.enclosure4.pressure = rnd.NextDouble();
@@ -66,27 +66,24 @@ namespace SendBsonToDispatcher
             document.central.enclosure5.pressure = rnd.NextDouble();
             document.central.enclosure5.temperature = rnd.NextDouble();
             document.central.enclosure5.travel = rnd.NextDouble();
-            document.central.enclosure5.orientation.Add(0);
-            document.central.enclosure5.orientation.Add(0);
-            document.central.enclosure5.orientation.Add(0);
+            document.central.enclosure5.orientation.Add(rnd.NextDouble());
+            document.central.enclosure5.orientation.Add(rnd.NextDouble());
+            document.central.enclosure5.orientation.Add(rnd.NextDouble());
 
             document.central.enclosure6.temperature = rnd.NextDouble();
             document.central.enclosure6.pressure = rnd.NextDouble();
             document.central.enclosure6.engineControllerCurrent = rnd.NextDouble();
             document.central.enclosure6.engineControllerTemperature = rnd.NextDouble();
 
-            document.forward.enclosure7.engineSpeed.Add(0);
-            document.forward.enclosure7.engineSpeed.Add(0);
-            document.forward.enclosure7.engineSpeed.Add(0);
-            document.forward.enclosure7.appliedPower.Add(0);
-            document.forward.enclosure7.appliedPower.Add(0);
-            document.forward.enclosure7.appliedPower.Add(0);
+            document.forward.enclosure7.engineSpeed.Add(rnd.NextDouble());
+            document.forward.enclosure7.engineSpeed.Add(rnd.NextDouble());
+            document.forward.enclosure7.engineSpeed.Add(rnd.NextDouble());
+            document.forward.enclosure7.appliedPower.Add(rnd.NextDouble());
+            document.forward.enclosure7.appliedPower.Add(rnd.NextDouble());
+            document.forward.enclosure7.appliedPower.Add(rnd.NextDouble());
 
             document.forward.enclosure8.externalPressure = rnd.NextDouble();
             document.forward.enclosure8.externalTemperature = rnd.NextDouble();
-            document.faultList.Add("A");
-
-
 
 
             do
@@ -98,14 +95,13 @@ namespace SendBsonToDispatcher
                     stream.Flush();
                     Thread.Sleep(100);
                     document.timestamp = DateTime.UtcNow;
-                    count++;
 
-                    document.backward.enclosure1.pressure = 2 * Math.Sin(count * Math.PI / 180);
-                    document.backward.enclosure1.temperature = 2 * Math.Sin(count * Math.PI / 180 + 5 * Math.PI / 180); ;
-                    document.backward.enclosure1.traction = 2 * Math.Sin(count * Math.PI / 180 + 10 * Math.PI / 180);
-                    document.backward.enclosure1.orientation[0] = 2 * Math.Sin(count * Math.PI / 180 + 15 * Math.PI / 180);
-                    document.backward.enclosure1.orientation[1] = 2 * Math.Sin(count * Math.PI / 180 + 20 * Math.PI / 180);
-                    document.backward.enclosure1.orientation[2] = 2 * Math.Sin(count * Math.PI / 180 + 25 * Math.PI / 180);
+                    document.backward.enclosure1.pressure = rnd.NextDouble();
+                    document.backward.enclosure1.temperature = rnd.NextDouble();
+                    document.backward.enclosure1.traction = rnd.NextDouble();
+                    document.backward.enclosure1.orientation[0] = rnd.NextDouble();
+                    document.backward.enclosure1.orientation[1] = rnd.NextDouble();
+                    document.backward.enclosure1.orientation[2] = rnd.NextDouble();
 
                     document.backward.enclosure2.temperature = rnd.NextDouble();
                     document.backward.enclosure2.pressure = rnd.NextDouble();

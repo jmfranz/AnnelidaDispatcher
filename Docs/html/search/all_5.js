@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['forward',['forward',['../class_annelida_dispatcher_1_1_model_1_1_sensors.html#a9d69a662e69dc206faf00920d611319e',1,'AnnelidaDispatcher::Model::Sensors']]],
-  ['forwardsector',['ForwardSector',['../class_annelida_dispatcher_1_1_model_1_1_sensors_1_1_forward_sector.html',1,'AnnelidaDispatcher.Model.Sensors.ForwardSector'],['../class_annelida_dispatcher_1_1_model_1_1_sensors_1_1_forward_sector.html#a86b55a9a3cf4d9631b5dabbd90612cdf',1,'AnnelidaDispatcher.Model.Sensors.ForwardSector.ForwardSector()']]]
+  ['readhandler',['ReadHandler',['../class_annelida_dispatcher_1_1_model_1_1_dispatcher_server.html#aad431ca9ee9258e9945b1de38689dcae',1,'AnnelidaDispatcher::Model::DispatcherServer']]],
+  ['relaycommand',['RelayCommand',['../class_annelida_dispatcher_1_1_utilities_1_1_relay_command.html',1,'AnnelidaDispatcher::Utilities']]]
 ];
