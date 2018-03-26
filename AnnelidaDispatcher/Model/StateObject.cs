@@ -1,37 +1,55 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Sockets;
+﻿using System.Net.Sockets;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace AnnelidaDispatcher.Model
 {
-    // State object for reading client data asynchronously
+  
+    /// <summary>
+    /// State class for reading client data asynchronously
+    /// </summary>
     public class DispatcherClientObject
     {
-        // Client  socket.
-        public Socket workSocket = null;
-        // Size of receive buffer.
-        public int bufferSize;
-        // Receive buffer.
-        public byte[] buffer;
-        // Received data string.
-        public StringBuilder sb = new StringBuilder();
-        // Is initialized into a specific client type
-        public bool isInitialized;
-        public int recvBytesCount;
+        /// <summary>
+        /// Client  socket.
+        /// </summary>
+        public Socket WorkSocket = null;
+        /// <summary>
+        /// Size of receive buffer.
+        /// </summary>
+        public int BufferSize;
+        /// <summary>
+        /// Receive buffer.
+        /// </summary>
+        public byte[] Buffer;
+        /// <summary>
+        /// Received data string.
+        /// </summary>
+        public StringBuilder Sb = new StringBuilder();
+        /// <summary>
+        /// Is initialized into a specific client type
+        /// </summary>
+        public bool IsInitialized;
+        /// <summary>
+        /// Counter for how many bytes were received in the last recv call
+        /// </summary>
+        public int RecvBytesCount;
 
-        public ClientTypes.Types myType;
+        /// <summary>
+        /// The type of the client instance
+        /// </summary>
+        public ClientTypes.Types MyType;
 
-        public DispatcherClientObject(int buffSize)
+        /// <summary>
+        /// Class constructor, defines the type as undefined and waits for client identification
+        /// </summary>
+        public DispatcherClientObject()
         {
             //Uppon init we expect and int32
-            bufferSize = 4;
-            recvBytesCount = 0;
-            isInitialized = false;
-            buffer = new byte[bufferSize];
-            myType = ClientTypes.Types.Undefined;
+            BufferSize = 4;
+            RecvBytesCount = 0;
+            IsInitialized = false;
+            Buffer = new byte[BufferSize];
+            MyType = ClientTypes.Types.Undefined;
         }
     }
 }

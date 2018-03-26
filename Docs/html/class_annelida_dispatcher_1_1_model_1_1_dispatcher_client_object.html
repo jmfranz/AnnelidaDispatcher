@@ -22,7 +22,6 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Annelida Dispatcher
-   &#160;<span id="projectnumber">pre-release</span>
    </div>
   </td>
  </tr>
@@ -71,39 +70,177 @@ $(function() {
 <div class="title">AnnelidaDispatcher.Model.DispatcherClientObject Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>State class for reading client data asynchronously  
+ <a href="class_annelida_dispatcher_1_1_model_1_1_dispatcher_client_object.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2203aba33c6e86c5bd77b20c7cbd2b36"><td class="memItemLeft" align="right" valign="top"><a id="a2203aba33c6e86c5bd77b20c7cbd2b36"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>DispatcherClientObject</b> (int buffSize)</td></tr>
-<tr class="separator:a2203aba33c6e86c5bd77b20c7cbd2b36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5af6f21a24695669377561d0777bf01"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_annelida_dispatcher_1_1_model_1_1_dispatcher_client_object.html#af5af6f21a24695669377561d0777bf01">DispatcherClientObject</a> ()</td></tr>
+<tr class="memdesc:af5af6f21a24695669377561d0777bf01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class constructor, defines the type as undefined and waits for client identification  <a href="#af5af6f21a24695669377561d0777bf01">More...</a><br /></td></tr>
+<tr class="separator:af5af6f21a24695669377561d0777bf01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:abe4503b7df681ed6715637aece98facd"><td class="memItemLeft" align="right" valign="top"><a id="abe4503b7df681ed6715637aece98facd"></a>
-Socket&#160;</td><td class="memItemRight" valign="bottom"><b>workSocket</b> = null</td></tr>
-<tr class="separator:abe4503b7df681ed6715637aece98facd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18e95c17e455a73c0962c6d1a08ee78e"><td class="memItemLeft" align="right" valign="top"><a id="a18e95c17e455a73c0962c6d1a08ee78e"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>bufferSize</b></td></tr>
-<tr class="separator:a18e95c17e455a73c0962c6d1a08ee78e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8f97522b234ac19b30d0b5eec9cacbd"><td class="memItemLeft" align="right" valign="top"><a id="ae8f97522b234ac19b30d0b5eec9cacbd"></a>
-byte []&#160;</td><td class="memItemRight" valign="bottom"><b>buffer</b></td></tr>
-<tr class="separator:ae8f97522b234ac19b30d0b5eec9cacbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ed06b537c717123e481946f01f4fa08"><td class="memItemLeft" align="right" valign="top"><a id="a9ed06b537c717123e481946f01f4fa08"></a>
-StringBuilder&#160;</td><td class="memItemRight" valign="bottom"><b>sb</b> = new StringBuilder()</td></tr>
-<tr class="separator:a9ed06b537c717123e481946f01f4fa08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac72de2f9d196cbecfe0721a312665f97"><td class="memItemLeft" align="right" valign="top"><a id="ac72de2f9d196cbecfe0721a312665f97"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isInitialized</b></td></tr>
-<tr class="separator:ac72de2f9d196cbecfe0721a312665f97"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78937447e1b810458948c63f3b9e3fc5"><td class="memItemLeft" align="right" valign="top"><a id="a78937447e1b810458948c63f3b9e3fc5"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>recvBytesCount</b></td></tr>
-<tr class="separator:a78937447e1b810458948c63f3b9e3fc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef1ab3a0067301a5e232e7907e3f9e26"><td class="memItemLeft" align="right" valign="top"><a id="aef1ab3a0067301a5e232e7907e3f9e26"></a>
-ClientTypes.Types&#160;</td><td class="memItemRight" valign="bottom"><b>myType</b></td></tr>
-<tr class="separator:aef1ab3a0067301a5e232e7907e3f9e26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad93704f5db55570d20f2a354a59c2450"><td class="memItemLeft" align="right" valign="top">Socket&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_annelida_dispatcher_1_1_model_1_1_dispatcher_client_object.html#ad93704f5db55570d20f2a354a59c2450">WorkSocket</a> = null</td></tr>
+<tr class="memdesc:ad93704f5db55570d20f2a354a59c2450"><td class="mdescLeft">&#160;</td><td class="mdescRight">Client socket.  <a href="#ad93704f5db55570d20f2a354a59c2450">More...</a><br /></td></tr>
+<tr class="separator:ad93704f5db55570d20f2a354a59c2450"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f6b1c8c1c86358cea759098bdcc4322"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_annelida_dispatcher_1_1_model_1_1_dispatcher_client_object.html#a0f6b1c8c1c86358cea759098bdcc4322">BufferSize</a></td></tr>
+<tr class="memdesc:a0f6b1c8c1c86358cea759098bdcc4322"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of receive buffer.  <a href="#a0f6b1c8c1c86358cea759098bdcc4322">More...</a><br /></td></tr>
+<tr class="separator:a0f6b1c8c1c86358cea759098bdcc4322"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1637f5de18b55f20a6853354f3d80938"><td class="memItemLeft" align="right" valign="top">byte []&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_annelida_dispatcher_1_1_model_1_1_dispatcher_client_object.html#a1637f5de18b55f20a6853354f3d80938">Buffer</a></td></tr>
+<tr class="memdesc:a1637f5de18b55f20a6853354f3d80938"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive buffer.  <a href="#a1637f5de18b55f20a6853354f3d80938">More...</a><br /></td></tr>
+<tr class="separator:a1637f5de18b55f20a6853354f3d80938"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a833ceb97f56bc3fef455d6fdd444f1d1"><td class="memItemLeft" align="right" valign="top">StringBuilder&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_annelida_dispatcher_1_1_model_1_1_dispatcher_client_object.html#a833ceb97f56bc3fef455d6fdd444f1d1">Sb</a> = new StringBuilder()</td></tr>
+<tr class="memdesc:a833ceb97f56bc3fef455d6fdd444f1d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Received data string.  <a href="#a833ceb97f56bc3fef455d6fdd444f1d1">More...</a><br /></td></tr>
+<tr class="separator:a833ceb97f56bc3fef455d6fdd444f1d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77dae20aedb3dcb99fc20517c46b8d5c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_annelida_dispatcher_1_1_model_1_1_dispatcher_client_object.html#a77dae20aedb3dcb99fc20517c46b8d5c">IsInitialized</a></td></tr>
+<tr class="memdesc:a77dae20aedb3dcb99fc20517c46b8d5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is initialized into a specific client type  <a href="#a77dae20aedb3dcb99fc20517c46b8d5c">More...</a><br /></td></tr>
+<tr class="separator:a77dae20aedb3dcb99fc20517c46b8d5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a528f8619f713a9c6e89893aa2ff71c58"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_annelida_dispatcher_1_1_model_1_1_dispatcher_client_object.html#a528f8619f713a9c6e89893aa2ff71c58">RecvBytesCount</a></td></tr>
+<tr class="memdesc:a528f8619f713a9c6e89893aa2ff71c58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counter for how many bytes were received in the last recv call  <a href="#a528f8619f713a9c6e89893aa2ff71c58">More...</a><br /></td></tr>
+<tr class="separator:a528f8619f713a9c6e89893aa2ff71c58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc4a846b8376fe79b3c1da4a97df9117"><td class="memItemLeft" align="right" valign="top">ClientTypes.Types&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_annelida_dispatcher_1_1_model_1_1_dispatcher_client_object.html#acc4a846b8376fe79b3c1da4a97df9117">MyType</a></td></tr>
+<tr class="memdesc:acc4a846b8376fe79b3c1da4a97df9117"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of the client instance  <a href="#acc4a846b8376fe79b3c1da4a97df9117">More...</a><br /></td></tr>
+<tr class="separator:acc4a846b8376fe79b3c1da4a97df9117"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>State class for reading client data asynchronously </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="af5af6f21a24695669377561d0777bf01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5af6f21a24695669377561d0777bf01">&#9670;&nbsp;</a></span>DispatcherClientObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AnnelidaDispatcher.Model.DispatcherClientObject.DispatcherClientObject </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Class constructor, defines the type as undefined and waits for client identification </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a1637f5de18b55f20a6853354f3d80938"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1637f5de18b55f20a6853354f3d80938">&#9670;&nbsp;</a></span>Buffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">byte [] AnnelidaDispatcher.Model.DispatcherClientObject.Buffer</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Receive buffer. </p>
+
+</div>
+</div>
+<a id="a0f6b1c8c1c86358cea759098bdcc4322"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f6b1c8c1c86358cea759098bdcc4322">&#9670;&nbsp;</a></span>BufferSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int AnnelidaDispatcher.Model.DispatcherClientObject.BufferSize</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Size of receive buffer. </p>
+
+</div>
+</div>
+<a id="a77dae20aedb3dcb99fc20517c46b8d5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77dae20aedb3dcb99fc20517c46b8d5c">&#9670;&nbsp;</a></span>IsInitialized</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AnnelidaDispatcher.Model.DispatcherClientObject.IsInitialized</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Is initialized into a specific client type </p>
+
+</div>
+</div>
+<a id="acc4a846b8376fe79b3c1da4a97df9117"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc4a846b8376fe79b3c1da4a97df9117">&#9670;&nbsp;</a></span>MyType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ClientTypes.Types AnnelidaDispatcher.Model.DispatcherClientObject.MyType</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The type of the client instance </p>
+
+</div>
+</div>
+<a id="a528f8619f713a9c6e89893aa2ff71c58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a528f8619f713a9c6e89893aa2ff71c58">&#9670;&nbsp;</a></span>RecvBytesCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int AnnelidaDispatcher.Model.DispatcherClientObject.RecvBytesCount</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Counter for how many bytes were received in the last recv call </p>
+
+</div>
+</div>
+<a id="a833ceb97f56bc3fef455d6fdd444f1d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a833ceb97f56bc3fef455d6fdd444f1d1">&#9670;&nbsp;</a></span>Sb</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StringBuilder AnnelidaDispatcher.Model.DispatcherClientObject.Sb = new StringBuilder()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Received data string. </p>
+
+</div>
+</div>
+<a id="ad93704f5db55570d20f2a354a59c2450"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad93704f5db55570d20f2a354a59c2450">&#9670;&nbsp;</a></span>WorkSocket</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Socket AnnelidaDispatcher.Model.DispatcherClientObject.WorkSocket = null</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Client socket. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>AnnelidaDispatcher/Model/StateObject.cs</li>
+<li>Model/<a class="el" href="_state_object_8cs.html">StateObject.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

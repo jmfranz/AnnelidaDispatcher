@@ -2,14 +2,18 @@
 using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+// ReSharper disable InconsistentNaming
 
 #pragma warning disable 1591
 
 namespace AnnelidaDispatcher.Model
 {
+    /// <summary>
+    /// Sensor class that defines all the sensors in the robot
+    ///   and how they are stored in the database
+    /// Not that this specification is old
+    /// </summary>
     public class Sensors
     {
         [BsonRepresentation(BsonType.Document)]
@@ -17,12 +21,14 @@ namespace AnnelidaDispatcher.Model
         public BackwardSector backward;
         public CentralSector central;
         public ForwardSector forward;
+        public List<string> faultList { get; set; }
 
         public Sensors()
         {
             backward = new BackwardSector();
             central = new CentralSector();
             forward = new ForwardSector();
+            faultList = new List<string>();
         }
 
         public class Enclosure1
