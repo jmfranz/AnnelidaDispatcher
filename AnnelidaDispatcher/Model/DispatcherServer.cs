@@ -250,7 +250,8 @@ namespace AnnelidaDispatcher.Model
                     //Send data to DB in batches of 1s
                     if( (t - record.Timestamp).TotalSeconds > 1)
                     {
-                        sensorDb.WriteSingleToCollection(record, missionName);
+                        //Keep te entire logic the same but don't store
+                        //sensorDb.WriteSingleToCollection(record, missionName);
                         record = new Record {Timestamp = t};
                         record.Sensors.Add(deserializedDocument);                        
                     }
