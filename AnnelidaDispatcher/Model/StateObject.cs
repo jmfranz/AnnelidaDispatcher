@@ -45,11 +45,16 @@ namespace AnnelidaDispatcher.Model
         public DispatcherClientObject()
         {
             //Uppon init we expect and int32
-            BufferSize = 4;
+            BufferSize = 8192;
             RecvBytesCount = 0;
             IsInitialized = false;
             Buffer = new byte[BufferSize];
             MyType = ClientTypes.Types.Undefined;
+        }
+
+        public void ResetBuffer()
+        {
+            Buffer = new byte[BufferSize];
         }
     }
 }

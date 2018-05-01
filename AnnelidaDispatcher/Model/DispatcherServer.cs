@@ -134,10 +134,9 @@ namespace AnnelidaDispatcher.Model
             Socket handler = state.WorkSocket;
 
             // Read data from the client socket. 
-            int bytesRead = 0;
             try
             {
-                bytesRead = handler.EndReceive(ar);
+                state.RecvBytesCount = handler.EndReceive(ar);
             }
             //TODO: handle disonnection messages (SHUTODOWNMODES)
             catch(SocketException e)
@@ -155,9 +154,17 @@ namespace AnnelidaDispatcher.Model
                 state = null;
             }
 
+            if(state?.RecvBytesCount <=0)
+                return;
+
+            if (state.RecvBytesCount == 4)
+            {
+                state
+            }
+
             //if our client has not identified itself the first
             //message he sends is his ID
-            if (state != null && (bytesRead > 0 && !state.IsInitialized))
+            if (state != null && (state.RecvBytesCount > 0 && !state.IsInitialized))
             {
 
                 //We are expecting and int representing the client type
