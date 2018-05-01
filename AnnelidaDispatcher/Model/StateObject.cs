@@ -39,6 +39,8 @@ namespace AnnelidaDispatcher.Model
         /// </summary>
         public ClientTypes.Types MyType;
 
+        public int TotalPackageSize;
+
         /// <summary>
         /// Class constructor, defines the type as undefined and waits for client identification
         /// </summary>
@@ -50,11 +52,17 @@ namespace AnnelidaDispatcher.Model
             IsInitialized = false;
             Buffer = new byte[BufferSize];
             MyType = ClientTypes.Types.Undefined;
+            TotalPackageSize = 0;
         }
 
         public void ResetBuffer()
         {
             Buffer = new byte[BufferSize];
+        }
+
+        public void ResetBuffer(int size)
+        {
+            Buffer = new byte[size];
         }
     }
 }
