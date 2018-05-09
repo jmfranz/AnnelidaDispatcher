@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="AnnelidaDataFormat.AnnelidaPackage">
+    <Position X="0.5" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AASYgQAIAAAAAAAABIAAAAAAAAgAAFAAAAAAAIAAAAA=</HashCode>
+      <FileName>AnnelidaPackage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AnnelidaDataFormat.BaseSensoriedModule">
+    <Position X="7.25" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>BaseSensoriedModule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AnnelidaDataFormat.Converters.NotRegulatedConverter">
+    <Position X="6" Y="5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\NotRegulatedConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AnnelidaDataFormat.Converters.RegulatedConverter">
+    <Position X="8.75" Y="5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\RegulatedConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AnnelidaDataFormat.Locomotives.BackwardLocomotive">
+    <Position X="13.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Locomotives\BackwardLocomotive.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AnnelidaDataFormat.Locomotives.ForwardLocomotive">
+    <Position X="15.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Locomotives\ForwardLocomotive.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AnnelidaDataFormat.Manifolds.ManifoldType1">
+    <Position X="5.75" Y="8.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Manifolds\ManifoldType1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AnnelidaDataFormat.Manifolds.ManifoldType2">
+    <Position X="8.75" Y="8.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Manifolds\ManifoldType2.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AnnelidaDataFormat.Members.Controller">
+    <Position X="4" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Members\Controller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AnnelidaDataFormat.Members.Converter">
+    <Position X="7" Y="2.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAIAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Members\Converter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AnnelidaDataFormat.Members.EmbeddedSystem">
+    <Position X="10.5" Y="2.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Members\EmbeddedSystem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AnnelidaDataFormat.Members.Locomotive">
+    <Position X="14.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAEAAAAAA=</HashCode>
+      <FileName>Members\Locomotive.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AnnelidaDataFormat.Members.Manifold">
+    <Position X="7.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Members\Manifold.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AnnelidaDataFormat.Members.PumpEngine">
+    <Position X="14.5" Y="4.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Members\PumpEngine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AnnelidaDataFormat.Members.SGNReactor">
+    <Position X="0.5" Y="7.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAEAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Members\SGNReactor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AnnelidaDataFormat.Members.SGNValve">
+    <Position X="0.5" Y="6.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Members\SGNValve.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AnnelidaDataFormat.Members.Umbilical">
+    <Position X="0.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Members\Umbilical.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AnnelidaDataFormat.PumpsEngines.PumpEngNoRes">
+    <Position X="13" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PumpsEngines\PumpEngNoRes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AnnelidaDataFormat.PumpsEngines.PumpEngWithRes">
+    <Position X="15.75" Y="6.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>PumpsEngines\PumpEngWithRes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
