@@ -4,10 +4,11 @@ namespace AnnelidaDataFormat.Converters
 {
     public class RegulatedConverter : Converter
     {
-        public RegulatedConverter()
+        public float[] IntermidiateBusElectricalTension { get; set; }
+
+        public RegulatedConverter(int fifoSize) : base(fifoSize)
         {
-            ConverterElectricalCurrent = new float[4];
-            ConverterElectricalPower = new float[4];
+            IntermidiateBusElectricalTension = new float[fifoSize];
         }
     }
 }

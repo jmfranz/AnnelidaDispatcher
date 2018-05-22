@@ -4,10 +4,10 @@ namespace AnnelidaDataFormat.Converters
 {
     public class NotRegulatedConverter : Converter
     {
-        public NotRegulatedConverter()
+        public float[] BusElectricalTension700V { get; set; }
+        public NotRegulatedConverter(int fifoSize) : base(fifoSize)
         {
-            ConverterElectricalCurrent = new float[3];
-            ConverterElectricalPower = new float[3];
+            BusElectricalTension700V = new float[fifoSize];
         }
     }
 }

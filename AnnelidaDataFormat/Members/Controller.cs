@@ -8,7 +8,13 @@ namespace AnnelidaDataFormat.Members
 {
     public class Controller : BaseSensoriedModule
     {
-        public float ElectricalCurrent { get; set; }
-        public float ElectricalTension { get; set; }
+        public float[] ElectricalCurrent { get; set; }
+        public float[] ElectricalTension { get; set; }
+
+        public Controller(int fifoSize) : base(fifoSize)
+        {
+            ElectricalCurrent = new float[fifoSize];
+            ElectricalTension = new float[fifoSize];
+        }
     }
 }

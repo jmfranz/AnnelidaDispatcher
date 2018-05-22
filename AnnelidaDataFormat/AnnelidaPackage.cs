@@ -1,7 +1,6 @@
 ﻿using System;
 using AnnelidaDataFormat.Converters;
 using AnnelidaDataFormat.Locomotives;
-using AnnelidaDataFormat.Manifolds;
 using AnnelidaDataFormat.Members;
 using AnnelidaDataFormat.PumpsEngines;
 using MongoDB.Bson;
@@ -19,7 +18,7 @@ namespace AnnelidaDataFormat
         public EmbeddedSystem EmbeddedSystem { get; set; }
         public Controller[] Controllers { get; set; }
         public Locomotive[] Locomotives { get; set; }
-        public Manifold[] Manifolds { get; set; }
+        public Manifolds Manifolds { get; set; }
         public PumpEngine[] PumpsEngines { get; set; }
         public SGNValve SgnValve { get; set; }
         public SGNReactor SgnReactor { get; set; }
@@ -30,40 +29,47 @@ namespace AnnelidaDataFormat
 
 
         private const int MaximumFaultsCount = 256;
+        private const int FifoSize = 10;
 
         public AnnelidaPackage()
         {
-            Umbilical = new Umbilical();
-            Converters = new Converter[4];
-            EmbeddedSystem = new EmbeddedSystem();
+            Umbilical = new Umbilical(FifoSize);
+            Converters = new Converter[13];
+            EmbeddedSystem = new EmbeddedSystem(FifoSize);
             Controllers = new Controller[5];
             Locomotives = new Locomotive[2];
-            Manifolds = new Manifold[4];
+            Manifolds = new Manifolds(FifoSize);
             PumpsEngines = new PumpEngine[5];
 
-            Converters[0] = new NotRegulatedConverter();
-            Converters[1] = new NotRegulatedConverter();
-            Converters[2] = new RegulatedConverter();
-            Converters[3] = new RegulatedConverter();
+            Converters[0] = new NotRegulatedConverter(FifoSize);
+            Converters[1] = new NotRegulatedConverter(FifoSize);
+            Converters[2] = new NotRegulatedConverter(FifoSize);
+            Converters[3] = new NotRegulatedConverter(FifoSize);
+            Converters[4] = new NotRegulatedConverter(FifoSize);
+            
+            Converters[5] = new RegulatedConverter(FifoSize);
+            Converters[6] = new RegulatedConverter(FifoSize);
+            Converters[7] = new RegulatedConverter(FifoSize);
+            Converters[8] = new RegulatedConverter(FifoSize);
+            Converters[9] = new RegulatedConverter(FifoSize);
+            Converters[10] = new RegulatedConverter(FifoSize);
+            Converters[11] = new RegulatedConverter(FifoSize);
+            Converters[12] = new RegulatedConverter(FifoSize);
 
             for (int i = 0; i < Controllers.Length; i++)
             {
-                Controllers[i] = new Controller();
+                Controllers[i] = new Controller(FifoSize);
             }
 
-            Locomotives[0] = new ForwardLocomotive();
-            Locomotives[1] = new BackwardLocomotive();
+            Locomotives[0] = new ForwardLocomotive(FifoSize);
+            Locomotives[1] = new BackwardLocomotive(FifoSize);
 
-            Manifolds[0] = new ManifoldType1();
-            Manifolds[1] = new ManifoldType2();
-            Manifolds[2] = new ManifoldType1();
-            Manifolds[3] = new ManifoldType2();
 
-            PumpsEngines[0] = new PumpEngWithRes();
-            PumpsEngines[1] = new PumpEngNoRes();
-            PumpsEngines[2] = new PumpEngNoRes();
-            PumpsEngines[3] = new PumpEngNoRes();
-            PumpsEngines[4] = new PumpEngWithRes();
+            PumpsEngines[0] = new PumpEngWithRes(FifoSize);
+            PumpsEngines[1] = new PumpEngNoRes(FifoSize);
+            PumpsEngines[2] = new AuxiliarPumpEngine(FifoSize);
+            PumpsEngines[3] = new PumpEngNoRes(FifoSize);
+            PumpsEngines[4] = new PumpEngWithRes(FifoSize);
 
             Faults = new string[MaximumFaultsCount];
 
