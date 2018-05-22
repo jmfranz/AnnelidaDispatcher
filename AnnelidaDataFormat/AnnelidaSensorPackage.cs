@@ -8,11 +8,11 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace AnnelidaDataFormat
 {
-    public class AnnelidaPackage
+    public class AnnelidaSensorPackage
     {
         [BsonRepresentation(BsonType.Document)]
         public DateTime UtcTimeStamp { get; set; }
-        public TimeSpan TimeSinceStart { get; set; }
+        public DateTime StartTime { get; set; }
         public Umbilical Umbilical { get; set; }
         public Converter[] Converters { get; set; }
         public EmbeddedSystem EmbeddedSystem { get; set; }
@@ -31,7 +31,7 @@ namespace AnnelidaDataFormat
         private const int MaximumFaultsCount = 256;
         private const int FifoSize = 10;
 
-        public AnnelidaPackage()
+        public AnnelidaSensorPackage()
         {
             Umbilical = new Umbilical(FifoSize);
             Converters = new Converter[13];
