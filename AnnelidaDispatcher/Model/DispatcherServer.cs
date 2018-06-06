@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
-
-
+using System.Security.Cryptography;
+using System.Text;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 
@@ -21,7 +22,8 @@ namespace AnnelidaDispatcher.Model
     public class DispatcherServer
     {
         private static readonly ManualResetEvent AllDone = new ManualResetEvent(false);
-        private const int BufferSize = 1024;
+
+        private static Semaphore semaphore;
 
         //List of all the connected clients
         private readonly Dictionary<ClientTypes.Types, List<Socket>> connectedClients;
@@ -46,11 +48,18 @@ namespace AnnelidaDispatcher.Model
         private readonly string missionName;
         private Record record;
 
+        private static uint messageCount = 0;
+        private bool isDoingStuff = false;
+        private Stopwatch sp;
+        
+
         /// <summary>
         /// Class constructor. Initialize the client lists
         /// </summary>
         public DispatcherServer(MongoWrapper sensorDb, MongoWrapper controlDb, string missionName)
         {
+            semaphore = new Semaphore(1,1);
+
             connectedClients = new Dictionary<ClientTypes.Types, List<Socket>>
             {
                 {ClientTypes.Types.Undefined, new List<Socket>()},
@@ -64,6 +73,7 @@ namespace AnnelidaDispatcher.Model
             this.missionName = missionName;
 
             record = new Record();
+            sp = Stopwatch.StartNew();
         }
 
         /// <summary>
@@ -119,7 +129,7 @@ namespace AnnelidaDispatcher.Model
 
             var so = new DispatcherClientObject() {WorkSocket = client};
             //Starts receving messages
-            client.BeginReceive(so.Buffer, 0, so.BufferSize, 0, ReadHandler, so);
+            client.BeginReceive(so.Buffer, 0, 4, 0, ReadHandler, so);
         }
 
         /// <summary>
@@ -134,16 +144,16 @@ namespace AnnelidaDispatcher.Model
             Socket handler = state.WorkSocket;
 
             // Read data from the client socket. 
-            int bytesRead = 0;
             try
             {
-                bytesRead = handler.EndReceive(ar);
+                semaphore.WaitOne();
+                state.RecvBytesCount += handler.EndReceive(ar);
             }
             //TODO: handle disonnection messages (SHUTODOWNMODES)
             catch(SocketException e)
             {
                 // ReSharper disable once LocalizableElement
-                Console.WriteLine($"Socket error {e}");
+                //Console.WriteLine($"Socket error {e}");
                 //probably our client disconnected
                 connectedClients[state.MyType].Remove(state.WorkSocket);
                 var clientAddr = state.WorkSocket.RemoteEndPoint as IPEndPoint;
@@ -155,9 +165,12 @@ namespace AnnelidaDispatcher.Model
                 state = null;
             }
 
+            if(state?.RecvBytesCount <=0)
+                return;
+
             //if our client has not identified itself the first
             //message he sends is his ID
-            if (state != null && (bytesRead > 0 && !state.IsInitialized))
+            if (state != null  && !state.IsInitialized)
             {
 
                 //We are expecting and int representing the client type
@@ -173,48 +186,64 @@ namespace AnnelidaDispatcher.Model
                     ClientConnectedEvent?.Invoke((ClientTypes.Types) type, clientAddr.Address.ToString());
                 else
                     throw new ArgumentNullException();
+
+                state.RecvBytesCount = 0;
+
+                semaphore.Release();
                 //Continue handling messages
-                handler.BeginReceive(state.Buffer, 0, state.BufferSize, 0,
+                handler.BeginReceive(state.Buffer, 0, 4, 0,
                     ReadHandler, state);
-                //sets the buffer to 0 because the next message contains the size
-                state.BufferSize = 0;
             }
-            else if (state != null && (bytesRead > 0 && state.IsInitialized))
+            else if (state != null && state.IsInitialized)
             {
                 //We are receiving the package but don't know the size yet
-                //Serialized bson contains the size in the first 4 bytes.
-                if(state.BufferSize == 0)
+                //This -if- is here just to be safe...
+                if (state.RecvBytesCount < 4)
                 {
-                    int size = BitConverter.ToInt32(state.Buffer, 0);
-                    //We take 4 out because we already red those bytes
-                    state.BufferSize = size - 4;
-                    //Resize the array because we need the full set of
-                    //bytes in order to deserialize the Bson
-                    Array.Resize(ref state.Buffer, size);
-                    state.RecvBytesCount = 0;
-                    handler.BeginReceive(state.Buffer, 4, state.BufferSize , 0,
-                        ReadHandler, state);
+                    handler.BeginReceive(state.Buffer, state.RecvBytesCount-1, 4 - state.RecvBytesCount, 0, ReadHandler,
+                        state);
                 }
-                //we already know the package size
+                //Serialized bson contains the size in the first 4 bytes.
+                if (state.RecvBytesCount == 4)
+                {
+                    state.TotalPackageSize = BitConverter.ToInt32(state.Buffer, 0);
+
+                    state.ResetBuffer(state.TotalPackageSize);
+                    var length  = BitConverter.GetBytes(state.TotalPackageSize);
+                    state.Buffer[0] = length[0];
+                    state.Buffer[1] = length[1];
+                    state.Buffer[2] = length[2];
+                    state.Buffer[3] = length[3];
+                    //Keep reading...
+                    semaphore.Release();
+                    handler.BeginReceive(state.Buffer, 4, state.TotalPackageSize - 4, 0, ReadHandler,
+                        state);
+                }
+
+               //we already know the package size
                 else
                 {
-                    state.RecvBytesCount += bytesRead;
                     
-                    if (state.RecvBytesCount < state.BufferSize)
-                    {
-                        var revLeft = state.BufferSize - state.RecvBytesCount;
+                        
 
-                        handler.BeginReceive(state.Buffer, 4 + state.RecvBytesCount - 1,
-                            revLeft, 0,
-                            ReadHandler, state);
+                    //Not done yet
+                    if (state.RecvBytesCount < state.TotalPackageSize - 4)
+                    {
+                        handler.BeginReceive(state.Buffer, state.RecvBytesCount - 1,
+                            state.TotalPackageSize - state.RecvBytesCount, 0, ReadHandler, state);
+                        semaphore.Release();
                     }
                     else
                     {
-                        HandleMessage(state.Buffer, state);
+                        PrintMD5(state.Buffer);
+                        byte[] workingBuffer = new byte[state.Buffer.Length];
+                        //TODO: Make the working buffer the size of the received package
+                        Array.Copy(state.Buffer,workingBuffer,state.Buffer.Length);
+                        HandleMessage(workingBuffer, state);
                         //Prep to receive another package
-                        state.BufferSize = 0;
-                        //int32 with the size
-                        state.Buffer = new byte[4];
+                        state.ResetBuffer();
+                        state.RecvBytesCount = 0;
+                        semaphore.Release();
                         handler.BeginReceive(state.Buffer, 0, 4, 0,
                             ReadHandler, state);
                     }
@@ -250,7 +279,8 @@ namespace AnnelidaDispatcher.Model
                     //Send data to DB in batches of 1s
                     if( (t - record.Timestamp).TotalSeconds > 1)
                     {
-                        sensorDb.WriteSingleToCollection(record, missionName);
+                        //Keep te entire logic the same but don't store
+                        //sensorDb.WriteSingleToCollection(record, missionName);
                         record = new Record {Timestamp = t};
                         record.Sensors.Add(deserializedDocument);                        
                     }
@@ -309,22 +339,40 @@ namespace AnnelidaDispatcher.Model
         }
 
 
-        private static BsonDocument ProcessSerializedBson(byte[] bytes)
+        private  BsonDocument ProcessSerializedBson(byte[] bytes)
         {
             try
             {
                 var doc = BsonSerializer.Deserialize<BsonDocument>(bytes);
                 BsonDateTime timestamp = DateTime.UtcNow;
                 doc["timestamp"] = timestamp;
+                messageCount++;
                 return doc;
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                 Console.WriteLine(e.ToString());
+                
                 return null;
+            }           
+        }
+
+        private void PrintMD5(byte[] bytes)
+        {
+            MD5 md5 = MD5.Create();
+
+            var hash = md5.ComputeHash(bytes);
+            // Create a new Stringbuilder to collect the bytes
+            // and create a string.
+            StringBuilder sBuilder = new StringBuilder();
+
+            // Loop through each byte of the hashed data 
+            // and format each one as a hexadecimal string.
+            for (int i = 0; i < hash.Length; i++)
+            {
+                sBuilder.Append(hash[i].ToString("x2"));
             }
-            
-            
+            Console.WriteLine($"Messsage Number: {messageCount}, Checksum: {sBuilder.ToString()} Length: {bytes.Length}");
         }
 
     }
