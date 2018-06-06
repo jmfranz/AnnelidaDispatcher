@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendGUI", "SendGUI\SendGUI.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnnelidaDataFormat", "AnnelidaDataFormat\AnnelidaDataFormat.csproj", "{7D14B73E-2C95-432A-8FDE-8BF3528E545C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreInMongo", "StoreInMongo\StoreInMongo.csproj", "{2296925B-6DD4-42B1-8020-CFE71A516E60}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{7D14B73E-2C95-432A-8FDE-8BF3528E545C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D14B73E-2C95-432A-8FDE-8BF3528E545C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D14B73E-2C95-432A-8FDE-8BF3528E545C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2296925B-6DD4-42B1-8020-CFE71A516E60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2296925B-6DD4-42B1-8020-CFE71A516E60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2296925B-6DD4-42B1-8020-CFE71A516E60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2296925B-6DD4-42B1-8020-CFE71A516E60}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

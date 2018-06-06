@@ -12,7 +12,7 @@
             Rotation = new float[3][];
             Displacement = new float[3][];
 
-            for (int i = 0; i < fifoSize; i++)
+            for (int i = 0; i < 3; i++)
             {
                 Rotation[i] = new float[fifoSize];
                 Displacement[i] = new float[fifoSize];

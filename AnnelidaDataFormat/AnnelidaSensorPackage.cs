@@ -28,7 +28,7 @@ namespace AnnelidaDataFormat
 
 
 
-        private const int MaximumFaultsCount = 256;
+        private const int MaximumFaultsCount = 10;
         private const int FifoSize = 10;
 
         public AnnelidaSensorPackage()
@@ -40,6 +40,8 @@ namespace AnnelidaDataFormat
             Locomotives = new Locomotive[2];
             Manifolds = new Manifolds(FifoSize);
             PumpsEngines = new PumpEngine[5];
+            SgnValve = new SGNValve();
+            SgnReactor = new SGNReactor(FifoSize);
 
             Converters[0] = new NotRegulatedConverter(FifoSize);
             Converters[1] = new NotRegulatedConverter(FifoSize);
@@ -72,6 +74,10 @@ namespace AnnelidaDataFormat
             PumpsEngines[4] = new PumpEngWithRes(FifoSize);
 
             Faults = new string[MaximumFaultsCount];
+            for (int i = 0; i < Faults.Length; i++)
+            {
+                Faults[i] = "";
+            }
 
         }
     }

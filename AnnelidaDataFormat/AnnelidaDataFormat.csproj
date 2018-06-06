@@ -44,7 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AnnelidaPackage.cs" />
+    <Compile Include="AnnelidaControlPackage.cs" />
+    <Compile Include="AnnelidaSensorPackage.cs" />
     <Compile Include="BaseSensoriedModule.cs" />
     <Compile Include="Locomotives\BackwardLocomotive.cs" />
     <Compile Include="Locomotives\ForwardLocomotive.cs" />
@@ -65,7 +66,8 @@
     <Compile Include="PumpsEngines\AuxiliarPumpEngine.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="AnnelidaClassDiagram.cd" />
+    <None Include="AnnelidaControl.cd" />
+    <None Include="AnnelidaSensor.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

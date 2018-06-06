@@ -1,5 +1,6 @@
 ﻿using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 
 namespace AnnelidaDispatcher.Model
 {
@@ -47,7 +48,7 @@ namespace AnnelidaDispatcher.Model
         public DispatcherClientObject()
         {
             //Uppon init we expect and int32
-            BufferSize = 8192;
+            BufferSize = 4;
             RecvBytesCount = 0;
             IsInitialized = false;
             Buffer = new byte[BufferSize];
@@ -62,7 +63,9 @@ namespace AnnelidaDispatcher.Model
 
         public void ResetBuffer(int size)
         {
+            
             Buffer = new byte[size];
+            
         }
     }
 }

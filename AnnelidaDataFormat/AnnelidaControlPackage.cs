@@ -22,12 +22,18 @@ namespace AnnelidaDataFormat
         /// Values should be between -1 and +1 i.e. [-1,1]
         /// </summary>
         public float StepSizeControl { get; set; }
+
+        /// <summary>
+        /// Emergency stop boolean
+        /// </summary>
+        public bool EStop { get; set; }
         
         private const int MaximumFaultsCount = 256;
 
         public AnnelidaControlPackage()
         {
             Faults = new string[MaximumFaultsCount];
+            EStop = false;
         }
     }
 }
