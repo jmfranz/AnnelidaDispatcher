@@ -144,7 +144,7 @@ namespace AnnelidaDispatcher.Model
 
         private void RedespatchMessage(byte[] message, ClientTypes.Types origin)
         {
-            //TODO: Change behaviour to state
+            //TODO: Change behaviour to state, maybe?
             try
             {
                 switch (origin)
@@ -154,6 +154,10 @@ namespace AnnelidaDispatcher.Model
                     case ClientTypes.Types.View:
                         break;
                     case ClientTypes.Types.Controller:
+                        foreach (var client in connectedClients[ClientTypes.Types.Robot])
+                        {
+                            client.GetStream().WriteAsync(message, 0, message.Length);
+                        }
                         break;
                     case ClientTypes.Types.Robot:
                         foreach (var client in connectedClients[ClientTypes.Types.View])
