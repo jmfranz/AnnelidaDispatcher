@@ -36,7 +36,7 @@ namespace AnnelidaDispatcher.ViewModel
         public MTObservableCollection<string> ViewClients { get; private set; }
         public MTObservableCollection<string> ControlClients { get; private set; }
         public MTObservableCollection<string> RobotClients { get; private set; }
-        public string MyIp { get; }
+        public string MyIP { get; }
         public int MyPort { get; }
         public string MongoUrl { get; set;}
         public string SensorDbName { get; set; }
@@ -45,7 +45,7 @@ namespace AnnelidaDispatcher.ViewModel
         #endregion
 
         public event PropertyChangedEventHandler PropertyChanged;
-        private DispatcherServer disp;
+        
                
         /// <summary>
         /// Initializes all the necessary objects for the dispacher to work.
@@ -58,7 +58,7 @@ namespace AnnelidaDispatcher.ViewModel
             ViewClients = new MTObservableCollection<string>();
             ControlClients = new MTObservableCollection<string>();
             RobotClients = new MTObservableCollection<string>();
-            MyIp = GetLocalIpAddress();
+            MyIP = GetLocalIpAddress();
             MyPort = 9999;
 
             StartButtonEnabled = true;

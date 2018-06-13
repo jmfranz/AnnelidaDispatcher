@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
@@ -53,9 +54,12 @@ namespace AnnelidaDispatcher.Model.Server
             using (client)
             {
                 var buf = new byte[4096];
+                byte[] completedMessage = null;
                 var stream = client.GetStream();
                 int count = 1;
                 var ammountToReceive = 4;
+                var totalMessageSize = 0;
+                var totalReceivedSize = 0;
                 while (!ct.IsCancellationRequested)
                 {
                     var timeOutTask = Task.Delay(TimeSpan.FromMinutes(1));
@@ -81,6 +85,7 @@ namespace AnnelidaDispatcher.Model.Server
                     
                     if (ammountRead == 0) break;
 
+                    
                     if (myType == ClientTypes.Types.Undefined)
                     {
                         myType = IdentifyClient(buf,client);
@@ -89,9 +94,33 @@ namespace AnnelidaDispatcher.Model.Server
                     }
                     else
                     {
-                        ammountToReceive = HandleMessage(buf,ammountRead,myType);
+                        totalReceivedSize += ammountRead;
+                        if (ammountToReceive == 4)
+                        {
+                            byte[] size = {buf[0], buf[1], buf[2], buf[3]};
+                            totalMessageSize = BitConverter.ToInt32(size, 0);
+                            ammountToReceive = totalMessageSize - 4;
+                            completedMessage = new byte[totalMessageSize];
+                            Array.Copy(size,completedMessage,4);
+
+                        }
+                        else
+                        {
+                            Array.Copy(buf, 0, completedMessage, totalReceivedSize - ammountRead, ammountRead);
+                            
+                            if (totalReceivedSize == totalMessageSize)
+                            {
+                                HandleMessage(completedMessage, totalMessageSize, myType);
+                                ammountToReceive = 4;
+                                totalMessageSize = 0;
+                                totalReceivedSize = 0;
+                            }
+                            else
+                            {
+                                ammountToReceive = totalMessageSize - totalReceivedSize;
+                            }
+                        }
                     }
-                   
                 }
             }
 
@@ -109,30 +138,18 @@ namespace AnnelidaDispatcher.Model.Server
             return myType;
         }
 
-        private int HandleMessage(byte[] buffer, int ammountRead,ClientTypes.Types myType)
+        private void HandleMessage(byte[] buffer, int ammountRead,ClientTypes.Types myType)
         {
-            if (ammountRead == 4)
-            {
-                byte[] size = new byte[] { buffer[0], buffer[1], buffer[2], buffer[3] };
-                return BitConverter.ToInt32(size, 0) - 4;
-            }
-
-            var message = ProcessSerializedBson(buffer, ammountRead + 4);
+           var message = ProcessSerializedBson(buffer, ammountRead);
                        
            messageDispatchStrategy.RedespatchMessage(message.ToBson(), connectedClients, myType);
-            return 4;
-
         }
         private BsonDocument ProcessSerializedBson(byte[] bytes, int packageSize)
         {
-            var workingBuffer = new byte[packageSize];
-            var size = BitConverter.GetBytes(packageSize);
-            Array.Copy(size, workingBuffer, 4);
-            Array.Copy(bytes, 0, workingBuffer, 4, workingBuffer.Length - 4);
 
             try
             {
-                var doc = BsonSerializer.Deserialize<BsonDocument>(workingBuffer);
+                var doc = BsonSerializer.Deserialize<BsonDocument>(bytes);
                 BsonDateTime timestamp = DateTime.UtcNow;
                 doc["timestamp"] = timestamp;
                 return doc;
