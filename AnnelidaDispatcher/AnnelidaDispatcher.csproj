@@ -108,11 +108,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Model\AbstractServer.cs" />
-    <Compile Include="Model\AsyncDispatcherServer.cs" />
+    <Compile Include="Model\Server\IMessageDispatcherStrategy.cs" />
+    <Compile Include="Model\Server\AbstractServer.cs" />
+    <Compile Include="Model\Server\AsyncDispatcherServer.cs" />
     <Compile Include="Model\MongoWrapper.cs" />
     <Compile Include="Model\Record.cs" />
     <Compile Include="Model\Sensors.cs" />
+    <Compile Include="Model\Server\AsyncDispatcherServerDBEnabled.cs" />
+    <Compile Include="Model\Server\MongoDispatchStrategy.cs" />
+    <Compile Include="Model\Server\NoDBDispatchStrategy.cs" />
     <Compile Include="Strings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -141,7 +145,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\ClientTypes.cs" />
-    <Compile Include="Model\DispatcherServer.cs" />
+    <Compile Include="Model\Server\DispatcherServer.cs" />
     <Compile Include="Model\StateObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

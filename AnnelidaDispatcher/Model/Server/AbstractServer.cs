@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AnnelidaDispatcher.Model.Server;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
@@ -46,6 +47,8 @@ namespace AnnelidaDispatcher.Model
         {
             ClientDisconnectedEvent?.Invoke(type, addr);
         }
+
+        protected IMessageDispatcherStrategy messageDispatchStrategy;
 
         public abstract void Start();
 

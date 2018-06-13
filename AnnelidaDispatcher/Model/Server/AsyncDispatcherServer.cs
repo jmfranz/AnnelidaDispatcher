@@ -9,18 +9,21 @@ using MongoDB.Bson.IO;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
 
-namespace AnnelidaDispatcher.Model
+namespace AnnelidaDispatcher.Model.Server
 {
     public class AsyncDispatcherServer : AbstractServer
     {
         private CancellationTokenSource cts;
         private TcpListener listener;
         
+        
         public AsyncDispatcherServer(int tcpPort)
         {
             cts = new CancellationTokenSource();
             listener = new TcpListener(IPAddress.Any, tcpPort);
-            
+            messageDispatchStrategy = new NoDBDispatchStrategy();
+
+
         }
 
         public override void Start()
@@ -115,8 +118,8 @@ namespace AnnelidaDispatcher.Model
             }
 
             var message = ProcessSerializedBson(buffer, ammountRead + 4);
-            
-            RedespatchMessage(message.ToBson(), myType);
+                       
+           messageDispatchStrategy.RedespatchMessage(message.ToBson(), connectedClients, myType);
             return 4;
 
         }
@@ -142,37 +145,6 @@ namespace AnnelidaDispatcher.Model
             }
         }
 
-        private void RedespatchMessage(byte[] message, ClientTypes.Types origin)
-        {
-            //TODO: Change behaviour to state, maybe?
-            try
-            {
-                switch (origin)
-                {
-                    case ClientTypes.Types.Undefined:
-                        break;
-                    case ClientTypes.Types.View:
-                        break;
-                    case ClientTypes.Types.Controller:
-                        foreach (var client in connectedClients[ClientTypes.Types.Robot])
-                        {
-                            client.GetStream().WriteAsync(message, 0, message.Length);
-                        }
-                        break;
-                    case ClientTypes.Types.Robot:
-                        foreach (var client in connectedClients[ClientTypes.Types.View])
-                        {
-                            client.GetStream().WriteAsync(message, 0, message.Length);
-                        }
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException(nameof(origin), origin, null);
-                }
-            }
-            catch (SocketException e)
-            {
-                Console.WriteLine(e.ToString());
-            }
-        }
+      
     }
 }
