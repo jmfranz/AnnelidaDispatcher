@@ -78,12 +78,12 @@
         <TextBlock>Porta do Dispatcher: </TextBlock>
             <TextBlock Text="{Binding MyPort}" />
         </StackPanel>
-        <Button
+        <!--<Button
             Grid.Row="3"
             Content="Iniciar Dispatcher"
             Command="{Binding StartCommand}"
             IsEnabled="{Binding StartButtonEnabled}"
-            />
+            />-->
 
     </Grid>
 </Window>

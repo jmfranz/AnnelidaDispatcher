@@ -11,50 +11,26 @@ using MongoDB.Bson.Serialization.Serializers;
 
 namespace AnnelidaDispatcher.Model
 {
-    public class AsyncDispatcherServer
+    public class AsyncDispatcherServer : AbstractServer
     {
         private CancellationTokenSource cts;
         private TcpListener listener;
-
-        private readonly Dictionary<ClientTypes.Types, List<TcpClient>> connectedClients;
-
-        /// <summary>
-        /// Delegate method for client connect/disconnect actions
-        /// </summary>
-        /// <param name="type">The type of the client</param>
-        /// <param name="addr">The address of the client</param>
-        public delegate void ClientConnectionDelegate(ClientTypes.Types type, string addr);
-        /// <summary>
-        /// Client connected event
-        /// </summary>
-        public event ClientConnectionDelegate ClientConnectedEvent;
-        /// <summary>
-        /// Client disconnected event
-        /// </summary>
-        public event ClientConnectionDelegate ClientDisconnectedEvent;
-
+        
         public AsyncDispatcherServer(int tcpPort)
         {
-            connectedClients = new Dictionary<ClientTypes.Types, List<TcpClient>>
-            {
-                {ClientTypes.Types.Undefined, new List<TcpClient>()},
-                {ClientTypes.Types.Controller, new List<TcpClient>()},
-                {ClientTypes.Types.View, new List<TcpClient>()},
-                {ClientTypes.Types.Robot, new List<TcpClient>()}
-            };
             cts = new CancellationTokenSource();
             listener = new TcpListener(IPAddress.Any, tcpPort);
             
         }
 
-        public void Start()
+        public override void Start()
         {
             listener.Start();
             //TODO: Add public state property
-            AcceptClientAssync(listener, cts.Token);
+            AcceptClientAsync(listener, cts.Token);
         }
 
-        private async Task AcceptClientAssync(TcpListener listener, CancellationToken ct)
+        private async Task AcceptClientAsync(TcpListener listener, CancellationToken ct)
         {
             var clientCounter = 0;
             while (!ct.IsCancellationRequested)
@@ -85,17 +61,28 @@ namespace AnnelidaDispatcher.Model
 
                     if (completedTask == timeOutTask)
                     {
-                        //TODO: Handle UI
                         break;
                     }
 
-                    var ammountRead = ammountReadTask.Result;
+                    int ammountRead;
+
+                    try
+                    {
+                        ammountRead = ammountReadTask.Result;
+                    }
+                    catch (AggregateException ex)
+                    {
+                        Console.WriteLine(ex);
+                        break;
+                    }
+                    
                     if (ammountRead == 0) break;
 
                     if (myType == ClientTypes.Types.Undefined)
                     {
                         myType = IdentifyClient(buf,client);
-                        ClientConnectedEvent?.Invoke(myType, clientEndPoint.Address.ToString());
+                        OnClientConnected(myType, clientEndPoint.Address.ToString());
+                        //ClientConnectedEvent?.Invoke(myType, clientEndPoint.Address.ToString());
                     }
                     else
                     {
@@ -104,8 +91,8 @@ namespace AnnelidaDispatcher.Model
                    
                 }
             }
-           
-            ClientDisconnectedEvent?.Invoke(myType, clientEndPoint.Address.ToString());
+
+            OnClientDisconnected(myType, clientEndPoint.Address.ToString());
             connectedClients[myType].Remove(client);
             Console.WriteLine($"Client ({clientIndex}) disconnected");
         }
