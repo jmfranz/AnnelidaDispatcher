@@ -4,11 +4,10 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using System.Threading.Tasks;
-using AnnelidaDispatcher.Model;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 
-namespace AnnelidaDispatcher
+namespace AnnelidaDispatcher.Model
 {
     public class AsyncDispatcherServer
     {
@@ -98,7 +97,7 @@ namespace AnnelidaDispatcher
                     }
                     else
                     {
-                        ammountToReceive = HandleMessage(buf);
+                        ammountToReceive = HandleMessage(buf,ammountRead);
                     }
                    
                 }
@@ -118,22 +117,27 @@ namespace AnnelidaDispatcher
             return myType;
         }
 
-        private int HandleMessage(byte[] buffer)
+        private int HandleMessage(byte[] buffer, int ammountRead)
         {
-            if (buffer.Length == 4)
+            if (ammountRead == 4)
             {
                 byte[] size = new byte[] { buffer[0], buffer[1], buffer[2], buffer[3] };
                 return BitConverter.ToInt32(size, 0) - 4;
             }
-            Console.WriteLine($"{ProcessSerializedBson(buffer).ToString()}");
+            Console.WriteLine($"{ProcessSerializedBson(buffer,ammountRead+4).ToString()}");
             return 4;
 
         }
-        private BsonDocument ProcessSerializedBson(byte[] bytes)
+        private BsonDocument ProcessSerializedBson(byte[] bytes, int packageSize)
         {
+            var workingBuffer = new byte[packageSize];
+            var size = BitConverter.GetBytes(packageSize);
+            Array.Copy(size, workingBuffer, 4);
+            Array.Copy(bytes, 0, workingBuffer, 4, workingBuffer.Length - 4);
+
             try
             {
-                var doc = BsonSerializer.Deserialize<BsonDocument>(bytes);
+                var doc = BsonSerializer.Deserialize<BsonDocument>(workingBuffer);
                 BsonDateTime timestamp = DateTime.UtcNow;
                 doc["timestamp"] = timestamp;
                 return doc;
