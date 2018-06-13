@@ -108,6 +108,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AsyncDispatcherServer.cs" />
     <Compile Include="Model\MongoWrapper.cs" />
     <Compile Include="Model\Record.cs" />
     <Compile Include="Model\Sensors.cs" />
