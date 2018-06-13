@@ -32,8 +32,15 @@ namespace AnnelidaDispatcher.Model.Server
 
             if (sensorMessages[origin].Count <= messagesQueueSize)
                 return;
-
-            sensorDb.WriteManyToCollection(sensorMessages[origin], missionName);
+            if (origin == ClientTypes.Types.Robot)
+            {
+                sensorDb.WriteManyToCollection(sensorMessages[origin], missionName);
+            }
+            else if (origin == ClientTypes.Types.Controller)
+            {
+                controlDb.WriteManyToCollection(sensorMessages[origin], missionName);
+              
+            }
             sensorMessages[origin].Clear();
 
         }
