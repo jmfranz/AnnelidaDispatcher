@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Globalization;
 using AnnelidaDispatcher.Utilities;
 using AnnelidaDispatcher.Model;
+using AnnelidaDispatcher.Model.Server;
 
 
 namespace AnnelidaDispatcher.ViewModel
@@ -15,18 +16,7 @@ namespace AnnelidaDispatcher.ViewModel
     internal class MainViewViewModel: INotifyPropertyChanged
     {
         #region Properties
-        #region StartCommand
-        private ICommand startCommand;
-        public ICommand StartCommand
-        {
-            get
-            {
-                if (startCommand == null)
-                    startCommand = new RelayCommand(call => StartListening());
-                return startCommand;
-            }
-        }
-        #endregion
+  
         #region StartButtonState
         private Boolean startButtonEnabled;
         public Boolean StartButtonEnabled
@@ -46,8 +36,8 @@ namespace AnnelidaDispatcher.ViewModel
         public MTObservableCollection<string> ViewClients { get; private set; }
         public MTObservableCollection<string> ControlClients { get; private set; }
         public MTObservableCollection<string> RobotClients { get; private set; }
-        public string MyIp { get; }
-        public string MyPort { get; }
+        public string MyIP { get; }
+        public int MyPort { get; }
         public string MongoUrl { get; set;}
         public string SensorDbName { get; set; }
         public string ControlDbName { get; set; }
@@ -55,7 +45,7 @@ namespace AnnelidaDispatcher.ViewModel
         #endregion
 
         public event PropertyChangedEventHandler PropertyChanged;
-        private DispatcherServer disp;
+        
                
         /// <summary>
         /// Initializes all the necessary objects for the dispacher to work.
@@ -68,30 +58,22 @@ namespace AnnelidaDispatcher.ViewModel
             ViewClients = new MTObservableCollection<string>();
             ControlClients = new MTObservableCollection<string>();
             RobotClients = new MTObservableCollection<string>();
-            MyIp = GetLocalIpAddress();
-            MyPort = "9999";
+            MyIP = GetLocalIpAddress();
+            MyPort = 9999;
 
             StartButtonEnabled = true;
-        }
-        async void StartListening()
-        {
-            //If the user hasn't set the parameters pre define ones
-            if (SensorDbName == null || ControlDbName == null || MissionName == null)
-            {
-                //Sets values to default
-                SensorDbName = "sensors";
-                ControlDbName = "control";
-                MissionName = DateTime.UtcNow.ToString(CultureInfo.InvariantCulture);
-            }
-            StartButtonEnabled = false;
-            
 
-            var sensorDb = new MongoWrapper(MongoUrl, SensorDbName);
-            var controlDb = new MongoWrapper(MongoUrl, ControlDbName);
-            disp = new DispatcherServer(null, null, MissionName);
-            disp.ClientConnectedEvent += ClientConnected;
-            disp.ClientDisconnectedEvent += ClientDisconnected;
-            await Task.Run(() => disp.Start(9999));
+            var missionName = DateTime.UtcNow.ToString(CultureInfo.InvariantCulture);
+
+            SensorDbName = "sensors";
+            ControlDbName = "control";
+            MissionName = missionName;
+
+            AbstractServer asyncDispatcherServer = new AsyncDispatcherServer(MyPort);
+            //AbstractServer asyncDispatcherServer = new AsyncDispatcherServerDBEnabled(missionName,MyPort);
+            asyncDispatcherServer.ClientConnectedEvent += ClientConnected;
+            asyncDispatcherServer.ClientDisconnectedEvent += ClientDisconnected;
+            asyncDispatcherServer.Start();
 
         }
 

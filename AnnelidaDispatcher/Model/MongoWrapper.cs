@@ -34,7 +34,13 @@ namespace AnnelidaDispatcher.Model
             }
             database = client.GetDatabase(databaseName);
         }
-            
+
+        public MongoWrapper(string databaseName)
+        {
+            client = new MongoClient();
+            database = client.GetDatabase(databaseName);
+        }
+
         /// <summary>
         /// Cleans up the connection variables. There is no need to actually 
         /// disconnect from the DB
