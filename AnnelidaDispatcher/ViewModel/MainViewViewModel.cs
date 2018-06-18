@@ -69,7 +69,7 @@ namespace AnnelidaDispatcher.ViewModel
             ControlDbName = "control";
             MissionName = missionName;
 
-            AbstractServer asyncDispatcherServer = new AsyncDispatcherServer(MyPort);
+            AbstractServer asyncDispatcherServer = new ProtoBufServer(MyPort);
             //AbstractServer asyncDispatcherServer = new AsyncDispatcherServerDBEnabled(missionName,MyPort);
             asyncDispatcherServer.ClientConnectedEvent += ClientConnected;
             asyncDispatcherServer.ClientDisconnectedEvent += ClientDisconnected;

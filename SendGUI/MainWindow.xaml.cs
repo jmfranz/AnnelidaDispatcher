@@ -18,6 +18,10 @@ using System.Windows.Shapes;
 using MongoDB.Bson;
 using System.Threading;
 
+using Google.Protobuf;
+using Google.Protobuf.WellKnownTypes;
+using static AnnelidaSensors;
+
 namespace SendGUI
 {
     /// <summary>
@@ -26,6 +30,8 @@ namespace SendGUI
     public partial class MainWindow : Window
     {
         Sensors document;
+        private AnnelidaSensors protobufSensors;
+        
         //Random rnd = new Random();
         List<string> faultList;
         public bool shouldSend { get; set; } = false;
@@ -52,10 +58,10 @@ namespace SendGUI
             int id = 3;
             stream.Write(BitConverter.GetBytes(id), 0, 4);
             stream.Flush();
-            AssembleDoc();
+            AssembleProtoBuf();
         }
 
-        async void SendData()
+        async void SendBsonData()
         {
             while (true)
             {
@@ -76,6 +82,37 @@ namespace SendGUI
                 
         }
 
+        async void SendProtoData()
+        {
+            while (true)
+            {
+                count++;
+                protobufSensors.Timestamp = Timestamp.FromDateTime(DateTime.UtcNow);
+                if (shouldSend)
+                {
+                    protobufSensors.EncEmbeddedSystem = new Types.EmbeddedSystem()
+                    {
+                        InternalTemperature = { (float)( 2 * Math.Sin(count * Math.PI / 180))},
+                        InternalPressure = { (float)(2 * Math.Sin(count * Math.PI / 180 + 5 * Math.PI / 180))},
+                        ExternalModulePressure = { (float)(2 * Math.Sin(count * Math.PI / 180 + 10 * Math.PI / 180))}
+                    };
+
+                    byte[] msg = protobufSensors.ToByteArray();
+
+                    byte[] b = new byte[msg.Length + 4];
+                    
+                    Array.Copy(BitConverter.GetBytes(msg.Length),b,4);
+                    Array.Copy(msg,0,b,4,msg.Length);
+
+                    stream.Write(b,0,b.Length);
+                    stream.Flush();
+                    await Task.Delay(100);
+
+                }
+                    
+            }
+        }
+
         private void RemoveFault_Click(object sender, RoutedEventArgs e)
         {
             
@@ -92,7 +129,7 @@ namespace SendGUI
         {
             Initialize();
             shouldSend = true;
-            SendData();
+            SendProtoData();
         }
 
         void AssembleDoc()
@@ -146,6 +183,28 @@ namespace SendGUI
             document.forward.enclosure8.externalTemperature = 0;
         }
 
+        void AssembleProtoBuf()
+        {
+            protobufSensors = new AnnelidaSensors()
+            {
+                EncReception = new Types.UmbilicalReception(),
+                EncNotRegulated1 = new Types.NotRegulatedConverter(),
+                EncNotRegulated2 = new Types.NotRegulatedConverter(),
+                EncRegulated1 = new Types.RegulatedConverter(),
+                EncRegulated2 = new Types.RegulatedConverter(),
+                EncEmbeddedSystem = new Types.EmbeddedSystem(),
+                EncMotorController1 = new Types.MotorController(),
+                EncMotorController2 = new Types.MotorController(),
+                EncMotorController3 = new Types.MotorController(),
+                EncMotorController4 = new Types.MotorController(),
+                EncMotorController5 = new Types.MotorController(),
+                EncForwardLocomotive = new Types.Locomotive(),
+                EncBackwardLocomotive = new Types.Locomotive(),
+                SystemPumps = new Types.PumpsEngine(),
+                EncReactor = new Types.SgnReactor()
+            };
+
+        }
 
     }
 }

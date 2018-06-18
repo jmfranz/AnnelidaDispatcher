@@ -24,7 +24,7 @@ namespace AnnelidaDispatcher.Model.Server
             };
         }
 
-        public void RedespatchMessage(byte[] message, Dictionary<ClientTypes.Types, List<TcpClient>> connectedClients,
+        public new void RedespatchMessage(byte[] message, Dictionary<ClientTypes.Types, List<TcpClient>> connectedClients,
             ClientTypes.Types origin)
         {
             base.RedespatchMessage(message,connectedClients,origin);

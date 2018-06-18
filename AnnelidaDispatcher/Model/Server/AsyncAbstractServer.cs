@@ -1,30 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq.Expressions;
+using System.Linq;
 using System.Net;
 using System.Net.Sockets;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using MongoDB.Bson;
-using MongoDB.Bson.IO;
-using MongoDB.Bson.Serialization;
-using MongoDB.Bson.Serialization.Serializers;
 
 namespace AnnelidaDispatcher.Model.Server
 {
-    public class AsyncDispatcherServer : AbstractServer
+    public abstract class AsyncAbstractServer : AbstractServer
     {
         private CancellationTokenSource cts;
         private TcpListener listener;
-        
-        
-        public AsyncDispatcherServer(int tcpPort)
+
+
+        public AsyncAbstractServer(int tcpPort)
         {
             cts = new CancellationTokenSource();
             listener = new TcpListener(IPAddress.Any, tcpPort);
             messageDispatchStrategy = new NoDBDispatchStrategy();
-
-
         }
 
         public override void Start()
@@ -82,13 +77,13 @@ namespace AnnelidaDispatcher.Model.Server
                         Console.WriteLine(ex);
                         break;
                     }
-                    
+
                     if (ammountRead == 0) break;
 
-                    
+
                     if (myType == ClientTypes.Types.Undefined)
                     {
-                        myType = IdentifyClient(buf,client);
+                        myType = IdentifyClient(buf, client);
                         OnClientConnected(myType, clientEndPoint.Address.ToString());
                         //ClientConnectedEvent?.Invoke(myType, clientEndPoint.Address.ToString());
                     }
@@ -97,17 +92,17 @@ namespace AnnelidaDispatcher.Model.Server
                         totalReceivedSize += ammountRead;
                         if (ammountToReceive == 4)
                         {
-                            byte[] size = {buf[0], buf[1], buf[2], buf[3]};
+                            byte[] size = { buf[0], buf[1], buf[2], buf[3] };
                             totalMessageSize = BitConverter.ToInt32(size, 0);
                             ammountToReceive = totalMessageSize - 4;
                             completedMessage = new byte[totalMessageSize];
-                            Array.Copy(size,completedMessage,4);
+                            Array.Copy(size, completedMessage, 4);
 
                         }
                         else
                         {
                             Array.Copy(buf, 0, completedMessage, totalReceivedSize - ammountRead, ammountRead);
-                            
+
                             if (totalReceivedSize == totalMessageSize)
                             {
                                 HandleMessage(completedMessage, totalMessageSize, myType);
@@ -138,30 +133,6 @@ namespace AnnelidaDispatcher.Model.Server
             return myType;
         }
 
-        private void HandleMessage(byte[] buffer, int ammountRead,ClientTypes.Types myType)
-        {
-           var message = ProcessSerializedBson(buffer, ammountRead);
-                       
-           messageDispatchStrategy.RedespatchMessage(message.ToBson(), connectedClients, myType);
-        }
-        private BsonDocument ProcessSerializedBson(byte[] bytes, int packageSize)
-        {
-
-            try
-            {
-                var doc = BsonSerializer.Deserialize<BsonDocument>(bytes);
-                BsonDateTime timestamp = DateTime.UtcNow;
-                doc["timestamp"] = timestamp;
-                return doc;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.ToString());
-
-                return null;
-            }
-        }
-
-      
+        protected abstract void HandleMessage(byte[] buffer, int ammountRead, ClientTypes.Types myType);
     }
 }
