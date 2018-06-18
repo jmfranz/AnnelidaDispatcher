@@ -9,7 +9,7 @@ namespace AnnelidaDispatcher.Model.Server
 {
     public class NoDBDispatchStrategy: IMessageDispatcherStrategy
     {
-        public void RedespatchMessage(byte[] message, Dictionary<ClientTypes.Types, List<TcpClient>> connectedClients, ClientTypes.Types origin)
+        public virtual void RedespatchMessage(byte[] message, Dictionary<ClientTypes.Types, List<TcpClient>> connectedClients, ClientTypes.Types origin)
         {
             //TODO: Change behaviour to state, maybe?
             try

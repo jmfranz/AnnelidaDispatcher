@@ -123,6 +123,7 @@
     <Compile Include="Model\Server\BsonServerDBEnabled.cs" />
     <Compile Include="Model\Server\MongoDispatchStrategy.cs" />
     <Compile Include="Model\Server\NoDBDispatchStrategy.cs" />
+    <Compile Include="Model\Server\ProtoBufNoDBDispatchStrategy.cs" />
     <Compile Include="Model\Server\ProtoBufServer.cs" />
     <Compile Include="Strings.Designer.cs">
       <AutoGen>True</AutoGen>

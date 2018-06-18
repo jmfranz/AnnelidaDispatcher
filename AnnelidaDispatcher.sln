@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnnelidaDataFormat", "Annel
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreInMongo", "StoreInMongo\StoreInMongo.csproj", "{2296925B-6DD4-42B1-8020-CFE71A516E60}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReceiveProtobuf", "ReceiveProtobuf\ReceiveProtobuf.csproj", "{DAE31FBF-AF95-4DFA-BC88-E8C3D200ED95}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{2296925B-6DD4-42B1-8020-CFE71A516E60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2296925B-6DD4-42B1-8020-CFE71A516E60}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2296925B-6DD4-42B1-8020-CFE71A516E60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAE31FBF-AF95-4DFA-BC88-E8C3D200ED95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAE31FBF-AF95-4DFA-BC88-E8C3D200ED95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAE31FBF-AF95-4DFA-BC88-E8C3D200ED95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAE31FBF-AF95-4DFA-BC88-E8C3D200ED95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
