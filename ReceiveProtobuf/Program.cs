@@ -4,10 +4,10 @@ using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
-
+using AnnelidaDispatcher.Model.DataTransmission;
 using Google.Protobuf;
 
-using static AnnelidaSensors;
+using static AnnelidaDispatcher.Model.DataTransmission.AnnelidaSensors;
 
 namespace ReceiveProtobuf
 {

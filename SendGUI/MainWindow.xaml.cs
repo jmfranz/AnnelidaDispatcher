@@ -17,10 +17,11 @@ using System.Windows.Shapes;
 
 using MongoDB.Bson;
 using System.Threading;
+using AnnelidaDispatcher.Model.DataTransmission;
 
 using Google.Protobuf;
 using Google.Protobuf.WellKnownTypes;
-using static AnnelidaSensors;
+using static AnnelidaDispatcher.Model.DataTransmission.AnnelidaSensors;
 
 namespace SendGUI
 {
