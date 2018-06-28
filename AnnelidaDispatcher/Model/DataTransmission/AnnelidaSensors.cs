@@ -25,7 +25,7 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChZhbm5lbGlkYV9zZW5zb3JzLnByb3RvGh9nb29nbGUvcHJvdG9idWYvdGlt",
-            "ZXN0YW1wLnByb3RvItEgCg9Bbm5lbGlkYVNlbnNvcnMSLQoJdGltZXN0YW1w",
+            "ZXN0YW1wLnByb3RvItIgCg9Bbm5lbGlkYVNlbnNvcnMSLQoJdGltZXN0YW1w",
             "GAEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBI6Cg1lbmNfcmVj",
             "ZXB0aW9uGAIgASgLMiMuQW5uZWxpZGFTZW5zb3JzLlVtYmlsaWNhbFJlY2Vw",
             "dGlvbhJDChNlbmNfbm90X3JlZ3VsYXRlZF8xGAMgASgLMiYuQW5uZWxpZGFT",
@@ -48,86 +48,86 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
             "bnNvcnMuTG9jb21vdGl2ZRIyCgxzeXN0ZW1fcHVtcHMYDyABKAsyHC5Bbm5l",
             "bGlkYVNlbnNvcnMuUHVtcHNFbmdpbmUSMAoLZW5jX3JlYWN0b3IYECABKAsy",
             "Gy5Bbm5lbGlkYVNlbnNvcnMuU2duUmVhY3RvchomChJVbWJpbGljYWxSZWNl",
-            "cHRpb24SEAoIdHJhY3Rpb24YASABKA0apAIKFU5vdFJlZ3VsYXRlZENvbnZl",
+            "cHRpb24SEAoIdHJhY3Rpb24YASABKA0apQIKFU5vdFJlZ3VsYXRlZENvbnZl",
             "cnRlchIcChRpbnRlcm5hbF90ZW1wZXJhdHVyZRgBIAMoAhIZChFpbnRlcm5h",
             "bF9wcmVzc3VyZRgCIAMoAhIdChVlbGVjdHJpY2FsX2N1cnJlbnRfYzEYAyAD",
             "KAISHQoVZWxlY3RyaWNhbF9jdXJyZW50X2MyGAQgAygCEh0KFWVsZWN0cmlj",
             "YWxfY3VycmVudF9jMxgFIAMoAhIbChNlbGVjdHJpY2FsX3Bvd2VyX3AxGAYg",
-            "AygCEhsKE2VsZWN0cmljYWxfcG93ZXJfcDIYByADKAISGgoSZWxlY3RyaWNh",
-            "bF9wb3dlcl8zGAggAygCEh8KF2VsZWN0cmljYWxfdGVuc2lvbl83MDB2GAkg",
-            "AygCGtkCChJSZWd1bGF0ZWRDb252ZXJ0ZXISHAoUaW50ZXJuYWxfdGVtcGVy",
-            "YXR1cmUYASADKAISGQoRaW50ZXJuYWxfcHJlc3N1cmUYAiADKAISHQoVZWxl",
-            "Y3RyaWNhbF9jdXJyZW50X2MxGAMgAygCEh0KFWVsZWN0cmljYWxfY3VycmVu",
-            "dF9jMhgEIAMoAhIdChVlbGVjdHJpY2FsX2N1cnJlbnRfYzMYBSADKAISHQoV",
-            "ZWxlY3RyaWNhbF9jdXJyZW50X2M0GAYgAygCEhsKE2VsZWN0cmljYWxfcG93",
-            "ZXJfcDEYByADKAISGwoTZWxlY3RyaWNhbF9wb3dlcl9wMhgIIAMoAhIbChNl",
-            "bGVjdHJpY2FsX3Bvd2VyX3AzGAkgAygCEhsKE2VsZWN0cmljYWxfcG93ZXJf",
-            "cDQYCiADKAISGgoSZWxlY3RyaWNhbF90ZW5zaW9uGAsgAygCGrcCCg5FbWJl",
-            "ZGRlZFN5c3RlbRIcChRpbnRlcm5hbF90ZW1wZXJhdHVyZRgBIAMoAhIZChFp",
-            "bnRlcm5hbF9wcmVzc3VyZRgCIAMoAhIgChhleHRlcm5hbF9tb2R1bGVfcHJl",
-            "c3N1cmUYAyADKAISEgoKcm90YXRpb25feBgEIAMoAhISCgpyb3RhdGlvbl95",
-            "GAUgAygCEhIKCnJvdGF0aW9uX3oYBiADKAISFgoOZGlzcGxhY2VtZW50X3gY",
-            "ByADKAISFgoOZGlzcGxhY2VtZW50X3kYCCADKAISFgoOZGlzcGxhY2VtZW50",
-            "X3oYCSADKAISFgoOYWNjZWxlcmF0aW9uX3gYCiADKAISFgoOYWNjZWxlcmF0",
-            "aW9uX3kYCyADKAISFgoOYWNjZWxlcmF0aW9uX3oYDCADKAIaggEKD01vdG9y",
-            "Q29udHJvbGxlchIcChRpbnRlcm5hbF90ZW1wZXJhdHVyZRgBIAMoAhIZChFp",
-            "bnRlcm5hbF9wcmVzc3VyZRgCIAMoAhIaChJlbGVjdHJpY2FsX2N1cnJlbnQY",
-            "AyADKAISGgoSZWxlY3RyaWNhbF90ZW5zaW9uGAQgAygCGmEKCkxvY29tb3Rp",
-            "dmUSKAoQY3lsaW5kZXJfZm9yd2FyZBgBIAMoDjIOLkN5bGluZGVyU3RhdGUS",
-            "KQoRY3lsaW5kZXJfYmFja3dhcmQYAiADKA4yDi5DeWxpbmRlclN0YXRlGrcO",
-            "CgtQdW1wc0VuZ2luZRJRChdlbmNfbWFuaWZvbGRfMV9iYWNrd2FyZBgBIAEo",
-            "CzIwLkFubmVsaWRhU2Vuc29ycy5QdW1wc0VuZ2luZS5NYW5pZm9sZF8xX0Jh",
-            "Y2t3YXJkElEKF2VuY19tYW5pZm9sZF8zX2JhY2t3YXJkGAIgASgLMjAuQW5u",
-            "ZWxpZGFTZW5zb3JzLlB1bXBzRW5naW5lLk1hbmlmb2xkXzNfQmFja3dhcmQS",
-            "QgoQZW5jX21vdG9yX2JvbWJfMRgDIAEoCzIoLkFubmVsaWRhU2Vuc29ycy5Q",
-            "dW1wc0VuZ2luZS5Nb3RvckJvbWJfMRJCChBlbmNfbW90b3JfYm9tYl8yGAQg",
-            "ASgLMiguQW5uZWxpZGFTZW5zb3JzLlB1bXBzRW5naW5lLk1vdG9yQm9tYl8y",
-            "ElEKF2VuY19tYW5pZm9sZF8yX2F1eGlsaWFyGAUgASgLMjAuQW5uZWxpZGFT",
-            "ZW5zb3JzLlB1bXBzRW5naW5lLk1hbmlmb2xkXzJfQXV4aWxpYXISTwoXZW5j",
-            "X21vdG9yX2JvbWJfYXV4aWxpYXIYBiABKAsyLi5Bbm5lbGlkYVNlbnNvcnMu",
-            "UHVtcHNFbmdpbmUuTW90b3JCb21iQXV4aWxpYXISSQoTZW5jX21hbmlmb2xk",
-            "XzJfbWFpbhgHIAEoCzIsLkFubmVsaWRhU2Vuc29ycy5QdW1wc0VuZ2luZS5N",
-            "YW5pZm9sZF8yX01haW4SQgoQZW5jX21vdG9yX2JvbWJfMxgIIAEoCzIoLkFu",
-            "bmVsaWRhU2Vuc29ycy5QdW1wc0VuZ2luZS5Nb3RvckJvbWJfMxJCChBlbmNf",
-            "bW90b3JfYm9tYl80GAkgASgLMiguQW5uZWxpZGFTZW5zb3JzLlB1bXBzRW5n",
-            "aW5lLk1vdG9yQm9tYl80Ek8KFmVuY19tYW5pZm9sZF8zX2ZvcndhcmQYCiAB",
-            "KAsyLy5Bbm5lbGlkYVNlbnNvcnMuUHVtcHNFbmdpbmUuTWFuaWZvbGRfM19G",
-            "b3J3YXJkEk8KFmVuY19tYW5pZm9sZF8xX2ZvcndhcmQYCyABKAsyLy5Bbm5l",
-            "bGlkYVNlbnNvcnMuUHVtcHNFbmdpbmUuTWFuaWZvbGRfMV9Gb3J3YXJkGokB",
-            "ChNNYW5pZm9sZF8xX0JhY2t3YXJkEjcKH3NvbGVub2lkX2N5bGluZGVyX21v",
-            "dmVfYmFja3dhcmQYASADKA4yDi5Tb2xlbm9pZFN0YXRlEjkKIXNvbGVub2lk",
-            "X2N5bGluZGVyX2FjdGl2ZV9iYWNrd2FyZBgCIAMoDjIOLlNvbGVub2lkU3Rh",
-            "dGUaTAoTTWFuaWZvbGRfM19CYWNrd2FyZBI1Ch1zb2xlbm9pZF9hY3RpdmVf",
-            "Zm9vdF9iYWNrd2FyZBgBIAMoDjIOLlNvbGVub2lkU3RhdGUaTgoLTW90b3JC",
-            "b21iXzESFwoPb2lsX3RlbXBlcmF0dXJlGAEgAygCEhEKCW1vdG9yX3JwbRgC",
-            "IAMoDRITCgttb3Rvcl9wb3dlchgDIAMoAho1CgtNb3RvckJvbWJfMhIRCglt",
-            "b3Rvcl9ycG0YASADKA0SEwoLbW90b3JfcG93ZXIYAiADKAIaaAoTTWFuaWZv",
-            "bGRfMl9BdXhpbGlhchIgChhoeWRyYXVsaWNfZm9vdHNfcHJlc3N1cmUYASAD",
-            "KAISLwoXc29sZW5vaWRfcHJlc3N1cmVfZm9vdHMYAiADKA4yDi5Tb2xlbm9p",
-            "ZFN0YXRlGlcKEU1vdG9yQm9tYkF1eGlsaWFyEhoKEnRlbXBlcmF0dXJlX3Nl",
-            "bnNvchgBIAMoAhIRCgltb3Rvcl9ycG0YAiADKA0SEwoLbW90b3JfcG93ZXIY",
-            "AyADKAIaZgoPTWFuaWZvbGRfMl9NYWluEiMKG2h5ZHJhdWxpY19jeWxpbmRl",
-            "cl9wcmVzc3VyZRgBIAMoAhIuChZzb2xlbm9pZF9tb3ZlX3ByZXNzdXJlGAIg",
-            "AygOMg4uU29sZW5vaWRTdGF0ZRo1CgtNb3RvckJvbWJfMxIRCgltb3Rvcl9y",
-            "cG0YASADKAISEwoLbW90b3JfcG93ZXIYAiADKAIaTgoLTW90b3JCb21iXzQS",
-            "FwoPb2lsX3RlbXBlcmF0dXJlGAEgAygCEhEKCW1vdG9yX3JwbRgCIAMoDRIT",
-            "Cgttb3Rvcl9wb3dlchgDIAMoAhpFChJNYW5pZm9sZF8zX0ZvcndhcmQSLwoX",
-            "c29sZW5vaWRfYWN0aXZlX2ZvcndhcmQYASADKA4yDi5Tb2xlbm9pZFN0YXRl",
-            "GoYBChJNYW5pZm9sZF8xX0ZvcndhcmQSNgoec29sZW5vaWRfY3lsaW5kZXJf",
-            "bW92ZV9mb3J3YXJkGAEgAygOMg4uU29sZW5vaWRTdGF0ZRI4CiBzb2xlbm9p",
-            "ZF9jeWxpbmRlcl9hY3RpdmVfZm9yd2FyZBgCIAMoDjIOLlNvbGVub2lkU3Rh",
-            "dGUaXQoKU2duUmVhY3RvchIXCg9zZ25fdGVtcGVyYXR1cmUYASADKAISHAoU",
-            "b2JzdHJ1Y3Rpb25fZGV0ZWN0ZWQYAiADKAgSGAoQcmVhY3Rvcl9wcmVzc3Vy",
-            "ZRgDIAMoAio/Cg1Tb2xlbm9pZFN0YXRlEhMKD1VOS05PV19TT0xFTk9JRBAA",
-            "EgsKB0FDVElWRUQQARIMCghESVNBQkxFRBACKkEKDUN5bGluZGVyU3RhdGUS",
-            "EwoPVU5LTk9XX0NZTElOREVSEAASDAoIQURWQU5DRUQQARINCglXSVRIRFJB",
-            "V04QAkIsqgIpQW5uZWxpZGFEaXNwYXRjaGVyLk1vZGVsLkRhdGFUcmFuc21p",
-            "c3Npb25iBnByb3RvMw=="));
+            "AygCEhsKE2VsZWN0cmljYWxfcG93ZXJfcDIYByADKAISGwoTZWxlY3RyaWNh",
+            "bF9wb3dlcl9wMxgIIAMoAhIfChdlbGVjdHJpY2FsX3RlbnNpb25fNzAwdhgJ",
+            "IAMoAhrZAgoSUmVndWxhdGVkQ29udmVydGVyEhwKFGludGVybmFsX3RlbXBl",
+            "cmF0dXJlGAEgAygCEhkKEWludGVybmFsX3ByZXNzdXJlGAIgAygCEh0KFWVs",
+            "ZWN0cmljYWxfY3VycmVudF9jMRgDIAMoAhIdChVlbGVjdHJpY2FsX2N1cnJl",
+            "bnRfYzIYBCADKAISHQoVZWxlY3RyaWNhbF9jdXJyZW50X2MzGAUgAygCEh0K",
+            "FWVsZWN0cmljYWxfY3VycmVudF9jNBgGIAMoAhIbChNlbGVjdHJpY2FsX3Bv",
+            "d2VyX3AxGAcgAygCEhsKE2VsZWN0cmljYWxfcG93ZXJfcDIYCCADKAISGwoT",
+            "ZWxlY3RyaWNhbF9wb3dlcl9wMxgJIAMoAhIbChNlbGVjdHJpY2FsX3Bvd2Vy",
+            "X3A0GAogAygCEhoKEmVsZWN0cmljYWxfdGVuc2lvbhgLIAMoAhq3AgoORW1i",
+            "ZWRkZWRTeXN0ZW0SHAoUaW50ZXJuYWxfdGVtcGVyYXR1cmUYASADKAISGQoR",
+            "aW50ZXJuYWxfcHJlc3N1cmUYAiADKAISIAoYZXh0ZXJuYWxfbW9kdWxlX3By",
+            "ZXNzdXJlGAMgAygCEhIKCnJvdGF0aW9uX3gYBCADKAISEgoKcm90YXRpb25f",
+            "eRgFIAMoAhISCgpyb3RhdGlvbl96GAYgAygCEhYKDmRpc3BsYWNlbWVudF94",
+            "GAcgAygCEhYKDmRpc3BsYWNlbWVudF95GAggAygCEhYKDmRpc3BsYWNlbWVu",
+            "dF96GAkgAygCEhYKDmFjY2VsZXJhdGlvbl94GAogAygCEhYKDmFjY2VsZXJh",
+            "dGlvbl95GAsgAygCEhYKDmFjY2VsZXJhdGlvbl96GAwgAygCGoIBCg9Nb3Rv",
+            "ckNvbnRyb2xsZXISHAoUaW50ZXJuYWxfdGVtcGVyYXR1cmUYASADKAISGQoR",
+            "aW50ZXJuYWxfcHJlc3N1cmUYAiADKAISGgoSZWxlY3RyaWNhbF9jdXJyZW50",
+            "GAMgAygCEhoKEmVsZWN0cmljYWxfdGVuc2lvbhgEIAMoAhphCgpMb2NvbW90",
+            "aXZlEigKEGN5bGluZGVyX2ZvcndhcmQYASADKA4yDi5DeWxpbmRlclN0YXRl",
+            "EikKEWN5bGluZGVyX2JhY2t3YXJkGAIgAygOMg4uQ3lsaW5kZXJTdGF0ZRq3",
+            "DgoLUHVtcHNFbmdpbmUSUQoXZW5jX21hbmlmb2xkXzFfYmFja3dhcmQYASAB",
+            "KAsyMC5Bbm5lbGlkYVNlbnNvcnMuUHVtcHNFbmdpbmUuTWFuaWZvbGRfMV9C",
+            "YWNrd2FyZBJRChdlbmNfbWFuaWZvbGRfM19iYWNrd2FyZBgCIAEoCzIwLkFu",
+            "bmVsaWRhU2Vuc29ycy5QdW1wc0VuZ2luZS5NYW5pZm9sZF8zX0JhY2t3YXJk",
+            "EkIKEGVuY19tb3Rvcl9ib21iXzEYAyABKAsyKC5Bbm5lbGlkYVNlbnNvcnMu",
+            "UHVtcHNFbmdpbmUuTW90b3JCb21iXzESQgoQZW5jX21vdG9yX2JvbWJfMhgE",
+            "IAEoCzIoLkFubmVsaWRhU2Vuc29ycy5QdW1wc0VuZ2luZS5Nb3RvckJvbWJf",
+            "MhJRChdlbmNfbWFuaWZvbGRfMl9hdXhpbGlhchgFIAEoCzIwLkFubmVsaWRh",
+            "U2Vuc29ycy5QdW1wc0VuZ2luZS5NYW5pZm9sZF8yX0F1eGlsaWFyEk8KF2Vu",
+            "Y19tb3Rvcl9ib21iX2F1eGlsaWFyGAYgASgLMi4uQW5uZWxpZGFTZW5zb3Jz",
+            "LlB1bXBzRW5naW5lLk1vdG9yQm9tYkF1eGlsaWFyEkkKE2VuY19tYW5pZm9s",
+            "ZF8yX21haW4YByABKAsyLC5Bbm5lbGlkYVNlbnNvcnMuUHVtcHNFbmdpbmUu",
+            "TWFuaWZvbGRfMl9NYWluEkIKEGVuY19tb3Rvcl9ib21iXzMYCCABKAsyKC5B",
+            "bm5lbGlkYVNlbnNvcnMuUHVtcHNFbmdpbmUuTW90b3JCb21iXzMSQgoQZW5j",
+            "X21vdG9yX2JvbWJfNBgJIAEoCzIoLkFubmVsaWRhU2Vuc29ycy5QdW1wc0Vu",
+            "Z2luZS5Nb3RvckJvbWJfNBJPChZlbmNfbWFuaWZvbGRfM19mb3J3YXJkGAog",
+            "ASgLMi8uQW5uZWxpZGFTZW5zb3JzLlB1bXBzRW5naW5lLk1hbmlmb2xkXzNf",
+            "Rm9yd2FyZBJPChZlbmNfbWFuaWZvbGRfMV9mb3J3YXJkGAsgASgLMi8uQW5u",
+            "ZWxpZGFTZW5zb3JzLlB1bXBzRW5naW5lLk1hbmlmb2xkXzFfRm9yd2FyZBqJ",
+            "AQoTTWFuaWZvbGRfMV9CYWNrd2FyZBI3Ch9zb2xlbm9pZF9jeWxpbmRlcl9t",
+            "b3ZlX2JhY2t3YXJkGAEgAygOMg4uU29sZW5vaWRTdGF0ZRI5CiFzb2xlbm9p",
+            "ZF9jeWxpbmRlcl9hY3RpdmVfYmFja3dhcmQYAiADKA4yDi5Tb2xlbm9pZFN0",
+            "YXRlGkwKE01hbmlmb2xkXzNfQmFja3dhcmQSNQodc29sZW5vaWRfYWN0aXZl",
+            "X2Zvb3RfYmFja3dhcmQYASADKA4yDi5Tb2xlbm9pZFN0YXRlGk4KC01vdG9y",
+            "Qm9tYl8xEhcKD29pbF90ZW1wZXJhdHVyZRgBIAMoAhIRCgltb3Rvcl9ycG0Y",
+            "AiADKA0SEwoLbW90b3JfcG93ZXIYAyADKAIaNQoLTW90b3JCb21iXzISEQoJ",
+            "bW90b3JfcnBtGAEgAygNEhMKC21vdG9yX3Bvd2VyGAIgAygCGmgKE01hbmlm",
+            "b2xkXzJfQXV4aWxpYXISIAoYaHlkcmF1bGljX2Zvb3RzX3ByZXNzdXJlGAEg",
+            "AygCEi8KF3NvbGVub2lkX3ByZXNzdXJlX2Zvb3RzGAIgAygOMg4uU29sZW5v",
+            "aWRTdGF0ZRpXChFNb3RvckJvbWJBdXhpbGlhchIaChJ0ZW1wZXJhdHVyZV9z",
+            "ZW5zb3IYASADKAISEQoJbW90b3JfcnBtGAIgAygNEhMKC21vdG9yX3Bvd2Vy",
+            "GAMgAygCGmYKD01hbmlmb2xkXzJfTWFpbhIjChtoeWRyYXVsaWNfY3lsaW5k",
+            "ZXJfcHJlc3N1cmUYASADKAISLgoWc29sZW5vaWRfbW92ZV9wcmVzc3VyZRgC",
+            "IAMoDjIOLlNvbGVub2lkU3RhdGUaNQoLTW90b3JCb21iXzMSEQoJbW90b3Jf",
+            "cnBtGAEgAygCEhMKC21vdG9yX3Bvd2VyGAIgAygCGk4KC01vdG9yQm9tYl80",
+            "EhcKD29pbF90ZW1wZXJhdHVyZRgBIAMoAhIRCgltb3Rvcl9ycG0YAiADKA0S",
+            "EwoLbW90b3JfcG93ZXIYAyADKAIaRQoSTWFuaWZvbGRfM19Gb3J3YXJkEi8K",
+            "F3NvbGVub2lkX2FjdGl2ZV9mb3J3YXJkGAEgAygOMg4uU29sZW5vaWRTdGF0",
+            "ZRqGAQoSTWFuaWZvbGRfMV9Gb3J3YXJkEjYKHnNvbGVub2lkX2N5bGluZGVy",
+            "X21vdmVfZm9yd2FyZBgBIAMoDjIOLlNvbGVub2lkU3RhdGUSOAogc29sZW5v",
+            "aWRfY3lsaW5kZXJfYWN0aXZlX2ZvcndhcmQYAiADKA4yDi5Tb2xlbm9pZFN0",
+            "YXRlGl0KClNnblJlYWN0b3ISFwoPc2duX3RlbXBlcmF0dXJlGAEgAygCEhwK",
+            "FG9ic3RydWN0aW9uX2RldGVjdGVkGAIgAygIEhgKEHJlYWN0b3JfcHJlc3N1",
+            "cmUYAyADKAIqPwoNU29sZW5vaWRTdGF0ZRITCg9VTktOT1dfU09MRU5PSUQQ",
+            "ABILCgdBQ1RJVkVEEAESDAoIRElTQUJMRUQQAipBCg1DeWxpbmRlclN0YXRl",
+            "EhMKD1VOS05PV19DWUxJTkRFUhAAEgwKCEFEVkFOQ0VEEAESDQoJV0lUSERS",
+            "QVdOEAJCLKoCKUFubmVsaWRhRGlzcGF0Y2hlci5Nb2RlbC5EYXRhVHJhbnNt",
+            "aXNzaW9uYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState), typeof(global::AnnelidaDispatcher.Model.DataTransmission.CylinderState), }, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::AnnelidaDispatcher.Model.DataTransmission.AnnelidaSensors), global::AnnelidaDispatcher.Model.DataTransmission.AnnelidaSensors.Parser, new[]{ "Timestamp", "EncReception", "EncNotRegulated1", "EncNotRegulated2", "EncRegulated1", "EncRegulated2", "EncEmbeddedSystem", "EncMotorController1", "EncMotorController2", "EncMotorController3", "EncMotorController4", "EncMotorController5", "EncForwardLocomotive", "EncBackwardLocomotive", "SystemPumps", "EncReactor" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::AnnelidaDispatcher.Model.DataTransmission.AnnelidaSensors.Types.UmbilicalReception), global::AnnelidaDispatcher.Model.DataTransmission.AnnelidaSensors.Types.UmbilicalReception.Parser, new[]{ "Traction" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::AnnelidaDispatcher.Model.DataTransmission.AnnelidaSensors.Types.NotRegulatedConverter), global::AnnelidaDispatcher.Model.DataTransmission.AnnelidaSensors.Types.NotRegulatedConverter.Parser, new[]{ "InternalTemperature", "InternalPressure", "ElectricalCurrentC1", "ElectricalCurrentC2", "ElectricalCurrentC3", "ElectricalPowerP1", "ElectricalPowerP2", "ElectricalPower3", "ElectricalTension700V" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::AnnelidaDispatcher.Model.DataTransmission.AnnelidaSensors.Types.NotRegulatedConverter), global::AnnelidaDispatcher.Model.DataTransmission.AnnelidaSensors.Types.NotRegulatedConverter.Parser, new[]{ "InternalTemperature", "InternalPressure", "ElectricalCurrentC1", "ElectricalCurrentC2", "ElectricalCurrentC3", "ElectricalPowerP1", "ElectricalPowerP2", "ElectricalPowerP3", "ElectricalTension700V" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::AnnelidaDispatcher.Model.DataTransmission.AnnelidaSensors.Types.RegulatedConverter), global::AnnelidaDispatcher.Model.DataTransmission.AnnelidaSensors.Types.RegulatedConverter.Parser, new[]{ "InternalTemperature", "InternalPressure", "ElectricalCurrentC1", "ElectricalCurrentC2", "ElectricalCurrentC3", "ElectricalCurrentC4", "ElectricalPowerP1", "ElectricalPowerP2", "ElectricalPowerP3", "ElectricalPowerP4", "ElectricalTension" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::AnnelidaDispatcher.Model.DataTransmission.AnnelidaSensors.Types.EmbeddedSystem), global::AnnelidaDispatcher.Model.DataTransmission.AnnelidaSensors.Types.EmbeddedSystem.Parser, new[]{ "InternalTemperature", "InternalPressure", "ExternalModulePressure", "RotationX", "RotationY", "RotationZ", "DisplacementX", "DisplacementY", "DisplacementZ", "AccelerationX", "AccelerationY", "AccelerationZ" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::AnnelidaDispatcher.Model.DataTransmission.AnnelidaSensors.Types.MotorController), global::AnnelidaDispatcher.Model.DataTransmission.AnnelidaSensors.Types.MotorController.Parser, new[]{ "InternalTemperature", "InternalPressure", "ElectricalCurrent", "ElectricalTension" }, null, null, null),
@@ -973,7 +973,7 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
           electricalCurrentC3_ = other.electricalCurrentC3_.Clone();
           electricalPowerP1_ = other.electricalPowerP1_.Clone();
           electricalPowerP2_ = other.electricalPowerP2_.Clone();
-          electricalPower3_ = other.electricalPower3_.Clone();
+          electricalPowerP3_ = other.electricalPowerP3_.Clone();
           electricalTension700V_ = other.electricalTension700V_.Clone();
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
@@ -1053,14 +1053,14 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
           get { return electricalPowerP2_; }
         }
 
-        /// <summary>Field number for the "electrical_power_3" field.</summary>
-        public const int ElectricalPower3FieldNumber = 8;
-        private static readonly pb::FieldCodec<float> _repeated_electricalPower3_codec
+        /// <summary>Field number for the "electrical_power_p3" field.</summary>
+        public const int ElectricalPowerP3FieldNumber = 8;
+        private static readonly pb::FieldCodec<float> _repeated_electricalPowerP3_codec
             = pb::FieldCodec.ForFloat(66);
-        private readonly pbc::RepeatedField<float> electricalPower3_ = new pbc::RepeatedField<float>();
+        private readonly pbc::RepeatedField<float> electricalPowerP3_ = new pbc::RepeatedField<float>();
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<float> ElectricalPower3 {
-          get { return electricalPower3_; }
+        public pbc::RepeatedField<float> ElectricalPowerP3 {
+          get { return electricalPowerP3_; }
         }
 
         /// <summary>Field number for the "electrical_tension_700v" field.</summary>
@@ -1093,7 +1093,7 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
           if(!electricalCurrentC3_.Equals(other.electricalCurrentC3_)) return false;
           if(!electricalPowerP1_.Equals(other.electricalPowerP1_)) return false;
           if(!electricalPowerP2_.Equals(other.electricalPowerP2_)) return false;
-          if(!electricalPower3_.Equals(other.electricalPower3_)) return false;
+          if(!electricalPowerP3_.Equals(other.electricalPowerP3_)) return false;
           if(!electricalTension700V_.Equals(other.electricalTension700V_)) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
@@ -1108,7 +1108,7 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
           hash ^= electricalCurrentC3_.GetHashCode();
           hash ^= electricalPowerP1_.GetHashCode();
           hash ^= electricalPowerP2_.GetHashCode();
-          hash ^= electricalPower3_.GetHashCode();
+          hash ^= electricalPowerP3_.GetHashCode();
           hash ^= electricalTension700V_.GetHashCode();
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
@@ -1130,7 +1130,7 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
           electricalCurrentC3_.WriteTo(output, _repeated_electricalCurrentC3_codec);
           electricalPowerP1_.WriteTo(output, _repeated_electricalPowerP1_codec);
           electricalPowerP2_.WriteTo(output, _repeated_electricalPowerP2_codec);
-          electricalPower3_.WriteTo(output, _repeated_electricalPower3_codec);
+          electricalPowerP3_.WriteTo(output, _repeated_electricalPowerP3_codec);
           electricalTension700V_.WriteTo(output, _repeated_electricalTension700V_codec);
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
@@ -1147,7 +1147,7 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
           size += electricalCurrentC3_.CalculateSize(_repeated_electricalCurrentC3_codec);
           size += electricalPowerP1_.CalculateSize(_repeated_electricalPowerP1_codec);
           size += electricalPowerP2_.CalculateSize(_repeated_electricalPowerP2_codec);
-          size += electricalPower3_.CalculateSize(_repeated_electricalPower3_codec);
+          size += electricalPowerP3_.CalculateSize(_repeated_electricalPowerP3_codec);
           size += electricalTension700V_.CalculateSize(_repeated_electricalTension700V_codec);
           if (_unknownFields != null) {
             size += _unknownFields.CalculateSize();
@@ -1167,7 +1167,7 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
           electricalCurrentC3_.Add(other.electricalCurrentC3_);
           electricalPowerP1_.Add(other.electricalPowerP1_);
           electricalPowerP2_.Add(other.electricalPowerP2_);
-          electricalPower3_.Add(other.electricalPower3_);
+          electricalPowerP3_.Add(other.electricalPowerP3_);
           electricalTension700V_.Add(other.electricalTension700V_);
           _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
         }
@@ -1217,7 +1217,7 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
               }
               case 66:
               case 69: {
-                electricalPower3_.AddEntriesFrom(input, _repeated_electricalPower3_codec);
+                electricalPowerP3_.AddEntriesFrom(input, _repeated_electricalPowerP3_codec);
                 break;
               }
               case 74:
