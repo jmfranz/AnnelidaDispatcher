@@ -25,18 +25,28 @@ message AnnelidaSensors {
 
 		repeated float internal_temperature = 1;
 		repeated float internal_pressure = 2;
-		repeated float electrical_current = 3;
-		repeated float electrical_power = 4;
-		repeated float electrical_tension_700v = 5;
+		repeated float electrical_current_c1 = 3;
+		repeated float electrical_current_c2 = 4;
+		repeated float electrical_current_c3 = 5;
+		repeated float electrical_power_p1 = 6;
+		repeated float electrical_power_p2 = 7;
+		repeated float electrical_power_p3 = 8;
+		repeated float electrical_tension_700v = 9;
 	}
 
 	message RegulatedConverter{
 
 		repeated float internal_temperature = 1;
 		repeated float internal_pressure = 2;
-		repeated float electrical_current = 3;
-		repeated float electrical_power = 4;
-		repeated float electrical_tension = 5;
+		repeated float electrical_current_c1 = 3;
+		repeated float electrical_current_c2 = 4;
+		repeated float electrical_current_c3 = 5;
+		repeated float electrical_current_c4 = 6;
+		repeated float electrical_power_p1 = 7;
+		repeated float electrical_power_p2 = 8;
+		repeated float electrical_power_p3 = 9;
+		repeated float electrical_power_p4 = 10;
+		repeated float electrical_tension = 11;
 	}
 
 	message EmbeddedSystem{
