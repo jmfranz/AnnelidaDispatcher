@@ -17,7 +17,13 @@ namespace AnnelidaDispatcher
     {
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            var model = new MainViewViewModel();
+
+            MainViewViewModel model;
+            if (e.Args.Length == 1)
+                model = new MainViewViewModel(e.Args[0]);
+            else
+                model = new MainViewViewModel();
+
             var view = new MainWindow();
             view.DataContext = model;
             view.Show();

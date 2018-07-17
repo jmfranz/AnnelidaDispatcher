@@ -6,14 +6,15 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using AnnelidaDispatcher.Model.Watchdog;
 
 namespace AnnelidaDispatcher.Model.Server
 {
     public abstract class AsyncAbstractServer : AbstractServer
     {
-        private CancellationTokenSource cts;
+        
         private TcpListener listener;
-
+        protected CancellationTokenSource cts;
 
         public AsyncAbstractServer(int tcpPort)
         {
@@ -53,5 +54,15 @@ namespace AnnelidaDispatcher.Model.Server
         }
 
         protected abstract void HandleMessage(byte[] buffer, int ammountRead, ClientTypes.Types myType);
+
+        public override async Task StartWatchdogBroadcaster(int port, string token)
+        {
+            var watchdogBroadcaster = new WatchDogBroadcaster(port, token);
+            while (!cts.IsCancellationRequested)
+            {
+                watchdogBroadcaster.SendWatchdogToken();
+                await Task.Delay(new TimeSpan(0, 0, 0, 1));
+            }
+        }
     }
 }

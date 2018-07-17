@@ -125,6 +125,7 @@
     <Compile Include="Model\Server\NoDBDispatchStrategy.cs" />
     <Compile Include="Model\Server\ProtoBufNoDBDispatchStrategy.cs" />
     <Compile Include="Model\Server\ProtoBufServer.cs" />
+    <Compile Include="Model\Watchdog\WatchDogBroadcaster.cs" />
     <Compile Include="Strings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.ComponentModel;
 using System.Globalization;
+using System.Runtime.CompilerServices;
 using AnnelidaDispatcher.Utilities;
 using AnnelidaDispatcher.Model;
 using AnnelidaDispatcher.Model.Server;
@@ -45,8 +46,9 @@ namespace AnnelidaDispatcher.ViewModel
         #endregion
 
         public event PropertyChangedEventHandler PropertyChanged;
-        
-               
+
+        private AbstractServer asyncDispatcherServer;
+
         /// <summary>
         /// Initializes all the necessary objects for the dispacher to work.
         /// Port is fixed on 9999
@@ -69,12 +71,17 @@ namespace AnnelidaDispatcher.ViewModel
             ControlDbName = "control";
             MissionName = missionName;
 
-            AbstractServer asyncDispatcherServer = new ProtoBufServer(MyPort);
+            asyncDispatcherServer = new ProtoBufServer(MyPort);
             //AbstractServer asyncDispatcherServer = new AsyncDispatcherServerDBEnabled(missionName,MyPort);
             asyncDispatcherServer.ClientConnectedEvent += ClientConnected;
             asyncDispatcherServer.ClientDisconnectedEvent += ClientDisconnected;
             asyncDispatcherServer.Start();
 
+        }
+
+        public MainViewViewModel(string watchdogToken) : this()
+        {
+            asyncDispatcherServer.StartWatchdogBroadcaster(9998, watchdogToken);
         }
 
         private void ClientConnected(ClientTypes.Types type, string addr)
