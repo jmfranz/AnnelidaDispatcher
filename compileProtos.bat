@@ -1,0 +1,1 @@
+protoc -I=ProtocolBufferContracts --csharp_out=ProtocolBufferContracts ProtocolBufferContracts\annelida_sensors.proto

@@ -6,12 +6,12 @@ using MongoDB.Driver.Core.WireProtocol.Messages.Encoders.BinaryEncoders;
 
 namespace AnnelidaDispatcher.Model.Server
 {
-    public class AsyncDispatcherServerDBEnabled : AsyncDispatcherServer
+    public class BsonServerDBEnabled : BsonServer
     {
 
 
         /// <inheritdoc />
-        public AsyncDispatcherServerDBEnabled(string missionName, int tcpPort) : base(tcpPort)
+        public BsonServerDBEnabled(string missionName, int tcpPort) : base(tcpPort)
         {
             var sensorDb = new MongoWrapper("sensors");
             var controlDb = new MongoWrapper("control");

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace AnnelidaDispatcher.Model
@@ -27,6 +28,7 @@ namespace AnnelidaDispatcher.Model
         /// </summary>
         public event ClientConnectionDelegate ClientDisconnectedEvent;
 
+        
         protected AbstractServer()
         {
             connectedClients = new Dictionary<ClientTypes.Types, List<TcpClient>>
@@ -51,6 +53,8 @@ namespace AnnelidaDispatcher.Model
         protected IMessageDispatcherStrategy messageDispatchStrategy;
 
         public abstract void Start();
+
+        public  abstract Task StartWatchdogBroadcaster(int port, string token);
 
     }
 }

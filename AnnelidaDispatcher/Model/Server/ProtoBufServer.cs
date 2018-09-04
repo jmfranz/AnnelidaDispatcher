@@ -1,52 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq.Expressions;
+using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.Sockets;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using MongoDB.Bson;
-using MongoDB.Bson.IO;
-using MongoDB.Bson.Serialization;
-using MongoDB.Bson.Serialization.Serializers;
+using AnnelidaDispatcher.Model.DataTransmission;
+using Google.Protobuf;
+using Google.Protobuf.WellKnownTypes;
+
 
 namespace AnnelidaDispatcher.Model.Server
 {
-    public class AsyncDispatcherServer : AbstractServer
+    public class ProtoBufServer : AsyncAbstractServer
     {
-        private CancellationTokenSource cts;
-        private TcpListener listener;
-        
-        
-        public AsyncDispatcherServer(int tcpPort)
+        private MessageParser<AnnelidaSensors> protobuffParser;
+        public ProtoBufServer(int tcpPort) : base(tcpPort)
         {
-            cts = new CancellationTokenSource();
-            listener = new TcpListener(IPAddress.Any, tcpPort);
-            messageDispatchStrategy = new NoDBDispatchStrategy();
-
-
+            messageDispatchStrategy = new ProtoBufNoDBDispatchStrategy();
+           
         }
-
-        public override void Start()
-        {
-            listener.Start();
-            //TODO: Add public state property
-            AcceptClientAsync(listener, cts.Token);
-        }
-
-        private async Task AcceptClientAsync(TcpListener listener, CancellationToken ct)
-        {
-            var clientCounter = 0;
-            while (!ct.IsCancellationRequested)
-            {
-                TcpClient client = await listener.AcceptTcpClientAsync().ConfigureAwait(false);
-                clientCounter++;
-                connectedClients[ClientTypes.Types.Undefined].Add(client);
-                ClientHandler(client, clientCounter, ct);
-            }
-        }
-
-        private async Task ClientHandler(TcpClient client, int clientIndex, CancellationToken ct)
+        protected override async Task ClientHandler(TcpClient client, int clientIndex, CancellationToken ct)
         {
             Console.WriteLine($"New client ({clientIndex}) connected");
             var myType = ClientTypes.Types.Undefined;
@@ -82,32 +58,30 @@ namespace AnnelidaDispatcher.Model.Server
                         Console.WriteLine(ex);
                         break;
                     }
-                    
+
                     if (ammountRead == 0) break;
 
-                    
+
                     if (myType == ClientTypes.Types.Undefined)
                     {
-                        myType = IdentifyClient(buf,client);
+                        myType = IdentifyClient(buf, client);
                         OnClientConnected(myType, clientEndPoint.Address.ToString());
-                        //ClientConnectedEvent?.Invoke(myType, clientEndPoint.Address.ToString());
                     }
                     else
                     {
                         totalReceivedSize += ammountRead;
                         if (ammountToReceive == 4)
                         {
-                            byte[] size = {buf[0], buf[1], buf[2], buf[3]};
+                            byte[] size = { buf[0], buf[1], buf[2], buf[3] };
                             totalMessageSize = BitConverter.ToInt32(size, 0);
-                            ammountToReceive = totalMessageSize - 4;
+                            ammountToReceive = totalMessageSize;
                             completedMessage = new byte[totalMessageSize];
-                            Array.Copy(size,completedMessage,4);
-
+                            totalReceivedSize = 0;
                         }
                         else
                         {
                             Array.Copy(buf, 0, completedMessage, totalReceivedSize - ammountRead, ammountRead);
-                            
+
                             if (totalReceivedSize == totalMessageSize)
                             {
                                 HandleMessage(completedMessage, totalMessageSize, myType);
@@ -129,39 +103,22 @@ namespace AnnelidaDispatcher.Model.Server
             Console.WriteLine($"Client ({clientIndex}) disconnected");
         }
 
-        private ClientTypes.Types IdentifyClient(byte[] buffer, TcpClient client)
+        protected override void HandleMessage(byte[] buffer, int totalMessageSize,
+            ClientTypes.Types myType)
         {
-            //TODO: Handle incorrect types
-            var myType = (ClientTypes.Types)BitConverter.ToInt32(buffer, 0);
-            connectedClients[ClientTypes.Types.Undefined].Remove(client);
-            connectedClients[myType].Add(client);
-            return myType;
-        }
-
-        private void HandleMessage(byte[] buffer, int ammountRead,ClientTypes.Types myType)
-        {
-           var message = ProcessSerializedBson(buffer, ammountRead);
-                       
-           messageDispatchStrategy.RedespatchMessage(message.ToBson(), connectedClients, myType);
-        }
-        private BsonDocument ProcessSerializedBson(byte[] bytes, int packageSize)
-        {
-
             try
             {
-                var doc = BsonSerializer.Deserialize<BsonDocument>(bytes);
-                BsonDateTime timestamp = DateTime.UtcNow;
-                doc["timestamp"] = timestamp;
-                return doc;
+                var s = AnnelidaSensors.Parser.ParseFrom(buffer);
+                s.Timestamp = Timestamp.FromDateTime(DateTime.UtcNow);
+                messageDispatchStrategy.RedespatchMessage(s.ToByteArray(), connectedClients, myType);
             }
-            catch (Exception e)
+            catch (Google.Protobuf.InvalidProtocolBufferException e)
             {
-                Console.WriteLine(e.ToString());
-
-                return null;
+                Console.WriteLine(e);
+                throw;
             }
+            
         }
-
-      
+        
     }
 }
