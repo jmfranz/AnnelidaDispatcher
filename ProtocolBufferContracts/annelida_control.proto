@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "AnnelidaDispatcher.Model.DataTransmission";
+
+message AnnelidaControl
+{
+	google.protobuf.Timestamp timestamp = 1;
+
+	bool locomitvePower = 2;
+	float targetSpeed = 3; //if target speed == 0 then fall back to manual control
+
+	bool mainCylinderForward = 4;
+	bool mainCylinderBackward = 5;
+	bool auxCylinderForward = 6;
+	bool auxCylinderBackward = 7;
+
+	bool hydraulicReturn = 8;
+	bool craneReturn = 9;
+
+	bool desobstructionToolPower = 10;
+	bool sgnPump = 11;
+	bool sgnFlow = 12;
+
+	bool masterSwitch = 13;
+	bool emergencyStop = 14;
+
+	map<string,bool> sensorsOff = 15;
+}
