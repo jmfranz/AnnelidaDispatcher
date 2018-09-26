@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnnelidaDispatcher", "AnnelidaDispatcher\AnnelidaDispatcher.csproj", "{CD57BD03-19D7-4D6B-9597-E51525BC214C}"
 EndProject
@@ -11,11 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendBsonToDispatcher", "Sen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendGUI", "SendGUI\SendGUI.csproj", "{A85920B6-455C-4D48-95F9-9E00612C224D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnnelidaDataFormat", "AnnelidaDataFormat\AnnelidaDataFormat.csproj", "{7D14B73E-2C95-432A-8FDE-8BF3528E545C}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreInMongo", "StoreInMongo\StoreInMongo.csproj", "{2296925B-6DD4-42B1-8020-CFE71A516E60}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReceiveProtobuf", "ReceiveProtobuf\ReceiveProtobuf.csproj", "{DAE31FBF-AF95-4DFA-BC88-E8C3D200ED95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnnelidaSensorsLibrary", "AnnelidaSensorsLibrary\AnnelidaSensorsLibrary.csproj", "{9958840F-F6F8-4B56-A416-29A987D8A2A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,10 +39,6 @@ Global
 		{A85920B6-455C-4D48-95F9-9E00612C224D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A85920B6-455C-4D48-95F9-9E00612C224D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A85920B6-455C-4D48-95F9-9E00612C224D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7D14B73E-2C95-432A-8FDE-8BF3528E545C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7D14B73E-2C95-432A-8FDE-8BF3528E545C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7D14B73E-2C95-432A-8FDE-8BF3528E545C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7D14B73E-2C95-432A-8FDE-8BF3528E545C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2296925B-6DD4-42B1-8020-CFE71A516E60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2296925B-6DD4-42B1-8020-CFE71A516E60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2296925B-6DD4-42B1-8020-CFE71A516E60}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -51,8 +47,15 @@ Global
 		{DAE31FBF-AF95-4DFA-BC88-E8C3D200ED95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAE31FBF-AF95-4DFA-BC88-E8C3D200ED95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DAE31FBF-AF95-4DFA-BC88-E8C3D200ED95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9958840F-F6F8-4B56-A416-29A987D8A2A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9958840F-F6F8-4B56-A416-29A987D8A2A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9958840F-F6F8-4B56-A416-29A987D8A2A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9958840F-F6F8-4B56-A416-29A987D8A2A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {38BAB781-15E1-4A74-80F9-0B72D5CD8839}
 	EndGlobalSection
 EndGlobal

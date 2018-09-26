@@ -25,120 +25,120 @@ message AnnelidaSensors {
 
 	message NotRegulatedConverter{
 
-		repeated float internal_temperature = 1;
-		repeated float internal_pressure = 2;
-		repeated float electrical_current_c1 = 3;
-		repeated float electrical_current_c2 = 4;
-		repeated float electrical_current_c3 = 5;
-		repeated float electrical_power_p1 = 6;
-		repeated float electrical_power_p2 = 7;
-		repeated float electrical_power_p3 = 8;
-		repeated float electrical_tension_700v = 9;
+		float internal_temperature = 1;
+		float internal_pressure = 2;
+		float electrical_current_c1 = 3;
+		float electrical_current_c2 = 4;
+		float electrical_current_c3 = 5;
+		float electrical_power_p1 = 6;
+		float electrical_power_p2 = 7;
+		float electrical_power_p3 = 8;
+		float electrical_tension_700v = 9;
 	}
 
 	message RegulatedConverter{
 
-		repeated float internal_temperature = 1;
-		repeated float internal_pressure = 2;
-		repeated float electrical_current_c1 = 3;
-		repeated float electrical_current_c2 = 4;
-		repeated float electrical_current_c3 = 5;
-		repeated float electrical_current_c4 = 6;
-		repeated float electrical_power_p1 = 7;
-		repeated float electrical_power_p2 = 8;
-		repeated float electrical_power_p3 = 9;
-		repeated float electrical_power_p4 = 10;
-		repeated float electrical_tension = 11;
+		float internal_temperature = 1;
+		float internal_pressure = 2;
+		float electrical_current_c1 = 3;
+		float electrical_current_c2 = 4;
+		float electrical_current_c3 = 5;
+		float electrical_current_c4 = 6;
+		float electrical_power_p1 = 7;
+		float electrical_power_p2 = 8;
+		float electrical_power_p3 = 9;
+		float electrical_power_p4 = 10;
+		float electrical_tension = 11;
 	}
 
 	message EmbeddedSystem{
 
-		repeated float internal_temperature = 1;
-		repeated float internal_pressure = 2;
-		repeated float external_module_pressure = 3;
-		repeated float rotation_x = 4;
-		repeated float rotation_y = 5;
-		repeated float rotation_z = 6;
-		repeated float displacement_x = 7;
-		repeated float displacement_y = 8;
-		repeated float displacement_z = 9;
-		repeated float acceleration_x = 10;
-		repeated float acceleration_y = 11;
-		repeated float acceleration_z = 12;
+		float internal_temperature = 1;
+		float internal_pressure = 2;
+		float external_module_pressure = 3;
+		float rotation_x = 4;
+		float rotation_y = 5;
+		float rotation_z = 6;
+		float displacement_x = 7;
+		float displacement_y = 8;
+		float displacement_z = 9;
+		float acceleration_x = 10;
+		float acceleration_y = 11;
+		float acceleration_z = 12;
 	}
 
 	message MotorController{
 
-		repeated float internal_temperature = 1;
-		repeated float internal_pressure = 2;
-		repeated float electrical_current = 3;
-		repeated float electrical_tension = 4;
+		float internal_temperature = 1;
+		float internal_pressure = 2;
+		float electrical_current = 3;
+		float electrical_tension = 4;
 	}
 
 	message Locomotive{
 
-		repeated CylinderState cylinder_forward = 1;
-		repeated CylinderState cylinder_backward = 2;
+		CylinderState cylinder_forward = 1;
+		CylinderState cylinder_backward = 2;
 	}
 
 	message PumpsEngine{
 
 		message Manifold_1_Backward{
 
-			repeated SolenoidState solenoid_cylinder_move_backward = 1;
-			repeated SolenoidState solenoid_cylinder_active_backward = 2;
+			SolenoidState solenoid_cylinder_move_backward = 1;
+			SolenoidState solenoid_cylinder_active_backward = 2;
 		}
 		message Manifold_3_Backward{
 
-			repeated SolenoidState solenoid_active_foot_backward = 1;
+			SolenoidState solenoid_active_foot_backward = 1;
 		}
 		message MotorBomb_1{
 
-			repeated float oil_temperature = 1;
-			repeated uint32 motor_rpm = 2;
-			repeated float motor_power = 3;
+			float oil_temperature = 1;
+			uint32 motor_rpm = 2;
+			float motor_power = 3;
 		}
 		message MotorBomb_2{
 
-			repeated uint32 motor_rpm = 1;
-			repeated float motor_power = 2;
+			uint32 motor_rpm = 1;
+			float motor_power = 2;
 
 		}
 		message Manifold_2_Auxiliar{
 
-			repeated float hydraulic_foots_pressure = 1;
-			repeated SolenoidState solenoid_pressure_foots = 2;
+			float hydraulic_foots_pressure = 1;
+			SolenoidState solenoid_pressure_foots = 2;
 		}
 		message MotorBombAuxiliar{
 
-			repeated float temperature_sensor = 1;
-			repeated uint32 motor_rpm = 2;
-			repeated float motor_power = 3;
+			float temperature_sensor = 1;
+			uint32 motor_rpm = 2;
+			float motor_power = 3;
 		}
 		message Manifold_2_Main{
 
-			repeated float hydraulic_cylinder_pressure = 1;
-			repeated SolenoidState solenoid_move_pressure = 2;
+			float hydraulic_cylinder_pressure = 1;
+			SolenoidState solenoid_move_pressure = 2;
 		}
 		message MotorBomb_3{
 
-			repeated float motor_rpm = 1;
-			repeated float motor_power = 2;
+			float motor_rpm = 1;
+			float motor_power = 2;
 		}
 		message MotorBomb_4{
 
-			repeated float oil_temperature = 1;
-			repeated uint32 motor_rpm = 2;
-			repeated float motor_power = 3;
+			float oil_temperature = 1;
+			uint32 motor_rpm = 2;
+			float motor_power = 3;
 		}
 		message Manifold_3_Forward{
 
-			repeated SolenoidState solenoid_active_forward = 1;
+			 SolenoidState solenoid_active_forward = 1;
 		}
 		message Manifold_1_Forward{
 
-			repeated SolenoidState solenoid_cylinder_move_forward = 1;
-			repeated SolenoidState solenoid_cylinder_active_forward = 2;
+			 SolenoidState solenoid_cylinder_move_forward = 1;
+			 SolenoidState solenoid_cylinder_active_forward = 2;
 		}
 
 		Manifold_1_Backward enc_manifold_1_backward = 1;
@@ -154,9 +154,10 @@ message AnnelidaSensors {
 		Manifold_1_Forward enc_manifold_1_forward = 11;
 	}
 	message SgnReactor{
-		repeated float sgn_temperature = 1;
-		repeated bool obstruction_detected = 2;
-		repeated float reactor_pressure = 3;
+		float sgn_temperature = 1;
+		bool obstruction_detected = 2;
+		float reactor_pressure = 3;
+		float flowPWM = 4;
 	}
 
 

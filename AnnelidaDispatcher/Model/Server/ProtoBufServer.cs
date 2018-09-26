@@ -108,9 +108,28 @@ namespace AnnelidaDispatcher.Model.Server
         {
             try
             {
-                var s = AnnelidaSensors.Parser.ParseFrom(buffer);
-                s.Timestamp = Timestamp.FromDateTime(DateTime.UtcNow);
-                messageDispatchStrategy.RedespatchMessage(s.ToByteArray(), connectedClients, myType);
+
+                IMessage message = null;
+                if (myType == ClientTypes.Types.Robot)
+                {
+                    message = AnnelidaSensors.Parser.ParseFrom(buffer);
+                    AnnelidaSensors.Descriptor.FindFieldByNumber(1).Accessor
+                        .SetValue(message, Timestamp.FromDateTime(DateTime.UtcNow));
+                }
+                else if(myType == ClientTypes.Types.Controller)
+                {
+                    message = AnnelidaControl.Parser.ParseFrom(buffer);
+                    AnnelidaControl.Descriptor.FindFieldByNumber(1).Accessor
+                        .SetValue(message, Timestamp.FromDateTime(DateTime.UtcNow));
+                }
+
+                
+                if (message != null)
+                    messageDispatchStrategy.RedespatchMessage(message.ToByteArray(),connectedClients,myType);
+                
+                //var s = AnnelidaSensors.Parser.ParseFrom(buffer);
+                //s.Timestamp = Timestamp.FromDateTime(DateTime.UtcNow);
+                //messageDispatchStrategy.RedespatchMessage(s.ToByteArray(), connectedClients, myType);
             }
             catch (Google.Protobuf.InvalidProtocolBufferException e)
             {

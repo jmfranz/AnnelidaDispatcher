@@ -32,7 +32,8 @@ namespace SendGUI
     {
         Sensors document;
         private AnnelidaSensors protobufSensors;
-        
+        private AnnelidaControl protobufControl;
+
         //Random rnd = new Random();
         List<string> faultList;
         public bool shouldSend { get; set; } = false;
@@ -56,10 +57,11 @@ namespace SendGUI
             stream = c.GetStream();
 
             
-            int id = 3;
+            int id = 2;
             stream.Write(BitConverter.GetBytes(id), 0, 4);
             stream.Flush();
-            AssembleProtoBuf();
+            //AssembleSensorsProtoBuf();
+            AssembleControlProtoBuf();
         }
 
         async void SendBsonData()
@@ -83,7 +85,7 @@ namespace SendGUI
                 
         }
 
-        async void SendProtoData()
+        async void SendProtoSensors()
         {
             while (true)
             {
@@ -107,10 +109,28 @@ namespace SendGUI
 
                     stream.Write(b,0,b.Length);
                     stream.Flush();
-                    await Task.Delay(100);
+                    await Task.Delay(10);
 
                 }
                     
+            }
+        }
+
+        async void SendProtoControl()
+        {
+            while (true)
+            {
+                count++;
+                protobufControl.Timestamp = Timestamp.FromDateTime(DateTime.UtcNow);
+                protobufControl.TargetSpeed += (float)count / 10;
+                byte[] msg = protobufControl.ToByteArray();
+                byte[] b = new byte[msg.Length +4];
+                Array.Copy(BitConverter.GetBytes(msg.Length), b, 4);
+                Array.Copy(msg, 0, b, 4, msg.Length);
+
+                stream.Write(b, 0, b.Length);
+                stream.Flush();
+                await Task.Delay(1000);
             }
         }
 
@@ -130,7 +150,8 @@ namespace SendGUI
         {
             Initialize();
             shouldSend = true;
-            SendProtoData();
+            //SendProtoSensors();
+            SendProtoControl();
         }
 
         void AssembleDoc()
@@ -184,7 +205,7 @@ namespace SendGUI
             document.forward.enclosure8.externalTemperature = 0;
         }
 
-        void AssembleProtoBuf()
+        void AssembleSensorsProtoBuf()
         {
             protobufSensors = new AnnelidaSensors()
             {
@@ -205,6 +226,15 @@ namespace SendGUI
                 EncReactor = new Types.SgnReactor()
             };
 
+        }
+
+        void AssembleControlProtoBuf()
+        {
+            protobufControl = new AnnelidaControl()
+            {
+                TargetSpeed = 0f
+
+            };
         }
 
     }
