@@ -57,11 +57,11 @@ namespace SendGUI
             stream = c.GetStream();
 
             
-            int id = 2;
+            int id = 3;
             stream.Write(BitConverter.GetBytes(id), 0, 4);
             stream.Flush();
-            //AssembleSensorsProtoBuf();
-            AssembleControlProtoBuf();
+            AssembleSensorsProtoBuf();
+            //AssembleControlProtoBuf();
         }
 
         async void SendBsonData()
@@ -95,9 +95,9 @@ namespace SendGUI
                 {
                     protobufSensors.EncEmbeddedSystem = new Types.EmbeddedSystem()
                     {
-                        InternalTemperature = { (float)( 2 * Math.Sin(count * Math.PI / 180))},
-                        InternalPressure = { (float)(2 * Math.Sin(count * Math.PI / 180 + 5 * Math.PI / 180))},
-                        ExternalModulePressure = { (float)(2 * Math.Sin(count * Math.PI / 180 + 10 * Math.PI / 180))}
+                        InternalTemperature =  (float)( 2 * Math.Sin(count * Math.PI / 180)),
+                        InternalPressure =  (float)(2 * Math.Sin(count * Math.PI / 180 + 5 * Math.PI / 180)),
+                        ExternalModulePressure =  (float)(2 * Math.Sin(count * Math.PI / 180 + 10 * Math.PI / 180))
                     };
 
                     byte[] msg = protobufSensors.ToByteArray();
@@ -150,8 +150,8 @@ namespace SendGUI
         {
             Initialize();
             shouldSend = true;
-            //SendProtoSensors();
-            SendProtoControl();
+            SendProtoSensors();
+            //SendProtoControl();
         }
 
         void AssembleDoc()

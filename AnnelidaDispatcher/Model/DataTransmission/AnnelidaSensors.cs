@@ -25,7 +25,7 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChZhbm5lbGlkYV9zZW5zb3JzLnByb3RvGh9nb29nbGUvcHJvdG9idWYvdGlt",
-            "ZXN0YW1wLnByb3RvItIgCg9Bbm5lbGlkYVNlbnNvcnMSLQoJdGltZXN0YW1w",
+            "ZXN0YW1wLnByb3RvIuMgCg9Bbm5lbGlkYVNlbnNvcnMSLQoJdGltZXN0YW1w",
             "GAEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBI6Cg1lbmNfcmVj",
             "ZXB0aW9uGAIgASgLMiMuQW5uZWxpZGFTZW5zb3JzLlVtYmlsaWNhbFJlY2Vw",
             "dGlvbhJDChNlbmNfbm90X3JlZ3VsYXRlZF8xGAMgASgLMiYuQW5uZWxpZGFT",
@@ -49,32 +49,32 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
             "bGlkYVNlbnNvcnMuUHVtcHNFbmdpbmUSMAoLZW5jX3JlYWN0b3IYECABKAsy",
             "Gy5Bbm5lbGlkYVNlbnNvcnMuU2duUmVhY3RvchomChJVbWJpbGljYWxSZWNl",
             "cHRpb24SEAoIdHJhY3Rpb24YASABKA0apQIKFU5vdFJlZ3VsYXRlZENvbnZl",
-            "cnRlchIcChRpbnRlcm5hbF90ZW1wZXJhdHVyZRgBIAMoAhIZChFpbnRlcm5h",
-            "bF9wcmVzc3VyZRgCIAMoAhIdChVlbGVjdHJpY2FsX2N1cnJlbnRfYzEYAyAD",
-            "KAISHQoVZWxlY3RyaWNhbF9jdXJyZW50X2MyGAQgAygCEh0KFWVsZWN0cmlj",
-            "YWxfY3VycmVudF9jMxgFIAMoAhIbChNlbGVjdHJpY2FsX3Bvd2VyX3AxGAYg",
-            "AygCEhsKE2VsZWN0cmljYWxfcG93ZXJfcDIYByADKAISGwoTZWxlY3RyaWNh",
-            "bF9wb3dlcl9wMxgIIAMoAhIfChdlbGVjdHJpY2FsX3RlbnNpb25fNzAwdhgJ",
-            "IAMoAhrZAgoSUmVndWxhdGVkQ29udmVydGVyEhwKFGludGVybmFsX3RlbXBl",
-            "cmF0dXJlGAEgAygCEhkKEWludGVybmFsX3ByZXNzdXJlGAIgAygCEh0KFWVs",
-            "ZWN0cmljYWxfY3VycmVudF9jMRgDIAMoAhIdChVlbGVjdHJpY2FsX2N1cnJl",
-            "bnRfYzIYBCADKAISHQoVZWxlY3RyaWNhbF9jdXJyZW50X2MzGAUgAygCEh0K",
-            "FWVsZWN0cmljYWxfY3VycmVudF9jNBgGIAMoAhIbChNlbGVjdHJpY2FsX3Bv",
-            "d2VyX3AxGAcgAygCEhsKE2VsZWN0cmljYWxfcG93ZXJfcDIYCCADKAISGwoT",
-            "ZWxlY3RyaWNhbF9wb3dlcl9wMxgJIAMoAhIbChNlbGVjdHJpY2FsX3Bvd2Vy",
-            "X3A0GAogAygCEhoKEmVsZWN0cmljYWxfdGVuc2lvbhgLIAMoAhq3AgoORW1i",
-            "ZWRkZWRTeXN0ZW0SHAoUaW50ZXJuYWxfdGVtcGVyYXR1cmUYASADKAISGQoR",
-            "aW50ZXJuYWxfcHJlc3N1cmUYAiADKAISIAoYZXh0ZXJuYWxfbW9kdWxlX3By",
-            "ZXNzdXJlGAMgAygCEhIKCnJvdGF0aW9uX3gYBCADKAISEgoKcm90YXRpb25f",
-            "eRgFIAMoAhISCgpyb3RhdGlvbl96GAYgAygCEhYKDmRpc3BsYWNlbWVudF94",
-            "GAcgAygCEhYKDmRpc3BsYWNlbWVudF95GAggAygCEhYKDmRpc3BsYWNlbWVu",
-            "dF96GAkgAygCEhYKDmFjY2VsZXJhdGlvbl94GAogAygCEhYKDmFjY2VsZXJh",
-            "dGlvbl95GAsgAygCEhYKDmFjY2VsZXJhdGlvbl96GAwgAygCGoIBCg9Nb3Rv",
-            "ckNvbnRyb2xsZXISHAoUaW50ZXJuYWxfdGVtcGVyYXR1cmUYASADKAISGQoR",
-            "aW50ZXJuYWxfcHJlc3N1cmUYAiADKAISGgoSZWxlY3RyaWNhbF9jdXJyZW50",
-            "GAMgAygCEhoKEmVsZWN0cmljYWxfdGVuc2lvbhgEIAMoAhphCgpMb2NvbW90",
-            "aXZlEigKEGN5bGluZGVyX2ZvcndhcmQYASADKA4yDi5DeWxpbmRlclN0YXRl",
-            "EikKEWN5bGluZGVyX2JhY2t3YXJkGAIgAygOMg4uQ3lsaW5kZXJTdGF0ZRq3",
+            "cnRlchIcChRpbnRlcm5hbF90ZW1wZXJhdHVyZRgBIAEoAhIZChFpbnRlcm5h",
+            "bF9wcmVzc3VyZRgCIAEoAhIdChVlbGVjdHJpY2FsX2N1cnJlbnRfYzEYAyAB",
+            "KAISHQoVZWxlY3RyaWNhbF9jdXJyZW50X2MyGAQgASgCEh0KFWVsZWN0cmlj",
+            "YWxfY3VycmVudF9jMxgFIAEoAhIbChNlbGVjdHJpY2FsX3Bvd2VyX3AxGAYg",
+            "ASgCEhsKE2VsZWN0cmljYWxfcG93ZXJfcDIYByABKAISGwoTZWxlY3RyaWNh",
+            "bF9wb3dlcl9wMxgIIAEoAhIfChdlbGVjdHJpY2FsX3RlbnNpb25fNzAwdhgJ",
+            "IAEoAhrZAgoSUmVndWxhdGVkQ29udmVydGVyEhwKFGludGVybmFsX3RlbXBl",
+            "cmF0dXJlGAEgASgCEhkKEWludGVybmFsX3ByZXNzdXJlGAIgASgCEh0KFWVs",
+            "ZWN0cmljYWxfY3VycmVudF9jMRgDIAEoAhIdChVlbGVjdHJpY2FsX2N1cnJl",
+            "bnRfYzIYBCABKAISHQoVZWxlY3RyaWNhbF9jdXJyZW50X2MzGAUgASgCEh0K",
+            "FWVsZWN0cmljYWxfY3VycmVudF9jNBgGIAEoAhIbChNlbGVjdHJpY2FsX3Bv",
+            "d2VyX3AxGAcgASgCEhsKE2VsZWN0cmljYWxfcG93ZXJfcDIYCCABKAISGwoT",
+            "ZWxlY3RyaWNhbF9wb3dlcl9wMxgJIAEoAhIbChNlbGVjdHJpY2FsX3Bvd2Vy",
+            "X3A0GAogASgCEhoKEmVsZWN0cmljYWxfdGVuc2lvbhgLIAEoAhq3AgoORW1i",
+            "ZWRkZWRTeXN0ZW0SHAoUaW50ZXJuYWxfdGVtcGVyYXR1cmUYASABKAISGQoR",
+            "aW50ZXJuYWxfcHJlc3N1cmUYAiABKAISIAoYZXh0ZXJuYWxfbW9kdWxlX3By",
+            "ZXNzdXJlGAMgASgCEhIKCnJvdGF0aW9uX3gYBCABKAISEgoKcm90YXRpb25f",
+            "eRgFIAEoAhISCgpyb3RhdGlvbl96GAYgASgCEhYKDmRpc3BsYWNlbWVudF94",
+            "GAcgASgCEhYKDmRpc3BsYWNlbWVudF95GAggASgCEhYKDmRpc3BsYWNlbWVu",
+            "dF96GAkgASgCEhYKDmFjY2VsZXJhdGlvbl94GAogASgCEhYKDmFjY2VsZXJh",
+            "dGlvbl95GAsgASgCEhYKDmFjY2VsZXJhdGlvbl96GAwgASgCGoIBCg9Nb3Rv",
+            "ckNvbnRyb2xsZXISHAoUaW50ZXJuYWxfdGVtcGVyYXR1cmUYASABKAISGQoR",
+            "aW50ZXJuYWxfcHJlc3N1cmUYAiABKAISGgoSZWxlY3RyaWNhbF9jdXJyZW50",
+            "GAMgASgCEhoKEmVsZWN0cmljYWxfdGVuc2lvbhgEIAEoAhphCgpMb2NvbW90",
+            "aXZlEigKEGN5bGluZGVyX2ZvcndhcmQYASABKA4yDi5DeWxpbmRlclN0YXRl",
+            "EikKEWN5bGluZGVyX2JhY2t3YXJkGAIgASgOMg4uQ3lsaW5kZXJTdGF0ZRq3",
             "DgoLUHVtcHNFbmdpbmUSUQoXZW5jX21hbmlmb2xkXzFfYmFja3dhcmQYASAB",
             "KAsyMC5Bbm5lbGlkYVNlbnNvcnMuUHVtcHNFbmdpbmUuTWFuaWZvbGRfMV9C",
             "YWNrd2FyZBJRChdlbmNfbWFuaWZvbGRfM19iYWNrd2FyZBgCIAEoCzIwLkFu",
@@ -95,34 +95,34 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
             "Rm9yd2FyZBJPChZlbmNfbWFuaWZvbGRfMV9mb3J3YXJkGAsgASgLMi8uQW5u",
             "ZWxpZGFTZW5zb3JzLlB1bXBzRW5naW5lLk1hbmlmb2xkXzFfRm9yd2FyZBqJ",
             "AQoTTWFuaWZvbGRfMV9CYWNrd2FyZBI3Ch9zb2xlbm9pZF9jeWxpbmRlcl9t",
-            "b3ZlX2JhY2t3YXJkGAEgAygOMg4uU29sZW5vaWRTdGF0ZRI5CiFzb2xlbm9p",
-            "ZF9jeWxpbmRlcl9hY3RpdmVfYmFja3dhcmQYAiADKA4yDi5Tb2xlbm9pZFN0",
+            "b3ZlX2JhY2t3YXJkGAEgASgOMg4uU29sZW5vaWRTdGF0ZRI5CiFzb2xlbm9p",
+            "ZF9jeWxpbmRlcl9hY3RpdmVfYmFja3dhcmQYAiABKA4yDi5Tb2xlbm9pZFN0",
             "YXRlGkwKE01hbmlmb2xkXzNfQmFja3dhcmQSNQodc29sZW5vaWRfYWN0aXZl",
-            "X2Zvb3RfYmFja3dhcmQYASADKA4yDi5Tb2xlbm9pZFN0YXRlGk4KC01vdG9y",
-            "Qm9tYl8xEhcKD29pbF90ZW1wZXJhdHVyZRgBIAMoAhIRCgltb3Rvcl9ycG0Y",
-            "AiADKA0SEwoLbW90b3JfcG93ZXIYAyADKAIaNQoLTW90b3JCb21iXzISEQoJ",
-            "bW90b3JfcnBtGAEgAygNEhMKC21vdG9yX3Bvd2VyGAIgAygCGmgKE01hbmlm",
+            "X2Zvb3RfYmFja3dhcmQYASABKA4yDi5Tb2xlbm9pZFN0YXRlGk4KC01vdG9y",
+            "Qm9tYl8xEhcKD29pbF90ZW1wZXJhdHVyZRgBIAEoAhIRCgltb3Rvcl9ycG0Y",
+            "AiABKA0SEwoLbW90b3JfcG93ZXIYAyABKAIaNQoLTW90b3JCb21iXzISEQoJ",
+            "bW90b3JfcnBtGAEgASgNEhMKC21vdG9yX3Bvd2VyGAIgASgCGmgKE01hbmlm",
             "b2xkXzJfQXV4aWxpYXISIAoYaHlkcmF1bGljX2Zvb3RzX3ByZXNzdXJlGAEg",
-            "AygCEi8KF3NvbGVub2lkX3ByZXNzdXJlX2Zvb3RzGAIgAygOMg4uU29sZW5v",
+            "ASgCEi8KF3NvbGVub2lkX3ByZXNzdXJlX2Zvb3RzGAIgASgOMg4uU29sZW5v",
             "aWRTdGF0ZRpXChFNb3RvckJvbWJBdXhpbGlhchIaChJ0ZW1wZXJhdHVyZV9z",
-            "ZW5zb3IYASADKAISEQoJbW90b3JfcnBtGAIgAygNEhMKC21vdG9yX3Bvd2Vy",
-            "GAMgAygCGmYKD01hbmlmb2xkXzJfTWFpbhIjChtoeWRyYXVsaWNfY3lsaW5k",
-            "ZXJfcHJlc3N1cmUYASADKAISLgoWc29sZW5vaWRfbW92ZV9wcmVzc3VyZRgC",
-            "IAMoDjIOLlNvbGVub2lkU3RhdGUaNQoLTW90b3JCb21iXzMSEQoJbW90b3Jf",
-            "cnBtGAEgAygCEhMKC21vdG9yX3Bvd2VyGAIgAygCGk4KC01vdG9yQm9tYl80",
-            "EhcKD29pbF90ZW1wZXJhdHVyZRgBIAMoAhIRCgltb3Rvcl9ycG0YAiADKA0S",
-            "EwoLbW90b3JfcG93ZXIYAyADKAIaRQoSTWFuaWZvbGRfM19Gb3J3YXJkEi8K",
-            "F3NvbGVub2lkX2FjdGl2ZV9mb3J3YXJkGAEgAygOMg4uU29sZW5vaWRTdGF0",
+            "ZW5zb3IYASABKAISEQoJbW90b3JfcnBtGAIgASgNEhMKC21vdG9yX3Bvd2Vy",
+            "GAMgASgCGmYKD01hbmlmb2xkXzJfTWFpbhIjChtoeWRyYXVsaWNfY3lsaW5k",
+            "ZXJfcHJlc3N1cmUYASABKAISLgoWc29sZW5vaWRfbW92ZV9wcmVzc3VyZRgC",
+            "IAEoDjIOLlNvbGVub2lkU3RhdGUaNQoLTW90b3JCb21iXzMSEQoJbW90b3Jf",
+            "cnBtGAEgASgCEhMKC21vdG9yX3Bvd2VyGAIgASgCGk4KC01vdG9yQm9tYl80",
+            "EhcKD29pbF90ZW1wZXJhdHVyZRgBIAEoAhIRCgltb3Rvcl9ycG0YAiABKA0S",
+            "EwoLbW90b3JfcG93ZXIYAyABKAIaRQoSTWFuaWZvbGRfM19Gb3J3YXJkEi8K",
+            "F3NvbGVub2lkX2FjdGl2ZV9mb3J3YXJkGAEgASgOMg4uU29sZW5vaWRTdGF0",
             "ZRqGAQoSTWFuaWZvbGRfMV9Gb3J3YXJkEjYKHnNvbGVub2lkX2N5bGluZGVy",
-            "X21vdmVfZm9yd2FyZBgBIAMoDjIOLlNvbGVub2lkU3RhdGUSOAogc29sZW5v",
-            "aWRfY3lsaW5kZXJfYWN0aXZlX2ZvcndhcmQYAiADKA4yDi5Tb2xlbm9pZFN0",
-            "YXRlGl0KClNnblJlYWN0b3ISFwoPc2duX3RlbXBlcmF0dXJlGAEgAygCEhwK",
-            "FG9ic3RydWN0aW9uX2RldGVjdGVkGAIgAygIEhgKEHJlYWN0b3JfcHJlc3N1",
-            "cmUYAyADKAIqPwoNU29sZW5vaWRTdGF0ZRITCg9VTktOT1dfU09MRU5PSUQQ",
-            "ABILCgdBQ1RJVkVEEAESDAoIRElTQUJMRUQQAipBCg1DeWxpbmRlclN0YXRl",
-            "EhMKD1VOS05PV19DWUxJTkRFUhAAEgwKCEFEVkFOQ0VEEAESDQoJV0lUSERS",
-            "QVdOEAJCLKoCKUFubmVsaWRhRGlzcGF0Y2hlci5Nb2RlbC5EYXRhVHJhbnNt",
-            "aXNzaW9uYgZwcm90bzM="));
+            "X21vdmVfZm9yd2FyZBgBIAEoDjIOLlNvbGVub2lkU3RhdGUSOAogc29sZW5v",
+            "aWRfY3lsaW5kZXJfYWN0aXZlX2ZvcndhcmQYAiABKA4yDi5Tb2xlbm9pZFN0",
+            "YXRlGm4KClNnblJlYWN0b3ISFwoPc2duX3RlbXBlcmF0dXJlGAEgASgCEhwK",
+            "FG9ic3RydWN0aW9uX2RldGVjdGVkGAIgASgIEhgKEHJlYWN0b3JfcHJlc3N1",
+            "cmUYAyABKAISDwoHZmxvd1BXTRgEIAEoAio/Cg1Tb2xlbm9pZFN0YXRlEhMK",
+            "D1VOS05PV19TT0xFTk9JRBAAEgsKB0FDVElWRUQQARIMCghESVNBQkxFRBAC",
+            "KkEKDUN5bGluZGVyU3RhdGUSEwoPVU5LTk9XX0NZTElOREVSEAASDAoIQURW",
+            "QU5DRUQQARINCglXSVRIRFJBV04QAkIsqgIpQW5uZWxpZGFEaXNwYXRjaGVy",
+            "Lk1vZGVsLkRhdGFUcmFuc21pc3Npb25iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState), typeof(global::AnnelidaDispatcher.Model.DataTransmission.CylinderState), }, new pbr::GeneratedClrTypeInfo[] {
@@ -143,7 +143,7 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
             new pbr::GeneratedClrTypeInfo(typeof(global::AnnelidaDispatcher.Model.DataTransmission.AnnelidaSensors.Types.PumpsEngine.Types.MotorBomb_4), global::AnnelidaDispatcher.Model.DataTransmission.AnnelidaSensors.Types.PumpsEngine.Types.MotorBomb_4.Parser, new[]{ "OilTemperature", "MotorRpm", "MotorPower" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::AnnelidaDispatcher.Model.DataTransmission.AnnelidaSensors.Types.PumpsEngine.Types.Manifold_3_Forward), global::AnnelidaDispatcher.Model.DataTransmission.AnnelidaSensors.Types.PumpsEngine.Types.Manifold_3_Forward.Parser, new[]{ "SolenoidActiveForward" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::AnnelidaDispatcher.Model.DataTransmission.AnnelidaSensors.Types.PumpsEngine.Types.Manifold_1_Forward), global::AnnelidaDispatcher.Model.DataTransmission.AnnelidaSensors.Types.PumpsEngine.Types.Manifold_1_Forward.Parser, new[]{ "SolenoidCylinderMoveForward", "SolenoidCylinderActiveForward" }, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::AnnelidaDispatcher.Model.DataTransmission.AnnelidaSensors.Types.SgnReactor), global::AnnelidaDispatcher.Model.DataTransmission.AnnelidaSensors.Types.SgnReactor.Parser, new[]{ "SgnTemperature", "ObstructionDetected", "ReactorPressure" }, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::AnnelidaDispatcher.Model.DataTransmission.AnnelidaSensors.Types.SgnReactor), global::AnnelidaDispatcher.Model.DataTransmission.AnnelidaSensors.Types.SgnReactor.Parser, new[]{ "SgnTemperature", "ObstructionDetected", "ReactorPressure", "FlowPWM" }, null, null, null)})
           }));
     }
     #endregion
@@ -966,15 +966,15 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public NotRegulatedConverter(NotRegulatedConverter other) : this() {
-          internalTemperature_ = other.internalTemperature_.Clone();
-          internalPressure_ = other.internalPressure_.Clone();
-          electricalCurrentC1_ = other.electricalCurrentC1_.Clone();
-          electricalCurrentC2_ = other.electricalCurrentC2_.Clone();
-          electricalCurrentC3_ = other.electricalCurrentC3_.Clone();
-          electricalPowerP1_ = other.electricalPowerP1_.Clone();
-          electricalPowerP2_ = other.electricalPowerP2_.Clone();
-          electricalPowerP3_ = other.electricalPowerP3_.Clone();
-          electricalTension700V_ = other.electricalTension700V_.Clone();
+          internalTemperature_ = other.internalTemperature_;
+          internalPressure_ = other.internalPressure_;
+          electricalCurrentC1_ = other.electricalCurrentC1_;
+          electricalCurrentC2_ = other.electricalCurrentC2_;
+          electricalCurrentC3_ = other.electricalCurrentC3_;
+          electricalPowerP1_ = other.electricalPowerP1_;
+          electricalPowerP2_ = other.electricalPowerP2_;
+          electricalPowerP3_ = other.electricalPowerP3_;
+          electricalTension700V_ = other.electricalTension700V_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
 
@@ -985,92 +985,101 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
         /// <summary>Field number for the "internal_temperature" field.</summary>
         public const int InternalTemperatureFieldNumber = 1;
-        private static readonly pb::FieldCodec<float> _repeated_internalTemperature_codec
-            = pb::FieldCodec.ForFloat(10);
-        private readonly pbc::RepeatedField<float> internalTemperature_ = new pbc::RepeatedField<float>();
+        private float internalTemperature_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<float> InternalTemperature {
+        public float InternalTemperature {
           get { return internalTemperature_; }
+          set {
+            internalTemperature_ = value;
+          }
         }
 
         /// <summary>Field number for the "internal_pressure" field.</summary>
         public const int InternalPressureFieldNumber = 2;
-        private static readonly pb::FieldCodec<float> _repeated_internalPressure_codec
-            = pb::FieldCodec.ForFloat(18);
-        private readonly pbc::RepeatedField<float> internalPressure_ = new pbc::RepeatedField<float>();
+        private float internalPressure_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<float> InternalPressure {
+        public float InternalPressure {
           get { return internalPressure_; }
+          set {
+            internalPressure_ = value;
+          }
         }
 
         /// <summary>Field number for the "electrical_current_c1" field.</summary>
         public const int ElectricalCurrentC1FieldNumber = 3;
-        private static readonly pb::FieldCodec<float> _repeated_electricalCurrentC1_codec
-            = pb::FieldCodec.ForFloat(26);
-        private readonly pbc::RepeatedField<float> electricalCurrentC1_ = new pbc::RepeatedField<float>();
+        private float electricalCurrentC1_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<float> ElectricalCurrentC1 {
+        public float ElectricalCurrentC1 {
           get { return electricalCurrentC1_; }
+          set {
+            electricalCurrentC1_ = value;
+          }
         }
 
         /// <summary>Field number for the "electrical_current_c2" field.</summary>
         public const int ElectricalCurrentC2FieldNumber = 4;
-        private static readonly pb::FieldCodec<float> _repeated_electricalCurrentC2_codec
-            = pb::FieldCodec.ForFloat(34);
-        private readonly pbc::RepeatedField<float> electricalCurrentC2_ = new pbc::RepeatedField<float>();
+        private float electricalCurrentC2_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<float> ElectricalCurrentC2 {
+        public float ElectricalCurrentC2 {
           get { return electricalCurrentC2_; }
+          set {
+            electricalCurrentC2_ = value;
+          }
         }
 
         /// <summary>Field number for the "electrical_current_c3" field.</summary>
         public const int ElectricalCurrentC3FieldNumber = 5;
-        private static readonly pb::FieldCodec<float> _repeated_electricalCurrentC3_codec
-            = pb::FieldCodec.ForFloat(42);
-        private readonly pbc::RepeatedField<float> electricalCurrentC3_ = new pbc::RepeatedField<float>();
+        private float electricalCurrentC3_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<float> ElectricalCurrentC3 {
+        public float ElectricalCurrentC3 {
           get { return electricalCurrentC3_; }
+          set {
+            electricalCurrentC3_ = value;
+          }
         }
 
         /// <summary>Field number for the "electrical_power_p1" field.</summary>
         public const int ElectricalPowerP1FieldNumber = 6;
-        private static readonly pb::FieldCodec<float> _repeated_electricalPowerP1_codec
-            = pb::FieldCodec.ForFloat(50);
-        private readonly pbc::RepeatedField<float> electricalPowerP1_ = new pbc::RepeatedField<float>();
+        private float electricalPowerP1_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<float> ElectricalPowerP1 {
+        public float ElectricalPowerP1 {
           get { return electricalPowerP1_; }
+          set {
+            electricalPowerP1_ = value;
+          }
         }
 
         /// <summary>Field number for the "electrical_power_p2" field.</summary>
         public const int ElectricalPowerP2FieldNumber = 7;
-        private static readonly pb::FieldCodec<float> _repeated_electricalPowerP2_codec
-            = pb::FieldCodec.ForFloat(58);
-        private readonly pbc::RepeatedField<float> electricalPowerP2_ = new pbc::RepeatedField<float>();
+        private float electricalPowerP2_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<float> ElectricalPowerP2 {
+        public float ElectricalPowerP2 {
           get { return electricalPowerP2_; }
+          set {
+            electricalPowerP2_ = value;
+          }
         }
 
         /// <summary>Field number for the "electrical_power_p3" field.</summary>
         public const int ElectricalPowerP3FieldNumber = 8;
-        private static readonly pb::FieldCodec<float> _repeated_electricalPowerP3_codec
-            = pb::FieldCodec.ForFloat(66);
-        private readonly pbc::RepeatedField<float> electricalPowerP3_ = new pbc::RepeatedField<float>();
+        private float electricalPowerP3_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<float> ElectricalPowerP3 {
+        public float ElectricalPowerP3 {
           get { return electricalPowerP3_; }
+          set {
+            electricalPowerP3_ = value;
+          }
         }
 
         /// <summary>Field number for the "electrical_tension_700v" field.</summary>
         public const int ElectricalTension700VFieldNumber = 9;
-        private static readonly pb::FieldCodec<float> _repeated_electricalTension700V_codec
-            = pb::FieldCodec.ForFloat(74);
-        private readonly pbc::RepeatedField<float> electricalTension700V_ = new pbc::RepeatedField<float>();
+        private float electricalTension700V_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<float> ElectricalTension700V {
+        public float ElectricalTension700V {
           get { return electricalTension700V_; }
+          set {
+            electricalTension700V_ = value;
+          }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1086,30 +1095,30 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
           if (ReferenceEquals(other, this)) {
             return true;
           }
-          if(!internalTemperature_.Equals(other.internalTemperature_)) return false;
-          if(!internalPressure_.Equals(other.internalPressure_)) return false;
-          if(!electricalCurrentC1_.Equals(other.electricalCurrentC1_)) return false;
-          if(!electricalCurrentC2_.Equals(other.electricalCurrentC2_)) return false;
-          if(!electricalCurrentC3_.Equals(other.electricalCurrentC3_)) return false;
-          if(!electricalPowerP1_.Equals(other.electricalPowerP1_)) return false;
-          if(!electricalPowerP2_.Equals(other.electricalPowerP2_)) return false;
-          if(!electricalPowerP3_.Equals(other.electricalPowerP3_)) return false;
-          if(!electricalTension700V_.Equals(other.electricalTension700V_)) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(InternalTemperature, other.InternalTemperature)) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(InternalPressure, other.InternalPressure)) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(ElectricalCurrentC1, other.ElectricalCurrentC1)) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(ElectricalCurrentC2, other.ElectricalCurrentC2)) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(ElectricalCurrentC3, other.ElectricalCurrentC3)) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(ElectricalPowerP1, other.ElectricalPowerP1)) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(ElectricalPowerP2, other.ElectricalPowerP2)) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(ElectricalPowerP3, other.ElectricalPowerP3)) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(ElectricalTension700V, other.ElectricalTension700V)) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public override int GetHashCode() {
           int hash = 1;
-          hash ^= internalTemperature_.GetHashCode();
-          hash ^= internalPressure_.GetHashCode();
-          hash ^= electricalCurrentC1_.GetHashCode();
-          hash ^= electricalCurrentC2_.GetHashCode();
-          hash ^= electricalCurrentC3_.GetHashCode();
-          hash ^= electricalPowerP1_.GetHashCode();
-          hash ^= electricalPowerP2_.GetHashCode();
-          hash ^= electricalPowerP3_.GetHashCode();
-          hash ^= electricalTension700V_.GetHashCode();
+          if (InternalTemperature != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(InternalTemperature);
+          if (InternalPressure != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(InternalPressure);
+          if (ElectricalCurrentC1 != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(ElectricalCurrentC1);
+          if (ElectricalCurrentC2 != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(ElectricalCurrentC2);
+          if (ElectricalCurrentC3 != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(ElectricalCurrentC3);
+          if (ElectricalPowerP1 != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(ElectricalPowerP1);
+          if (ElectricalPowerP2 != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(ElectricalPowerP2);
+          if (ElectricalPowerP3 != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(ElectricalPowerP3);
+          if (ElectricalTension700V != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(ElectricalTension700V);
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
           }
@@ -1123,15 +1132,42 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public void WriteTo(pb::CodedOutputStream output) {
-          internalTemperature_.WriteTo(output, _repeated_internalTemperature_codec);
-          internalPressure_.WriteTo(output, _repeated_internalPressure_codec);
-          electricalCurrentC1_.WriteTo(output, _repeated_electricalCurrentC1_codec);
-          electricalCurrentC2_.WriteTo(output, _repeated_electricalCurrentC2_codec);
-          electricalCurrentC3_.WriteTo(output, _repeated_electricalCurrentC3_codec);
-          electricalPowerP1_.WriteTo(output, _repeated_electricalPowerP1_codec);
-          electricalPowerP2_.WriteTo(output, _repeated_electricalPowerP2_codec);
-          electricalPowerP3_.WriteTo(output, _repeated_electricalPowerP3_codec);
-          electricalTension700V_.WriteTo(output, _repeated_electricalTension700V_codec);
+          if (InternalTemperature != 0F) {
+            output.WriteRawTag(13);
+            output.WriteFloat(InternalTemperature);
+          }
+          if (InternalPressure != 0F) {
+            output.WriteRawTag(21);
+            output.WriteFloat(InternalPressure);
+          }
+          if (ElectricalCurrentC1 != 0F) {
+            output.WriteRawTag(29);
+            output.WriteFloat(ElectricalCurrentC1);
+          }
+          if (ElectricalCurrentC2 != 0F) {
+            output.WriteRawTag(37);
+            output.WriteFloat(ElectricalCurrentC2);
+          }
+          if (ElectricalCurrentC3 != 0F) {
+            output.WriteRawTag(45);
+            output.WriteFloat(ElectricalCurrentC3);
+          }
+          if (ElectricalPowerP1 != 0F) {
+            output.WriteRawTag(53);
+            output.WriteFloat(ElectricalPowerP1);
+          }
+          if (ElectricalPowerP2 != 0F) {
+            output.WriteRawTag(61);
+            output.WriteFloat(ElectricalPowerP2);
+          }
+          if (ElectricalPowerP3 != 0F) {
+            output.WriteRawTag(69);
+            output.WriteFloat(ElectricalPowerP3);
+          }
+          if (ElectricalTension700V != 0F) {
+            output.WriteRawTag(77);
+            output.WriteFloat(ElectricalTension700V);
+          }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
           }
@@ -1140,15 +1176,33 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public int CalculateSize() {
           int size = 0;
-          size += internalTemperature_.CalculateSize(_repeated_internalTemperature_codec);
-          size += internalPressure_.CalculateSize(_repeated_internalPressure_codec);
-          size += electricalCurrentC1_.CalculateSize(_repeated_electricalCurrentC1_codec);
-          size += electricalCurrentC2_.CalculateSize(_repeated_electricalCurrentC2_codec);
-          size += electricalCurrentC3_.CalculateSize(_repeated_electricalCurrentC3_codec);
-          size += electricalPowerP1_.CalculateSize(_repeated_electricalPowerP1_codec);
-          size += electricalPowerP2_.CalculateSize(_repeated_electricalPowerP2_codec);
-          size += electricalPowerP3_.CalculateSize(_repeated_electricalPowerP3_codec);
-          size += electricalTension700V_.CalculateSize(_repeated_electricalTension700V_codec);
+          if (InternalTemperature != 0F) {
+            size += 1 + 4;
+          }
+          if (InternalPressure != 0F) {
+            size += 1 + 4;
+          }
+          if (ElectricalCurrentC1 != 0F) {
+            size += 1 + 4;
+          }
+          if (ElectricalCurrentC2 != 0F) {
+            size += 1 + 4;
+          }
+          if (ElectricalCurrentC3 != 0F) {
+            size += 1 + 4;
+          }
+          if (ElectricalPowerP1 != 0F) {
+            size += 1 + 4;
+          }
+          if (ElectricalPowerP2 != 0F) {
+            size += 1 + 4;
+          }
+          if (ElectricalPowerP3 != 0F) {
+            size += 1 + 4;
+          }
+          if (ElectricalTension700V != 0F) {
+            size += 1 + 4;
+          }
           if (_unknownFields != null) {
             size += _unknownFields.CalculateSize();
           }
@@ -1160,15 +1214,33 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
           if (other == null) {
             return;
           }
-          internalTemperature_.Add(other.internalTemperature_);
-          internalPressure_.Add(other.internalPressure_);
-          electricalCurrentC1_.Add(other.electricalCurrentC1_);
-          electricalCurrentC2_.Add(other.electricalCurrentC2_);
-          electricalCurrentC3_.Add(other.electricalCurrentC3_);
-          electricalPowerP1_.Add(other.electricalPowerP1_);
-          electricalPowerP2_.Add(other.electricalPowerP2_);
-          electricalPowerP3_.Add(other.electricalPowerP3_);
-          electricalTension700V_.Add(other.electricalTension700V_);
+          if (other.InternalTemperature != 0F) {
+            InternalTemperature = other.InternalTemperature;
+          }
+          if (other.InternalPressure != 0F) {
+            InternalPressure = other.InternalPressure;
+          }
+          if (other.ElectricalCurrentC1 != 0F) {
+            ElectricalCurrentC1 = other.ElectricalCurrentC1;
+          }
+          if (other.ElectricalCurrentC2 != 0F) {
+            ElectricalCurrentC2 = other.ElectricalCurrentC2;
+          }
+          if (other.ElectricalCurrentC3 != 0F) {
+            ElectricalCurrentC3 = other.ElectricalCurrentC3;
+          }
+          if (other.ElectricalPowerP1 != 0F) {
+            ElectricalPowerP1 = other.ElectricalPowerP1;
+          }
+          if (other.ElectricalPowerP2 != 0F) {
+            ElectricalPowerP2 = other.ElectricalPowerP2;
+          }
+          if (other.ElectricalPowerP3 != 0F) {
+            ElectricalPowerP3 = other.ElectricalPowerP3;
+          }
+          if (other.ElectricalTension700V != 0F) {
+            ElectricalTension700V = other.ElectricalTension700V;
+          }
           _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
         }
 
@@ -1180,49 +1252,40 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
               default:
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                 break;
-              case 10:
               case 13: {
-                internalTemperature_.AddEntriesFrom(input, _repeated_internalTemperature_codec);
+                InternalTemperature = input.ReadFloat();
                 break;
               }
-              case 18:
               case 21: {
-                internalPressure_.AddEntriesFrom(input, _repeated_internalPressure_codec);
+                InternalPressure = input.ReadFloat();
                 break;
               }
-              case 26:
               case 29: {
-                electricalCurrentC1_.AddEntriesFrom(input, _repeated_electricalCurrentC1_codec);
+                ElectricalCurrentC1 = input.ReadFloat();
                 break;
               }
-              case 34:
               case 37: {
-                electricalCurrentC2_.AddEntriesFrom(input, _repeated_electricalCurrentC2_codec);
+                ElectricalCurrentC2 = input.ReadFloat();
                 break;
               }
-              case 42:
               case 45: {
-                electricalCurrentC3_.AddEntriesFrom(input, _repeated_electricalCurrentC3_codec);
+                ElectricalCurrentC3 = input.ReadFloat();
                 break;
               }
-              case 50:
               case 53: {
-                electricalPowerP1_.AddEntriesFrom(input, _repeated_electricalPowerP1_codec);
+                ElectricalPowerP1 = input.ReadFloat();
                 break;
               }
-              case 58:
               case 61: {
-                electricalPowerP2_.AddEntriesFrom(input, _repeated_electricalPowerP2_codec);
+                ElectricalPowerP2 = input.ReadFloat();
                 break;
               }
-              case 66:
               case 69: {
-                electricalPowerP3_.AddEntriesFrom(input, _repeated_electricalPowerP3_codec);
+                ElectricalPowerP3 = input.ReadFloat();
                 break;
               }
-              case 74:
               case 77: {
-                electricalTension700V_.AddEntriesFrom(input, _repeated_electricalTension700V_codec);
+                ElectricalTension700V = input.ReadFloat();
                 break;
               }
             }
@@ -1256,17 +1319,17 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public RegulatedConverter(RegulatedConverter other) : this() {
-          internalTemperature_ = other.internalTemperature_.Clone();
-          internalPressure_ = other.internalPressure_.Clone();
-          electricalCurrentC1_ = other.electricalCurrentC1_.Clone();
-          electricalCurrentC2_ = other.electricalCurrentC2_.Clone();
-          electricalCurrentC3_ = other.electricalCurrentC3_.Clone();
-          electricalCurrentC4_ = other.electricalCurrentC4_.Clone();
-          electricalPowerP1_ = other.electricalPowerP1_.Clone();
-          electricalPowerP2_ = other.electricalPowerP2_.Clone();
-          electricalPowerP3_ = other.electricalPowerP3_.Clone();
-          electricalPowerP4_ = other.electricalPowerP4_.Clone();
-          electricalTension_ = other.electricalTension_.Clone();
+          internalTemperature_ = other.internalTemperature_;
+          internalPressure_ = other.internalPressure_;
+          electricalCurrentC1_ = other.electricalCurrentC1_;
+          electricalCurrentC2_ = other.electricalCurrentC2_;
+          electricalCurrentC3_ = other.electricalCurrentC3_;
+          electricalCurrentC4_ = other.electricalCurrentC4_;
+          electricalPowerP1_ = other.electricalPowerP1_;
+          electricalPowerP2_ = other.electricalPowerP2_;
+          electricalPowerP3_ = other.electricalPowerP3_;
+          electricalPowerP4_ = other.electricalPowerP4_;
+          electricalTension_ = other.electricalTension_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
 
@@ -1277,112 +1340,123 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
         /// <summary>Field number for the "internal_temperature" field.</summary>
         public const int InternalTemperatureFieldNumber = 1;
-        private static readonly pb::FieldCodec<float> _repeated_internalTemperature_codec
-            = pb::FieldCodec.ForFloat(10);
-        private readonly pbc::RepeatedField<float> internalTemperature_ = new pbc::RepeatedField<float>();
+        private float internalTemperature_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<float> InternalTemperature {
+        public float InternalTemperature {
           get { return internalTemperature_; }
+          set {
+            internalTemperature_ = value;
+          }
         }
 
         /// <summary>Field number for the "internal_pressure" field.</summary>
         public const int InternalPressureFieldNumber = 2;
-        private static readonly pb::FieldCodec<float> _repeated_internalPressure_codec
-            = pb::FieldCodec.ForFloat(18);
-        private readonly pbc::RepeatedField<float> internalPressure_ = new pbc::RepeatedField<float>();
+        private float internalPressure_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<float> InternalPressure {
+        public float InternalPressure {
           get { return internalPressure_; }
+          set {
+            internalPressure_ = value;
+          }
         }
 
         /// <summary>Field number for the "electrical_current_c1" field.</summary>
         public const int ElectricalCurrentC1FieldNumber = 3;
-        private static readonly pb::FieldCodec<float> _repeated_electricalCurrentC1_codec
-            = pb::FieldCodec.ForFloat(26);
-        private readonly pbc::RepeatedField<float> electricalCurrentC1_ = new pbc::RepeatedField<float>();
+        private float electricalCurrentC1_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<float> ElectricalCurrentC1 {
+        public float ElectricalCurrentC1 {
           get { return electricalCurrentC1_; }
+          set {
+            electricalCurrentC1_ = value;
+          }
         }
 
         /// <summary>Field number for the "electrical_current_c2" field.</summary>
         public const int ElectricalCurrentC2FieldNumber = 4;
-        private static readonly pb::FieldCodec<float> _repeated_electricalCurrentC2_codec
-            = pb::FieldCodec.ForFloat(34);
-        private readonly pbc::RepeatedField<float> electricalCurrentC2_ = new pbc::RepeatedField<float>();
+        private float electricalCurrentC2_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<float> ElectricalCurrentC2 {
+        public float ElectricalCurrentC2 {
           get { return electricalCurrentC2_; }
+          set {
+            electricalCurrentC2_ = value;
+          }
         }
 
         /// <summary>Field number for the "electrical_current_c3" field.</summary>
         public const int ElectricalCurrentC3FieldNumber = 5;
-        private static readonly pb::FieldCodec<float> _repeated_electricalCurrentC3_codec
-            = pb::FieldCodec.ForFloat(42);
-        private readonly pbc::RepeatedField<float> electricalCurrentC3_ = new pbc::RepeatedField<float>();
+        private float electricalCurrentC3_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<float> ElectricalCurrentC3 {
+        public float ElectricalCurrentC3 {
           get { return electricalCurrentC3_; }
+          set {
+            electricalCurrentC3_ = value;
+          }
         }
 
         /// <summary>Field number for the "electrical_current_c4" field.</summary>
         public const int ElectricalCurrentC4FieldNumber = 6;
-        private static readonly pb::FieldCodec<float> _repeated_electricalCurrentC4_codec
-            = pb::FieldCodec.ForFloat(50);
-        private readonly pbc::RepeatedField<float> electricalCurrentC4_ = new pbc::RepeatedField<float>();
+        private float electricalCurrentC4_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<float> ElectricalCurrentC4 {
+        public float ElectricalCurrentC4 {
           get { return electricalCurrentC4_; }
+          set {
+            electricalCurrentC4_ = value;
+          }
         }
 
         /// <summary>Field number for the "electrical_power_p1" field.</summary>
         public const int ElectricalPowerP1FieldNumber = 7;
-        private static readonly pb::FieldCodec<float> _repeated_electricalPowerP1_codec
-            = pb::FieldCodec.ForFloat(58);
-        private readonly pbc::RepeatedField<float> electricalPowerP1_ = new pbc::RepeatedField<float>();
+        private float electricalPowerP1_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<float> ElectricalPowerP1 {
+        public float ElectricalPowerP1 {
           get { return electricalPowerP1_; }
+          set {
+            electricalPowerP1_ = value;
+          }
         }
 
         /// <summary>Field number for the "electrical_power_p2" field.</summary>
         public const int ElectricalPowerP2FieldNumber = 8;
-        private static readonly pb::FieldCodec<float> _repeated_electricalPowerP2_codec
-            = pb::FieldCodec.ForFloat(66);
-        private readonly pbc::RepeatedField<float> electricalPowerP2_ = new pbc::RepeatedField<float>();
+        private float electricalPowerP2_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<float> ElectricalPowerP2 {
+        public float ElectricalPowerP2 {
           get { return electricalPowerP2_; }
+          set {
+            electricalPowerP2_ = value;
+          }
         }
 
         /// <summary>Field number for the "electrical_power_p3" field.</summary>
         public const int ElectricalPowerP3FieldNumber = 9;
-        private static readonly pb::FieldCodec<float> _repeated_electricalPowerP3_codec
-            = pb::FieldCodec.ForFloat(74);
-        private readonly pbc::RepeatedField<float> electricalPowerP3_ = new pbc::RepeatedField<float>();
+        private float electricalPowerP3_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<float> ElectricalPowerP3 {
+        public float ElectricalPowerP3 {
           get { return electricalPowerP3_; }
+          set {
+            electricalPowerP3_ = value;
+          }
         }
 
         /// <summary>Field number for the "electrical_power_p4" field.</summary>
         public const int ElectricalPowerP4FieldNumber = 10;
-        private static readonly pb::FieldCodec<float> _repeated_electricalPowerP4_codec
-            = pb::FieldCodec.ForFloat(82);
-        private readonly pbc::RepeatedField<float> electricalPowerP4_ = new pbc::RepeatedField<float>();
+        private float electricalPowerP4_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<float> ElectricalPowerP4 {
+        public float ElectricalPowerP4 {
           get { return electricalPowerP4_; }
+          set {
+            electricalPowerP4_ = value;
+          }
         }
 
         /// <summary>Field number for the "electrical_tension" field.</summary>
         public const int ElectricalTensionFieldNumber = 11;
-        private static readonly pb::FieldCodec<float> _repeated_electricalTension_codec
-            = pb::FieldCodec.ForFloat(90);
-        private readonly pbc::RepeatedField<float> electricalTension_ = new pbc::RepeatedField<float>();
+        private float electricalTension_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<float> ElectricalTension {
+        public float ElectricalTension {
           get { return electricalTension_; }
+          set {
+            electricalTension_ = value;
+          }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1398,34 +1472,34 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
           if (ReferenceEquals(other, this)) {
             return true;
           }
-          if(!internalTemperature_.Equals(other.internalTemperature_)) return false;
-          if(!internalPressure_.Equals(other.internalPressure_)) return false;
-          if(!electricalCurrentC1_.Equals(other.electricalCurrentC1_)) return false;
-          if(!electricalCurrentC2_.Equals(other.electricalCurrentC2_)) return false;
-          if(!electricalCurrentC3_.Equals(other.electricalCurrentC3_)) return false;
-          if(!electricalCurrentC4_.Equals(other.electricalCurrentC4_)) return false;
-          if(!electricalPowerP1_.Equals(other.electricalPowerP1_)) return false;
-          if(!electricalPowerP2_.Equals(other.electricalPowerP2_)) return false;
-          if(!electricalPowerP3_.Equals(other.electricalPowerP3_)) return false;
-          if(!electricalPowerP4_.Equals(other.electricalPowerP4_)) return false;
-          if(!electricalTension_.Equals(other.electricalTension_)) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(InternalTemperature, other.InternalTemperature)) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(InternalPressure, other.InternalPressure)) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(ElectricalCurrentC1, other.ElectricalCurrentC1)) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(ElectricalCurrentC2, other.ElectricalCurrentC2)) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(ElectricalCurrentC3, other.ElectricalCurrentC3)) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(ElectricalCurrentC4, other.ElectricalCurrentC4)) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(ElectricalPowerP1, other.ElectricalPowerP1)) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(ElectricalPowerP2, other.ElectricalPowerP2)) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(ElectricalPowerP3, other.ElectricalPowerP3)) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(ElectricalPowerP4, other.ElectricalPowerP4)) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(ElectricalTension, other.ElectricalTension)) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public override int GetHashCode() {
           int hash = 1;
-          hash ^= internalTemperature_.GetHashCode();
-          hash ^= internalPressure_.GetHashCode();
-          hash ^= electricalCurrentC1_.GetHashCode();
-          hash ^= electricalCurrentC2_.GetHashCode();
-          hash ^= electricalCurrentC3_.GetHashCode();
-          hash ^= electricalCurrentC4_.GetHashCode();
-          hash ^= electricalPowerP1_.GetHashCode();
-          hash ^= electricalPowerP2_.GetHashCode();
-          hash ^= electricalPowerP3_.GetHashCode();
-          hash ^= electricalPowerP4_.GetHashCode();
-          hash ^= electricalTension_.GetHashCode();
+          if (InternalTemperature != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(InternalTemperature);
+          if (InternalPressure != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(InternalPressure);
+          if (ElectricalCurrentC1 != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(ElectricalCurrentC1);
+          if (ElectricalCurrentC2 != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(ElectricalCurrentC2);
+          if (ElectricalCurrentC3 != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(ElectricalCurrentC3);
+          if (ElectricalCurrentC4 != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(ElectricalCurrentC4);
+          if (ElectricalPowerP1 != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(ElectricalPowerP1);
+          if (ElectricalPowerP2 != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(ElectricalPowerP2);
+          if (ElectricalPowerP3 != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(ElectricalPowerP3);
+          if (ElectricalPowerP4 != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(ElectricalPowerP4);
+          if (ElectricalTension != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(ElectricalTension);
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
           }
@@ -1439,17 +1513,50 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public void WriteTo(pb::CodedOutputStream output) {
-          internalTemperature_.WriteTo(output, _repeated_internalTemperature_codec);
-          internalPressure_.WriteTo(output, _repeated_internalPressure_codec);
-          electricalCurrentC1_.WriteTo(output, _repeated_electricalCurrentC1_codec);
-          electricalCurrentC2_.WriteTo(output, _repeated_electricalCurrentC2_codec);
-          electricalCurrentC3_.WriteTo(output, _repeated_electricalCurrentC3_codec);
-          electricalCurrentC4_.WriteTo(output, _repeated_electricalCurrentC4_codec);
-          electricalPowerP1_.WriteTo(output, _repeated_electricalPowerP1_codec);
-          electricalPowerP2_.WriteTo(output, _repeated_electricalPowerP2_codec);
-          electricalPowerP3_.WriteTo(output, _repeated_electricalPowerP3_codec);
-          electricalPowerP4_.WriteTo(output, _repeated_electricalPowerP4_codec);
-          electricalTension_.WriteTo(output, _repeated_electricalTension_codec);
+          if (InternalTemperature != 0F) {
+            output.WriteRawTag(13);
+            output.WriteFloat(InternalTemperature);
+          }
+          if (InternalPressure != 0F) {
+            output.WriteRawTag(21);
+            output.WriteFloat(InternalPressure);
+          }
+          if (ElectricalCurrentC1 != 0F) {
+            output.WriteRawTag(29);
+            output.WriteFloat(ElectricalCurrentC1);
+          }
+          if (ElectricalCurrentC2 != 0F) {
+            output.WriteRawTag(37);
+            output.WriteFloat(ElectricalCurrentC2);
+          }
+          if (ElectricalCurrentC3 != 0F) {
+            output.WriteRawTag(45);
+            output.WriteFloat(ElectricalCurrentC3);
+          }
+          if (ElectricalCurrentC4 != 0F) {
+            output.WriteRawTag(53);
+            output.WriteFloat(ElectricalCurrentC4);
+          }
+          if (ElectricalPowerP1 != 0F) {
+            output.WriteRawTag(61);
+            output.WriteFloat(ElectricalPowerP1);
+          }
+          if (ElectricalPowerP2 != 0F) {
+            output.WriteRawTag(69);
+            output.WriteFloat(ElectricalPowerP2);
+          }
+          if (ElectricalPowerP3 != 0F) {
+            output.WriteRawTag(77);
+            output.WriteFloat(ElectricalPowerP3);
+          }
+          if (ElectricalPowerP4 != 0F) {
+            output.WriteRawTag(85);
+            output.WriteFloat(ElectricalPowerP4);
+          }
+          if (ElectricalTension != 0F) {
+            output.WriteRawTag(93);
+            output.WriteFloat(ElectricalTension);
+          }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
           }
@@ -1458,17 +1565,39 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public int CalculateSize() {
           int size = 0;
-          size += internalTemperature_.CalculateSize(_repeated_internalTemperature_codec);
-          size += internalPressure_.CalculateSize(_repeated_internalPressure_codec);
-          size += electricalCurrentC1_.CalculateSize(_repeated_electricalCurrentC1_codec);
-          size += electricalCurrentC2_.CalculateSize(_repeated_electricalCurrentC2_codec);
-          size += electricalCurrentC3_.CalculateSize(_repeated_electricalCurrentC3_codec);
-          size += electricalCurrentC4_.CalculateSize(_repeated_electricalCurrentC4_codec);
-          size += electricalPowerP1_.CalculateSize(_repeated_electricalPowerP1_codec);
-          size += electricalPowerP2_.CalculateSize(_repeated_electricalPowerP2_codec);
-          size += electricalPowerP3_.CalculateSize(_repeated_electricalPowerP3_codec);
-          size += electricalPowerP4_.CalculateSize(_repeated_electricalPowerP4_codec);
-          size += electricalTension_.CalculateSize(_repeated_electricalTension_codec);
+          if (InternalTemperature != 0F) {
+            size += 1 + 4;
+          }
+          if (InternalPressure != 0F) {
+            size += 1 + 4;
+          }
+          if (ElectricalCurrentC1 != 0F) {
+            size += 1 + 4;
+          }
+          if (ElectricalCurrentC2 != 0F) {
+            size += 1 + 4;
+          }
+          if (ElectricalCurrentC3 != 0F) {
+            size += 1 + 4;
+          }
+          if (ElectricalCurrentC4 != 0F) {
+            size += 1 + 4;
+          }
+          if (ElectricalPowerP1 != 0F) {
+            size += 1 + 4;
+          }
+          if (ElectricalPowerP2 != 0F) {
+            size += 1 + 4;
+          }
+          if (ElectricalPowerP3 != 0F) {
+            size += 1 + 4;
+          }
+          if (ElectricalPowerP4 != 0F) {
+            size += 1 + 4;
+          }
+          if (ElectricalTension != 0F) {
+            size += 1 + 4;
+          }
           if (_unknownFields != null) {
             size += _unknownFields.CalculateSize();
           }
@@ -1480,17 +1609,39 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
           if (other == null) {
             return;
           }
-          internalTemperature_.Add(other.internalTemperature_);
-          internalPressure_.Add(other.internalPressure_);
-          electricalCurrentC1_.Add(other.electricalCurrentC1_);
-          electricalCurrentC2_.Add(other.electricalCurrentC2_);
-          electricalCurrentC3_.Add(other.electricalCurrentC3_);
-          electricalCurrentC4_.Add(other.electricalCurrentC4_);
-          electricalPowerP1_.Add(other.electricalPowerP1_);
-          electricalPowerP2_.Add(other.electricalPowerP2_);
-          electricalPowerP3_.Add(other.electricalPowerP3_);
-          electricalPowerP4_.Add(other.electricalPowerP4_);
-          electricalTension_.Add(other.electricalTension_);
+          if (other.InternalTemperature != 0F) {
+            InternalTemperature = other.InternalTemperature;
+          }
+          if (other.InternalPressure != 0F) {
+            InternalPressure = other.InternalPressure;
+          }
+          if (other.ElectricalCurrentC1 != 0F) {
+            ElectricalCurrentC1 = other.ElectricalCurrentC1;
+          }
+          if (other.ElectricalCurrentC2 != 0F) {
+            ElectricalCurrentC2 = other.ElectricalCurrentC2;
+          }
+          if (other.ElectricalCurrentC3 != 0F) {
+            ElectricalCurrentC3 = other.ElectricalCurrentC3;
+          }
+          if (other.ElectricalCurrentC4 != 0F) {
+            ElectricalCurrentC4 = other.ElectricalCurrentC4;
+          }
+          if (other.ElectricalPowerP1 != 0F) {
+            ElectricalPowerP1 = other.ElectricalPowerP1;
+          }
+          if (other.ElectricalPowerP2 != 0F) {
+            ElectricalPowerP2 = other.ElectricalPowerP2;
+          }
+          if (other.ElectricalPowerP3 != 0F) {
+            ElectricalPowerP3 = other.ElectricalPowerP3;
+          }
+          if (other.ElectricalPowerP4 != 0F) {
+            ElectricalPowerP4 = other.ElectricalPowerP4;
+          }
+          if (other.ElectricalTension != 0F) {
+            ElectricalTension = other.ElectricalTension;
+          }
           _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
         }
 
@@ -1502,59 +1653,48 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
               default:
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                 break;
-              case 10:
               case 13: {
-                internalTemperature_.AddEntriesFrom(input, _repeated_internalTemperature_codec);
+                InternalTemperature = input.ReadFloat();
                 break;
               }
-              case 18:
               case 21: {
-                internalPressure_.AddEntriesFrom(input, _repeated_internalPressure_codec);
+                InternalPressure = input.ReadFloat();
                 break;
               }
-              case 26:
               case 29: {
-                electricalCurrentC1_.AddEntriesFrom(input, _repeated_electricalCurrentC1_codec);
+                ElectricalCurrentC1 = input.ReadFloat();
                 break;
               }
-              case 34:
               case 37: {
-                electricalCurrentC2_.AddEntriesFrom(input, _repeated_electricalCurrentC2_codec);
+                ElectricalCurrentC2 = input.ReadFloat();
                 break;
               }
-              case 42:
               case 45: {
-                electricalCurrentC3_.AddEntriesFrom(input, _repeated_electricalCurrentC3_codec);
+                ElectricalCurrentC3 = input.ReadFloat();
                 break;
               }
-              case 50:
               case 53: {
-                electricalCurrentC4_.AddEntriesFrom(input, _repeated_electricalCurrentC4_codec);
+                ElectricalCurrentC4 = input.ReadFloat();
                 break;
               }
-              case 58:
               case 61: {
-                electricalPowerP1_.AddEntriesFrom(input, _repeated_electricalPowerP1_codec);
+                ElectricalPowerP1 = input.ReadFloat();
                 break;
               }
-              case 66:
               case 69: {
-                electricalPowerP2_.AddEntriesFrom(input, _repeated_electricalPowerP2_codec);
+                ElectricalPowerP2 = input.ReadFloat();
                 break;
               }
-              case 74:
               case 77: {
-                electricalPowerP3_.AddEntriesFrom(input, _repeated_electricalPowerP3_codec);
+                ElectricalPowerP3 = input.ReadFloat();
                 break;
               }
-              case 82:
               case 85: {
-                electricalPowerP4_.AddEntriesFrom(input, _repeated_electricalPowerP4_codec);
+                ElectricalPowerP4 = input.ReadFloat();
                 break;
               }
-              case 90:
               case 93: {
-                electricalTension_.AddEntriesFrom(input, _repeated_electricalTension_codec);
+                ElectricalTension = input.ReadFloat();
                 break;
               }
             }
@@ -1588,18 +1728,18 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public EmbeddedSystem(EmbeddedSystem other) : this() {
-          internalTemperature_ = other.internalTemperature_.Clone();
-          internalPressure_ = other.internalPressure_.Clone();
-          externalModulePressure_ = other.externalModulePressure_.Clone();
-          rotationX_ = other.rotationX_.Clone();
-          rotationY_ = other.rotationY_.Clone();
-          rotationZ_ = other.rotationZ_.Clone();
-          displacementX_ = other.displacementX_.Clone();
-          displacementY_ = other.displacementY_.Clone();
-          displacementZ_ = other.displacementZ_.Clone();
-          accelerationX_ = other.accelerationX_.Clone();
-          accelerationY_ = other.accelerationY_.Clone();
-          accelerationZ_ = other.accelerationZ_.Clone();
+          internalTemperature_ = other.internalTemperature_;
+          internalPressure_ = other.internalPressure_;
+          externalModulePressure_ = other.externalModulePressure_;
+          rotationX_ = other.rotationX_;
+          rotationY_ = other.rotationY_;
+          rotationZ_ = other.rotationZ_;
+          displacementX_ = other.displacementX_;
+          displacementY_ = other.displacementY_;
+          displacementZ_ = other.displacementZ_;
+          accelerationX_ = other.accelerationX_;
+          accelerationY_ = other.accelerationY_;
+          accelerationZ_ = other.accelerationZ_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
 
@@ -1610,122 +1750,134 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
         /// <summary>Field number for the "internal_temperature" field.</summary>
         public const int InternalTemperatureFieldNumber = 1;
-        private static readonly pb::FieldCodec<float> _repeated_internalTemperature_codec
-            = pb::FieldCodec.ForFloat(10);
-        private readonly pbc::RepeatedField<float> internalTemperature_ = new pbc::RepeatedField<float>();
+        private float internalTemperature_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<float> InternalTemperature {
+        public float InternalTemperature {
           get { return internalTemperature_; }
+          set {
+            internalTemperature_ = value;
+          }
         }
 
         /// <summary>Field number for the "internal_pressure" field.</summary>
         public const int InternalPressureFieldNumber = 2;
-        private static readonly pb::FieldCodec<float> _repeated_internalPressure_codec
-            = pb::FieldCodec.ForFloat(18);
-        private readonly pbc::RepeatedField<float> internalPressure_ = new pbc::RepeatedField<float>();
+        private float internalPressure_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<float> InternalPressure {
+        public float InternalPressure {
           get { return internalPressure_; }
+          set {
+            internalPressure_ = value;
+          }
         }
 
         /// <summary>Field number for the "external_module_pressure" field.</summary>
         public const int ExternalModulePressureFieldNumber = 3;
-        private static readonly pb::FieldCodec<float> _repeated_externalModulePressure_codec
-            = pb::FieldCodec.ForFloat(26);
-        private readonly pbc::RepeatedField<float> externalModulePressure_ = new pbc::RepeatedField<float>();
+        private float externalModulePressure_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<float> ExternalModulePressure {
+        public float ExternalModulePressure {
           get { return externalModulePressure_; }
+          set {
+            externalModulePressure_ = value;
+          }
         }
 
         /// <summary>Field number for the "rotation_x" field.</summary>
         public const int RotationXFieldNumber = 4;
-        private static readonly pb::FieldCodec<float> _repeated_rotationX_codec
-            = pb::FieldCodec.ForFloat(34);
-        private readonly pbc::RepeatedField<float> rotationX_ = new pbc::RepeatedField<float>();
+        private float rotationX_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<float> RotationX {
+        public float RotationX {
           get { return rotationX_; }
+          set {
+            rotationX_ = value;
+          }
         }
 
         /// <summary>Field number for the "rotation_y" field.</summary>
         public const int RotationYFieldNumber = 5;
-        private static readonly pb::FieldCodec<float> _repeated_rotationY_codec
-            = pb::FieldCodec.ForFloat(42);
-        private readonly pbc::RepeatedField<float> rotationY_ = new pbc::RepeatedField<float>();
+        private float rotationY_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<float> RotationY {
+        public float RotationY {
           get { return rotationY_; }
+          set {
+            rotationY_ = value;
+          }
         }
 
         /// <summary>Field number for the "rotation_z" field.</summary>
         public const int RotationZFieldNumber = 6;
-        private static readonly pb::FieldCodec<float> _repeated_rotationZ_codec
-            = pb::FieldCodec.ForFloat(50);
-        private readonly pbc::RepeatedField<float> rotationZ_ = new pbc::RepeatedField<float>();
+        private float rotationZ_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<float> RotationZ {
+        public float RotationZ {
           get { return rotationZ_; }
+          set {
+            rotationZ_ = value;
+          }
         }
 
         /// <summary>Field number for the "displacement_x" field.</summary>
         public const int DisplacementXFieldNumber = 7;
-        private static readonly pb::FieldCodec<float> _repeated_displacementX_codec
-            = pb::FieldCodec.ForFloat(58);
-        private readonly pbc::RepeatedField<float> displacementX_ = new pbc::RepeatedField<float>();
+        private float displacementX_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<float> DisplacementX {
+        public float DisplacementX {
           get { return displacementX_; }
+          set {
+            displacementX_ = value;
+          }
         }
 
         /// <summary>Field number for the "displacement_y" field.</summary>
         public const int DisplacementYFieldNumber = 8;
-        private static readonly pb::FieldCodec<float> _repeated_displacementY_codec
-            = pb::FieldCodec.ForFloat(66);
-        private readonly pbc::RepeatedField<float> displacementY_ = new pbc::RepeatedField<float>();
+        private float displacementY_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<float> DisplacementY {
+        public float DisplacementY {
           get { return displacementY_; }
+          set {
+            displacementY_ = value;
+          }
         }
 
         /// <summary>Field number for the "displacement_z" field.</summary>
         public const int DisplacementZFieldNumber = 9;
-        private static readonly pb::FieldCodec<float> _repeated_displacementZ_codec
-            = pb::FieldCodec.ForFloat(74);
-        private readonly pbc::RepeatedField<float> displacementZ_ = new pbc::RepeatedField<float>();
+        private float displacementZ_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<float> DisplacementZ {
+        public float DisplacementZ {
           get { return displacementZ_; }
+          set {
+            displacementZ_ = value;
+          }
         }
 
         /// <summary>Field number for the "acceleration_x" field.</summary>
         public const int AccelerationXFieldNumber = 10;
-        private static readonly pb::FieldCodec<float> _repeated_accelerationX_codec
-            = pb::FieldCodec.ForFloat(82);
-        private readonly pbc::RepeatedField<float> accelerationX_ = new pbc::RepeatedField<float>();
+        private float accelerationX_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<float> AccelerationX {
+        public float AccelerationX {
           get { return accelerationX_; }
+          set {
+            accelerationX_ = value;
+          }
         }
 
         /// <summary>Field number for the "acceleration_y" field.</summary>
         public const int AccelerationYFieldNumber = 11;
-        private static readonly pb::FieldCodec<float> _repeated_accelerationY_codec
-            = pb::FieldCodec.ForFloat(90);
-        private readonly pbc::RepeatedField<float> accelerationY_ = new pbc::RepeatedField<float>();
+        private float accelerationY_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<float> AccelerationY {
+        public float AccelerationY {
           get { return accelerationY_; }
+          set {
+            accelerationY_ = value;
+          }
         }
 
         /// <summary>Field number for the "acceleration_z" field.</summary>
         public const int AccelerationZFieldNumber = 12;
-        private static readonly pb::FieldCodec<float> _repeated_accelerationZ_codec
-            = pb::FieldCodec.ForFloat(98);
-        private readonly pbc::RepeatedField<float> accelerationZ_ = new pbc::RepeatedField<float>();
+        private float accelerationZ_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<float> AccelerationZ {
+        public float AccelerationZ {
           get { return accelerationZ_; }
+          set {
+            accelerationZ_ = value;
+          }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1741,36 +1893,36 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
           if (ReferenceEquals(other, this)) {
             return true;
           }
-          if(!internalTemperature_.Equals(other.internalTemperature_)) return false;
-          if(!internalPressure_.Equals(other.internalPressure_)) return false;
-          if(!externalModulePressure_.Equals(other.externalModulePressure_)) return false;
-          if(!rotationX_.Equals(other.rotationX_)) return false;
-          if(!rotationY_.Equals(other.rotationY_)) return false;
-          if(!rotationZ_.Equals(other.rotationZ_)) return false;
-          if(!displacementX_.Equals(other.displacementX_)) return false;
-          if(!displacementY_.Equals(other.displacementY_)) return false;
-          if(!displacementZ_.Equals(other.displacementZ_)) return false;
-          if(!accelerationX_.Equals(other.accelerationX_)) return false;
-          if(!accelerationY_.Equals(other.accelerationY_)) return false;
-          if(!accelerationZ_.Equals(other.accelerationZ_)) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(InternalTemperature, other.InternalTemperature)) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(InternalPressure, other.InternalPressure)) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(ExternalModulePressure, other.ExternalModulePressure)) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(RotationX, other.RotationX)) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(RotationY, other.RotationY)) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(RotationZ, other.RotationZ)) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(DisplacementX, other.DisplacementX)) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(DisplacementY, other.DisplacementY)) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(DisplacementZ, other.DisplacementZ)) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(AccelerationX, other.AccelerationX)) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(AccelerationY, other.AccelerationY)) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(AccelerationZ, other.AccelerationZ)) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public override int GetHashCode() {
           int hash = 1;
-          hash ^= internalTemperature_.GetHashCode();
-          hash ^= internalPressure_.GetHashCode();
-          hash ^= externalModulePressure_.GetHashCode();
-          hash ^= rotationX_.GetHashCode();
-          hash ^= rotationY_.GetHashCode();
-          hash ^= rotationZ_.GetHashCode();
-          hash ^= displacementX_.GetHashCode();
-          hash ^= displacementY_.GetHashCode();
-          hash ^= displacementZ_.GetHashCode();
-          hash ^= accelerationX_.GetHashCode();
-          hash ^= accelerationY_.GetHashCode();
-          hash ^= accelerationZ_.GetHashCode();
+          if (InternalTemperature != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(InternalTemperature);
+          if (InternalPressure != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(InternalPressure);
+          if (ExternalModulePressure != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(ExternalModulePressure);
+          if (RotationX != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(RotationX);
+          if (RotationY != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(RotationY);
+          if (RotationZ != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(RotationZ);
+          if (DisplacementX != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(DisplacementX);
+          if (DisplacementY != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(DisplacementY);
+          if (DisplacementZ != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(DisplacementZ);
+          if (AccelerationX != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(AccelerationX);
+          if (AccelerationY != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(AccelerationY);
+          if (AccelerationZ != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(AccelerationZ);
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
           }
@@ -1784,18 +1936,54 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public void WriteTo(pb::CodedOutputStream output) {
-          internalTemperature_.WriteTo(output, _repeated_internalTemperature_codec);
-          internalPressure_.WriteTo(output, _repeated_internalPressure_codec);
-          externalModulePressure_.WriteTo(output, _repeated_externalModulePressure_codec);
-          rotationX_.WriteTo(output, _repeated_rotationX_codec);
-          rotationY_.WriteTo(output, _repeated_rotationY_codec);
-          rotationZ_.WriteTo(output, _repeated_rotationZ_codec);
-          displacementX_.WriteTo(output, _repeated_displacementX_codec);
-          displacementY_.WriteTo(output, _repeated_displacementY_codec);
-          displacementZ_.WriteTo(output, _repeated_displacementZ_codec);
-          accelerationX_.WriteTo(output, _repeated_accelerationX_codec);
-          accelerationY_.WriteTo(output, _repeated_accelerationY_codec);
-          accelerationZ_.WriteTo(output, _repeated_accelerationZ_codec);
+          if (InternalTemperature != 0F) {
+            output.WriteRawTag(13);
+            output.WriteFloat(InternalTemperature);
+          }
+          if (InternalPressure != 0F) {
+            output.WriteRawTag(21);
+            output.WriteFloat(InternalPressure);
+          }
+          if (ExternalModulePressure != 0F) {
+            output.WriteRawTag(29);
+            output.WriteFloat(ExternalModulePressure);
+          }
+          if (RotationX != 0F) {
+            output.WriteRawTag(37);
+            output.WriteFloat(RotationX);
+          }
+          if (RotationY != 0F) {
+            output.WriteRawTag(45);
+            output.WriteFloat(RotationY);
+          }
+          if (RotationZ != 0F) {
+            output.WriteRawTag(53);
+            output.WriteFloat(RotationZ);
+          }
+          if (DisplacementX != 0F) {
+            output.WriteRawTag(61);
+            output.WriteFloat(DisplacementX);
+          }
+          if (DisplacementY != 0F) {
+            output.WriteRawTag(69);
+            output.WriteFloat(DisplacementY);
+          }
+          if (DisplacementZ != 0F) {
+            output.WriteRawTag(77);
+            output.WriteFloat(DisplacementZ);
+          }
+          if (AccelerationX != 0F) {
+            output.WriteRawTag(85);
+            output.WriteFloat(AccelerationX);
+          }
+          if (AccelerationY != 0F) {
+            output.WriteRawTag(93);
+            output.WriteFloat(AccelerationY);
+          }
+          if (AccelerationZ != 0F) {
+            output.WriteRawTag(101);
+            output.WriteFloat(AccelerationZ);
+          }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
           }
@@ -1804,18 +1992,42 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public int CalculateSize() {
           int size = 0;
-          size += internalTemperature_.CalculateSize(_repeated_internalTemperature_codec);
-          size += internalPressure_.CalculateSize(_repeated_internalPressure_codec);
-          size += externalModulePressure_.CalculateSize(_repeated_externalModulePressure_codec);
-          size += rotationX_.CalculateSize(_repeated_rotationX_codec);
-          size += rotationY_.CalculateSize(_repeated_rotationY_codec);
-          size += rotationZ_.CalculateSize(_repeated_rotationZ_codec);
-          size += displacementX_.CalculateSize(_repeated_displacementX_codec);
-          size += displacementY_.CalculateSize(_repeated_displacementY_codec);
-          size += displacementZ_.CalculateSize(_repeated_displacementZ_codec);
-          size += accelerationX_.CalculateSize(_repeated_accelerationX_codec);
-          size += accelerationY_.CalculateSize(_repeated_accelerationY_codec);
-          size += accelerationZ_.CalculateSize(_repeated_accelerationZ_codec);
+          if (InternalTemperature != 0F) {
+            size += 1 + 4;
+          }
+          if (InternalPressure != 0F) {
+            size += 1 + 4;
+          }
+          if (ExternalModulePressure != 0F) {
+            size += 1 + 4;
+          }
+          if (RotationX != 0F) {
+            size += 1 + 4;
+          }
+          if (RotationY != 0F) {
+            size += 1 + 4;
+          }
+          if (RotationZ != 0F) {
+            size += 1 + 4;
+          }
+          if (DisplacementX != 0F) {
+            size += 1 + 4;
+          }
+          if (DisplacementY != 0F) {
+            size += 1 + 4;
+          }
+          if (DisplacementZ != 0F) {
+            size += 1 + 4;
+          }
+          if (AccelerationX != 0F) {
+            size += 1 + 4;
+          }
+          if (AccelerationY != 0F) {
+            size += 1 + 4;
+          }
+          if (AccelerationZ != 0F) {
+            size += 1 + 4;
+          }
           if (_unknownFields != null) {
             size += _unknownFields.CalculateSize();
           }
@@ -1827,18 +2039,42 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
           if (other == null) {
             return;
           }
-          internalTemperature_.Add(other.internalTemperature_);
-          internalPressure_.Add(other.internalPressure_);
-          externalModulePressure_.Add(other.externalModulePressure_);
-          rotationX_.Add(other.rotationX_);
-          rotationY_.Add(other.rotationY_);
-          rotationZ_.Add(other.rotationZ_);
-          displacementX_.Add(other.displacementX_);
-          displacementY_.Add(other.displacementY_);
-          displacementZ_.Add(other.displacementZ_);
-          accelerationX_.Add(other.accelerationX_);
-          accelerationY_.Add(other.accelerationY_);
-          accelerationZ_.Add(other.accelerationZ_);
+          if (other.InternalTemperature != 0F) {
+            InternalTemperature = other.InternalTemperature;
+          }
+          if (other.InternalPressure != 0F) {
+            InternalPressure = other.InternalPressure;
+          }
+          if (other.ExternalModulePressure != 0F) {
+            ExternalModulePressure = other.ExternalModulePressure;
+          }
+          if (other.RotationX != 0F) {
+            RotationX = other.RotationX;
+          }
+          if (other.RotationY != 0F) {
+            RotationY = other.RotationY;
+          }
+          if (other.RotationZ != 0F) {
+            RotationZ = other.RotationZ;
+          }
+          if (other.DisplacementX != 0F) {
+            DisplacementX = other.DisplacementX;
+          }
+          if (other.DisplacementY != 0F) {
+            DisplacementY = other.DisplacementY;
+          }
+          if (other.DisplacementZ != 0F) {
+            DisplacementZ = other.DisplacementZ;
+          }
+          if (other.AccelerationX != 0F) {
+            AccelerationX = other.AccelerationX;
+          }
+          if (other.AccelerationY != 0F) {
+            AccelerationY = other.AccelerationY;
+          }
+          if (other.AccelerationZ != 0F) {
+            AccelerationZ = other.AccelerationZ;
+          }
           _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
         }
 
@@ -1850,64 +2086,52 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
               default:
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                 break;
-              case 10:
               case 13: {
-                internalTemperature_.AddEntriesFrom(input, _repeated_internalTemperature_codec);
+                InternalTemperature = input.ReadFloat();
                 break;
               }
-              case 18:
               case 21: {
-                internalPressure_.AddEntriesFrom(input, _repeated_internalPressure_codec);
+                InternalPressure = input.ReadFloat();
                 break;
               }
-              case 26:
               case 29: {
-                externalModulePressure_.AddEntriesFrom(input, _repeated_externalModulePressure_codec);
+                ExternalModulePressure = input.ReadFloat();
                 break;
               }
-              case 34:
               case 37: {
-                rotationX_.AddEntriesFrom(input, _repeated_rotationX_codec);
+                RotationX = input.ReadFloat();
                 break;
               }
-              case 42:
               case 45: {
-                rotationY_.AddEntriesFrom(input, _repeated_rotationY_codec);
+                RotationY = input.ReadFloat();
                 break;
               }
-              case 50:
               case 53: {
-                rotationZ_.AddEntriesFrom(input, _repeated_rotationZ_codec);
+                RotationZ = input.ReadFloat();
                 break;
               }
-              case 58:
               case 61: {
-                displacementX_.AddEntriesFrom(input, _repeated_displacementX_codec);
+                DisplacementX = input.ReadFloat();
                 break;
               }
-              case 66:
               case 69: {
-                displacementY_.AddEntriesFrom(input, _repeated_displacementY_codec);
+                DisplacementY = input.ReadFloat();
                 break;
               }
-              case 74:
               case 77: {
-                displacementZ_.AddEntriesFrom(input, _repeated_displacementZ_codec);
+                DisplacementZ = input.ReadFloat();
                 break;
               }
-              case 82:
               case 85: {
-                accelerationX_.AddEntriesFrom(input, _repeated_accelerationX_codec);
+                AccelerationX = input.ReadFloat();
                 break;
               }
-              case 90:
               case 93: {
-                accelerationY_.AddEntriesFrom(input, _repeated_accelerationY_codec);
+                AccelerationY = input.ReadFloat();
                 break;
               }
-              case 98:
               case 101: {
-                accelerationZ_.AddEntriesFrom(input, _repeated_accelerationZ_codec);
+                AccelerationZ = input.ReadFloat();
                 break;
               }
             }
@@ -1941,10 +2165,10 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public MotorController(MotorController other) : this() {
-          internalTemperature_ = other.internalTemperature_.Clone();
-          internalPressure_ = other.internalPressure_.Clone();
-          electricalCurrent_ = other.electricalCurrent_.Clone();
-          electricalTension_ = other.electricalTension_.Clone();
+          internalTemperature_ = other.internalTemperature_;
+          internalPressure_ = other.internalPressure_;
+          electricalCurrent_ = other.electricalCurrent_;
+          electricalTension_ = other.electricalTension_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
 
@@ -1955,42 +2179,46 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
         /// <summary>Field number for the "internal_temperature" field.</summary>
         public const int InternalTemperatureFieldNumber = 1;
-        private static readonly pb::FieldCodec<float> _repeated_internalTemperature_codec
-            = pb::FieldCodec.ForFloat(10);
-        private readonly pbc::RepeatedField<float> internalTemperature_ = new pbc::RepeatedField<float>();
+        private float internalTemperature_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<float> InternalTemperature {
+        public float InternalTemperature {
           get { return internalTemperature_; }
+          set {
+            internalTemperature_ = value;
+          }
         }
 
         /// <summary>Field number for the "internal_pressure" field.</summary>
         public const int InternalPressureFieldNumber = 2;
-        private static readonly pb::FieldCodec<float> _repeated_internalPressure_codec
-            = pb::FieldCodec.ForFloat(18);
-        private readonly pbc::RepeatedField<float> internalPressure_ = new pbc::RepeatedField<float>();
+        private float internalPressure_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<float> InternalPressure {
+        public float InternalPressure {
           get { return internalPressure_; }
+          set {
+            internalPressure_ = value;
+          }
         }
 
         /// <summary>Field number for the "electrical_current" field.</summary>
         public const int ElectricalCurrentFieldNumber = 3;
-        private static readonly pb::FieldCodec<float> _repeated_electricalCurrent_codec
-            = pb::FieldCodec.ForFloat(26);
-        private readonly pbc::RepeatedField<float> electricalCurrent_ = new pbc::RepeatedField<float>();
+        private float electricalCurrent_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<float> ElectricalCurrent {
+        public float ElectricalCurrent {
           get { return electricalCurrent_; }
+          set {
+            electricalCurrent_ = value;
+          }
         }
 
         /// <summary>Field number for the "electrical_tension" field.</summary>
         public const int ElectricalTensionFieldNumber = 4;
-        private static readonly pb::FieldCodec<float> _repeated_electricalTension_codec
-            = pb::FieldCodec.ForFloat(34);
-        private readonly pbc::RepeatedField<float> electricalTension_ = new pbc::RepeatedField<float>();
+        private float electricalTension_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<float> ElectricalTension {
+        public float ElectricalTension {
           get { return electricalTension_; }
+          set {
+            electricalTension_ = value;
+          }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2006,20 +2234,20 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
           if (ReferenceEquals(other, this)) {
             return true;
           }
-          if(!internalTemperature_.Equals(other.internalTemperature_)) return false;
-          if(!internalPressure_.Equals(other.internalPressure_)) return false;
-          if(!electricalCurrent_.Equals(other.electricalCurrent_)) return false;
-          if(!electricalTension_.Equals(other.electricalTension_)) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(InternalTemperature, other.InternalTemperature)) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(InternalPressure, other.InternalPressure)) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(ElectricalCurrent, other.ElectricalCurrent)) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(ElectricalTension, other.ElectricalTension)) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public override int GetHashCode() {
           int hash = 1;
-          hash ^= internalTemperature_.GetHashCode();
-          hash ^= internalPressure_.GetHashCode();
-          hash ^= electricalCurrent_.GetHashCode();
-          hash ^= electricalTension_.GetHashCode();
+          if (InternalTemperature != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(InternalTemperature);
+          if (InternalPressure != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(InternalPressure);
+          if (ElectricalCurrent != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(ElectricalCurrent);
+          if (ElectricalTension != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(ElectricalTension);
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
           }
@@ -2033,10 +2261,22 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public void WriteTo(pb::CodedOutputStream output) {
-          internalTemperature_.WriteTo(output, _repeated_internalTemperature_codec);
-          internalPressure_.WriteTo(output, _repeated_internalPressure_codec);
-          electricalCurrent_.WriteTo(output, _repeated_electricalCurrent_codec);
-          electricalTension_.WriteTo(output, _repeated_electricalTension_codec);
+          if (InternalTemperature != 0F) {
+            output.WriteRawTag(13);
+            output.WriteFloat(InternalTemperature);
+          }
+          if (InternalPressure != 0F) {
+            output.WriteRawTag(21);
+            output.WriteFloat(InternalPressure);
+          }
+          if (ElectricalCurrent != 0F) {
+            output.WriteRawTag(29);
+            output.WriteFloat(ElectricalCurrent);
+          }
+          if (ElectricalTension != 0F) {
+            output.WriteRawTag(37);
+            output.WriteFloat(ElectricalTension);
+          }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
           }
@@ -2045,10 +2285,18 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public int CalculateSize() {
           int size = 0;
-          size += internalTemperature_.CalculateSize(_repeated_internalTemperature_codec);
-          size += internalPressure_.CalculateSize(_repeated_internalPressure_codec);
-          size += electricalCurrent_.CalculateSize(_repeated_electricalCurrent_codec);
-          size += electricalTension_.CalculateSize(_repeated_electricalTension_codec);
+          if (InternalTemperature != 0F) {
+            size += 1 + 4;
+          }
+          if (InternalPressure != 0F) {
+            size += 1 + 4;
+          }
+          if (ElectricalCurrent != 0F) {
+            size += 1 + 4;
+          }
+          if (ElectricalTension != 0F) {
+            size += 1 + 4;
+          }
           if (_unknownFields != null) {
             size += _unknownFields.CalculateSize();
           }
@@ -2060,10 +2308,18 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
           if (other == null) {
             return;
           }
-          internalTemperature_.Add(other.internalTemperature_);
-          internalPressure_.Add(other.internalPressure_);
-          electricalCurrent_.Add(other.electricalCurrent_);
-          electricalTension_.Add(other.electricalTension_);
+          if (other.InternalTemperature != 0F) {
+            InternalTemperature = other.InternalTemperature;
+          }
+          if (other.InternalPressure != 0F) {
+            InternalPressure = other.InternalPressure;
+          }
+          if (other.ElectricalCurrent != 0F) {
+            ElectricalCurrent = other.ElectricalCurrent;
+          }
+          if (other.ElectricalTension != 0F) {
+            ElectricalTension = other.ElectricalTension;
+          }
           _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
         }
 
@@ -2075,24 +2331,20 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
               default:
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                 break;
-              case 10:
               case 13: {
-                internalTemperature_.AddEntriesFrom(input, _repeated_internalTemperature_codec);
+                InternalTemperature = input.ReadFloat();
                 break;
               }
-              case 18:
               case 21: {
-                internalPressure_.AddEntriesFrom(input, _repeated_internalPressure_codec);
+                InternalPressure = input.ReadFloat();
                 break;
               }
-              case 26:
               case 29: {
-                electricalCurrent_.AddEntriesFrom(input, _repeated_electricalCurrent_codec);
+                ElectricalCurrent = input.ReadFloat();
                 break;
               }
-              case 34:
               case 37: {
-                electricalTension_.AddEntriesFrom(input, _repeated_electricalTension_codec);
+                ElectricalTension = input.ReadFloat();
                 break;
               }
             }
@@ -2126,8 +2378,8 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public Locomotive(Locomotive other) : this() {
-          cylinderForward_ = other.cylinderForward_.Clone();
-          cylinderBackward_ = other.cylinderBackward_.Clone();
+          cylinderForward_ = other.cylinderForward_;
+          cylinderBackward_ = other.cylinderBackward_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
 
@@ -2138,22 +2390,24 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
         /// <summary>Field number for the "cylinder_forward" field.</summary>
         public const int CylinderForwardFieldNumber = 1;
-        private static readonly pb::FieldCodec<global::AnnelidaDispatcher.Model.DataTransmission.CylinderState> _repeated_cylinderForward_codec
-            = pb::FieldCodec.ForEnum(10, x => (int) x, x => (global::AnnelidaDispatcher.Model.DataTransmission.CylinderState) x);
-        private readonly pbc::RepeatedField<global::AnnelidaDispatcher.Model.DataTransmission.CylinderState> cylinderForward_ = new pbc::RepeatedField<global::AnnelidaDispatcher.Model.DataTransmission.CylinderState>();
+        private global::AnnelidaDispatcher.Model.DataTransmission.CylinderState cylinderForward_ = 0;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<global::AnnelidaDispatcher.Model.DataTransmission.CylinderState> CylinderForward {
+        public global::AnnelidaDispatcher.Model.DataTransmission.CylinderState CylinderForward {
           get { return cylinderForward_; }
+          set {
+            cylinderForward_ = value;
+          }
         }
 
         /// <summary>Field number for the "cylinder_backward" field.</summary>
         public const int CylinderBackwardFieldNumber = 2;
-        private static readonly pb::FieldCodec<global::AnnelidaDispatcher.Model.DataTransmission.CylinderState> _repeated_cylinderBackward_codec
-            = pb::FieldCodec.ForEnum(18, x => (int) x, x => (global::AnnelidaDispatcher.Model.DataTransmission.CylinderState) x);
-        private readonly pbc::RepeatedField<global::AnnelidaDispatcher.Model.DataTransmission.CylinderState> cylinderBackward_ = new pbc::RepeatedField<global::AnnelidaDispatcher.Model.DataTransmission.CylinderState>();
+        private global::AnnelidaDispatcher.Model.DataTransmission.CylinderState cylinderBackward_ = 0;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<global::AnnelidaDispatcher.Model.DataTransmission.CylinderState> CylinderBackward {
+        public global::AnnelidaDispatcher.Model.DataTransmission.CylinderState CylinderBackward {
           get { return cylinderBackward_; }
+          set {
+            cylinderBackward_ = value;
+          }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2169,16 +2423,16 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
           if (ReferenceEquals(other, this)) {
             return true;
           }
-          if(!cylinderForward_.Equals(other.cylinderForward_)) return false;
-          if(!cylinderBackward_.Equals(other.cylinderBackward_)) return false;
+          if (CylinderForward != other.CylinderForward) return false;
+          if (CylinderBackward != other.CylinderBackward) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public override int GetHashCode() {
           int hash = 1;
-          hash ^= cylinderForward_.GetHashCode();
-          hash ^= cylinderBackward_.GetHashCode();
+          if (CylinderForward != 0) hash ^= CylinderForward.GetHashCode();
+          if (CylinderBackward != 0) hash ^= CylinderBackward.GetHashCode();
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
           }
@@ -2192,8 +2446,14 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public void WriteTo(pb::CodedOutputStream output) {
-          cylinderForward_.WriteTo(output, _repeated_cylinderForward_codec);
-          cylinderBackward_.WriteTo(output, _repeated_cylinderBackward_codec);
+          if (CylinderForward != 0) {
+            output.WriteRawTag(8);
+            output.WriteEnum((int) CylinderForward);
+          }
+          if (CylinderBackward != 0) {
+            output.WriteRawTag(16);
+            output.WriteEnum((int) CylinderBackward);
+          }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
           }
@@ -2202,8 +2462,12 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public int CalculateSize() {
           int size = 0;
-          size += cylinderForward_.CalculateSize(_repeated_cylinderForward_codec);
-          size += cylinderBackward_.CalculateSize(_repeated_cylinderBackward_codec);
+          if (CylinderForward != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) CylinderForward);
+          }
+          if (CylinderBackward != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) CylinderBackward);
+          }
           if (_unknownFields != null) {
             size += _unknownFields.CalculateSize();
           }
@@ -2215,8 +2479,12 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
           if (other == null) {
             return;
           }
-          cylinderForward_.Add(other.cylinderForward_);
-          cylinderBackward_.Add(other.cylinderBackward_);
+          if (other.CylinderForward != 0) {
+            CylinderForward = other.CylinderForward;
+          }
+          if (other.CylinderBackward != 0) {
+            CylinderBackward = other.CylinderBackward;
+          }
           _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
         }
 
@@ -2228,14 +2496,12 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
               default:
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                 break;
-              case 10:
               case 8: {
-                cylinderForward_.AddEntriesFrom(input, _repeated_cylinderForward_codec);
+                cylinderForward_ = (global::AnnelidaDispatcher.Model.DataTransmission.CylinderState) input.ReadEnum();
                 break;
               }
-              case 18:
               case 16: {
-                cylinderBackward_.AddEntriesFrom(input, _repeated_cylinderBackward_codec);
+                cylinderBackward_ = (global::AnnelidaDispatcher.Model.DataTransmission.CylinderState) input.ReadEnum();
                 break;
               }
             }
@@ -2746,8 +3012,8 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public Manifold_1_Backward(Manifold_1_Backward other) : this() {
-              solenoidCylinderMoveBackward_ = other.solenoidCylinderMoveBackward_.Clone();
-              solenoidCylinderActiveBackward_ = other.solenoidCylinderActiveBackward_.Clone();
+              solenoidCylinderMoveBackward_ = other.solenoidCylinderMoveBackward_;
+              solenoidCylinderActiveBackward_ = other.solenoidCylinderActiveBackward_;
               _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
             }
 
@@ -2758,22 +3024,24 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
             /// <summary>Field number for the "solenoid_cylinder_move_backward" field.</summary>
             public const int SolenoidCylinderMoveBackwardFieldNumber = 1;
-            private static readonly pb::FieldCodec<global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState> _repeated_solenoidCylinderMoveBackward_codec
-                = pb::FieldCodec.ForEnum(10, x => (int) x, x => (global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState) x);
-            private readonly pbc::RepeatedField<global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState> solenoidCylinderMoveBackward_ = new pbc::RepeatedField<global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState>();
+            private global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState solenoidCylinderMoveBackward_ = 0;
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            public pbc::RepeatedField<global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState> SolenoidCylinderMoveBackward {
+            public global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState SolenoidCylinderMoveBackward {
               get { return solenoidCylinderMoveBackward_; }
+              set {
+                solenoidCylinderMoveBackward_ = value;
+              }
             }
 
             /// <summary>Field number for the "solenoid_cylinder_active_backward" field.</summary>
             public const int SolenoidCylinderActiveBackwardFieldNumber = 2;
-            private static readonly pb::FieldCodec<global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState> _repeated_solenoidCylinderActiveBackward_codec
-                = pb::FieldCodec.ForEnum(18, x => (int) x, x => (global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState) x);
-            private readonly pbc::RepeatedField<global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState> solenoidCylinderActiveBackward_ = new pbc::RepeatedField<global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState>();
+            private global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState solenoidCylinderActiveBackward_ = 0;
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            public pbc::RepeatedField<global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState> SolenoidCylinderActiveBackward {
+            public global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState SolenoidCylinderActiveBackward {
               get { return solenoidCylinderActiveBackward_; }
+              set {
+                solenoidCylinderActiveBackward_ = value;
+              }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2789,16 +3057,16 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
               if (ReferenceEquals(other, this)) {
                 return true;
               }
-              if(!solenoidCylinderMoveBackward_.Equals(other.solenoidCylinderMoveBackward_)) return false;
-              if(!solenoidCylinderActiveBackward_.Equals(other.solenoidCylinderActiveBackward_)) return false;
+              if (SolenoidCylinderMoveBackward != other.SolenoidCylinderMoveBackward) return false;
+              if (SolenoidCylinderActiveBackward != other.SolenoidCylinderActiveBackward) return false;
               return Equals(_unknownFields, other._unknownFields);
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public override int GetHashCode() {
               int hash = 1;
-              hash ^= solenoidCylinderMoveBackward_.GetHashCode();
-              hash ^= solenoidCylinderActiveBackward_.GetHashCode();
+              if (SolenoidCylinderMoveBackward != 0) hash ^= SolenoidCylinderMoveBackward.GetHashCode();
+              if (SolenoidCylinderActiveBackward != 0) hash ^= SolenoidCylinderActiveBackward.GetHashCode();
               if (_unknownFields != null) {
                 hash ^= _unknownFields.GetHashCode();
               }
@@ -2812,8 +3080,14 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public void WriteTo(pb::CodedOutputStream output) {
-              solenoidCylinderMoveBackward_.WriteTo(output, _repeated_solenoidCylinderMoveBackward_codec);
-              solenoidCylinderActiveBackward_.WriteTo(output, _repeated_solenoidCylinderActiveBackward_codec);
+              if (SolenoidCylinderMoveBackward != 0) {
+                output.WriteRawTag(8);
+                output.WriteEnum((int) SolenoidCylinderMoveBackward);
+              }
+              if (SolenoidCylinderActiveBackward != 0) {
+                output.WriteRawTag(16);
+                output.WriteEnum((int) SolenoidCylinderActiveBackward);
+              }
               if (_unknownFields != null) {
                 _unknownFields.WriteTo(output);
               }
@@ -2822,8 +3096,12 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public int CalculateSize() {
               int size = 0;
-              size += solenoidCylinderMoveBackward_.CalculateSize(_repeated_solenoidCylinderMoveBackward_codec);
-              size += solenoidCylinderActiveBackward_.CalculateSize(_repeated_solenoidCylinderActiveBackward_codec);
+              if (SolenoidCylinderMoveBackward != 0) {
+                size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) SolenoidCylinderMoveBackward);
+              }
+              if (SolenoidCylinderActiveBackward != 0) {
+                size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) SolenoidCylinderActiveBackward);
+              }
               if (_unknownFields != null) {
                 size += _unknownFields.CalculateSize();
               }
@@ -2835,8 +3113,12 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
               if (other == null) {
                 return;
               }
-              solenoidCylinderMoveBackward_.Add(other.solenoidCylinderMoveBackward_);
-              solenoidCylinderActiveBackward_.Add(other.solenoidCylinderActiveBackward_);
+              if (other.SolenoidCylinderMoveBackward != 0) {
+                SolenoidCylinderMoveBackward = other.SolenoidCylinderMoveBackward;
+              }
+              if (other.SolenoidCylinderActiveBackward != 0) {
+                SolenoidCylinderActiveBackward = other.SolenoidCylinderActiveBackward;
+              }
               _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
             }
 
@@ -2848,14 +3130,12 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
                   default:
                     _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                     break;
-                  case 10:
                   case 8: {
-                    solenoidCylinderMoveBackward_.AddEntriesFrom(input, _repeated_solenoidCylinderMoveBackward_codec);
+                    solenoidCylinderMoveBackward_ = (global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState) input.ReadEnum();
                     break;
                   }
-                  case 18:
                   case 16: {
-                    solenoidCylinderActiveBackward_.AddEntriesFrom(input, _repeated_solenoidCylinderActiveBackward_codec);
+                    solenoidCylinderActiveBackward_ = (global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState) input.ReadEnum();
                     break;
                   }
                 }
@@ -2889,7 +3169,7 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public Manifold_3_Backward(Manifold_3_Backward other) : this() {
-              solenoidActiveFootBackward_ = other.solenoidActiveFootBackward_.Clone();
+              solenoidActiveFootBackward_ = other.solenoidActiveFootBackward_;
               _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
             }
 
@@ -2900,12 +3180,13 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
             /// <summary>Field number for the "solenoid_active_foot_backward" field.</summary>
             public const int SolenoidActiveFootBackwardFieldNumber = 1;
-            private static readonly pb::FieldCodec<global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState> _repeated_solenoidActiveFootBackward_codec
-                = pb::FieldCodec.ForEnum(10, x => (int) x, x => (global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState) x);
-            private readonly pbc::RepeatedField<global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState> solenoidActiveFootBackward_ = new pbc::RepeatedField<global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState>();
+            private global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState solenoidActiveFootBackward_ = 0;
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            public pbc::RepeatedField<global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState> SolenoidActiveFootBackward {
+            public global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState SolenoidActiveFootBackward {
               get { return solenoidActiveFootBackward_; }
+              set {
+                solenoidActiveFootBackward_ = value;
+              }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2921,14 +3202,14 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
               if (ReferenceEquals(other, this)) {
                 return true;
               }
-              if(!solenoidActiveFootBackward_.Equals(other.solenoidActiveFootBackward_)) return false;
+              if (SolenoidActiveFootBackward != other.SolenoidActiveFootBackward) return false;
               return Equals(_unknownFields, other._unknownFields);
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public override int GetHashCode() {
               int hash = 1;
-              hash ^= solenoidActiveFootBackward_.GetHashCode();
+              if (SolenoidActiveFootBackward != 0) hash ^= SolenoidActiveFootBackward.GetHashCode();
               if (_unknownFields != null) {
                 hash ^= _unknownFields.GetHashCode();
               }
@@ -2942,7 +3223,10 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public void WriteTo(pb::CodedOutputStream output) {
-              solenoidActiveFootBackward_.WriteTo(output, _repeated_solenoidActiveFootBackward_codec);
+              if (SolenoidActiveFootBackward != 0) {
+                output.WriteRawTag(8);
+                output.WriteEnum((int) SolenoidActiveFootBackward);
+              }
               if (_unknownFields != null) {
                 _unknownFields.WriteTo(output);
               }
@@ -2951,7 +3235,9 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public int CalculateSize() {
               int size = 0;
-              size += solenoidActiveFootBackward_.CalculateSize(_repeated_solenoidActiveFootBackward_codec);
+              if (SolenoidActiveFootBackward != 0) {
+                size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) SolenoidActiveFootBackward);
+              }
               if (_unknownFields != null) {
                 size += _unknownFields.CalculateSize();
               }
@@ -2963,7 +3249,9 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
               if (other == null) {
                 return;
               }
-              solenoidActiveFootBackward_.Add(other.solenoidActiveFootBackward_);
+              if (other.SolenoidActiveFootBackward != 0) {
+                SolenoidActiveFootBackward = other.SolenoidActiveFootBackward;
+              }
               _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
             }
 
@@ -2975,9 +3263,8 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
                   default:
                     _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                     break;
-                  case 10:
                   case 8: {
-                    solenoidActiveFootBackward_.AddEntriesFrom(input, _repeated_solenoidActiveFootBackward_codec);
+                    solenoidActiveFootBackward_ = (global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState) input.ReadEnum();
                     break;
                   }
                 }
@@ -3011,9 +3298,9 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public MotorBomb_1(MotorBomb_1 other) : this() {
-              oilTemperature_ = other.oilTemperature_.Clone();
-              motorRpm_ = other.motorRpm_.Clone();
-              motorPower_ = other.motorPower_.Clone();
+              oilTemperature_ = other.oilTemperature_;
+              motorRpm_ = other.motorRpm_;
+              motorPower_ = other.motorPower_;
               _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
             }
 
@@ -3024,32 +3311,35 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
             /// <summary>Field number for the "oil_temperature" field.</summary>
             public const int OilTemperatureFieldNumber = 1;
-            private static readonly pb::FieldCodec<float> _repeated_oilTemperature_codec
-                = pb::FieldCodec.ForFloat(10);
-            private readonly pbc::RepeatedField<float> oilTemperature_ = new pbc::RepeatedField<float>();
+            private float oilTemperature_;
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            public pbc::RepeatedField<float> OilTemperature {
+            public float OilTemperature {
               get { return oilTemperature_; }
+              set {
+                oilTemperature_ = value;
+              }
             }
 
             /// <summary>Field number for the "motor_rpm" field.</summary>
             public const int MotorRpmFieldNumber = 2;
-            private static readonly pb::FieldCodec<uint> _repeated_motorRpm_codec
-                = pb::FieldCodec.ForUInt32(18);
-            private readonly pbc::RepeatedField<uint> motorRpm_ = new pbc::RepeatedField<uint>();
+            private uint motorRpm_;
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            public pbc::RepeatedField<uint> MotorRpm {
+            public uint MotorRpm {
               get { return motorRpm_; }
+              set {
+                motorRpm_ = value;
+              }
             }
 
             /// <summary>Field number for the "motor_power" field.</summary>
             public const int MotorPowerFieldNumber = 3;
-            private static readonly pb::FieldCodec<float> _repeated_motorPower_codec
-                = pb::FieldCodec.ForFloat(26);
-            private readonly pbc::RepeatedField<float> motorPower_ = new pbc::RepeatedField<float>();
+            private float motorPower_;
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            public pbc::RepeatedField<float> MotorPower {
+            public float MotorPower {
               get { return motorPower_; }
+              set {
+                motorPower_ = value;
+              }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3065,18 +3355,18 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
               if (ReferenceEquals(other, this)) {
                 return true;
               }
-              if(!oilTemperature_.Equals(other.oilTemperature_)) return false;
-              if(!motorRpm_.Equals(other.motorRpm_)) return false;
-              if(!motorPower_.Equals(other.motorPower_)) return false;
+              if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(OilTemperature, other.OilTemperature)) return false;
+              if (MotorRpm != other.MotorRpm) return false;
+              if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MotorPower, other.MotorPower)) return false;
               return Equals(_unknownFields, other._unknownFields);
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public override int GetHashCode() {
               int hash = 1;
-              hash ^= oilTemperature_.GetHashCode();
-              hash ^= motorRpm_.GetHashCode();
-              hash ^= motorPower_.GetHashCode();
+              if (OilTemperature != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(OilTemperature);
+              if (MotorRpm != 0) hash ^= MotorRpm.GetHashCode();
+              if (MotorPower != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MotorPower);
               if (_unknownFields != null) {
                 hash ^= _unknownFields.GetHashCode();
               }
@@ -3090,9 +3380,18 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public void WriteTo(pb::CodedOutputStream output) {
-              oilTemperature_.WriteTo(output, _repeated_oilTemperature_codec);
-              motorRpm_.WriteTo(output, _repeated_motorRpm_codec);
-              motorPower_.WriteTo(output, _repeated_motorPower_codec);
+              if (OilTemperature != 0F) {
+                output.WriteRawTag(13);
+                output.WriteFloat(OilTemperature);
+              }
+              if (MotorRpm != 0) {
+                output.WriteRawTag(16);
+                output.WriteUInt32(MotorRpm);
+              }
+              if (MotorPower != 0F) {
+                output.WriteRawTag(29);
+                output.WriteFloat(MotorPower);
+              }
               if (_unknownFields != null) {
                 _unknownFields.WriteTo(output);
               }
@@ -3101,9 +3400,15 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public int CalculateSize() {
               int size = 0;
-              size += oilTemperature_.CalculateSize(_repeated_oilTemperature_codec);
-              size += motorRpm_.CalculateSize(_repeated_motorRpm_codec);
-              size += motorPower_.CalculateSize(_repeated_motorPower_codec);
+              if (OilTemperature != 0F) {
+                size += 1 + 4;
+              }
+              if (MotorRpm != 0) {
+                size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MotorRpm);
+              }
+              if (MotorPower != 0F) {
+                size += 1 + 4;
+              }
               if (_unknownFields != null) {
                 size += _unknownFields.CalculateSize();
               }
@@ -3115,9 +3420,15 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
               if (other == null) {
                 return;
               }
-              oilTemperature_.Add(other.oilTemperature_);
-              motorRpm_.Add(other.motorRpm_);
-              motorPower_.Add(other.motorPower_);
+              if (other.OilTemperature != 0F) {
+                OilTemperature = other.OilTemperature;
+              }
+              if (other.MotorRpm != 0) {
+                MotorRpm = other.MotorRpm;
+              }
+              if (other.MotorPower != 0F) {
+                MotorPower = other.MotorPower;
+              }
               _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
             }
 
@@ -3129,19 +3440,16 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
                   default:
                     _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                     break;
-                  case 10:
                   case 13: {
-                    oilTemperature_.AddEntriesFrom(input, _repeated_oilTemperature_codec);
+                    OilTemperature = input.ReadFloat();
                     break;
                   }
-                  case 18:
                   case 16: {
-                    motorRpm_.AddEntriesFrom(input, _repeated_motorRpm_codec);
+                    MotorRpm = input.ReadUInt32();
                     break;
                   }
-                  case 26:
                   case 29: {
-                    motorPower_.AddEntriesFrom(input, _repeated_motorPower_codec);
+                    MotorPower = input.ReadFloat();
                     break;
                   }
                 }
@@ -3175,8 +3483,8 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public MotorBomb_2(MotorBomb_2 other) : this() {
-              motorRpm_ = other.motorRpm_.Clone();
-              motorPower_ = other.motorPower_.Clone();
+              motorRpm_ = other.motorRpm_;
+              motorPower_ = other.motorPower_;
               _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
             }
 
@@ -3187,22 +3495,24 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
             /// <summary>Field number for the "motor_rpm" field.</summary>
             public const int MotorRpmFieldNumber = 1;
-            private static readonly pb::FieldCodec<uint> _repeated_motorRpm_codec
-                = pb::FieldCodec.ForUInt32(10);
-            private readonly pbc::RepeatedField<uint> motorRpm_ = new pbc::RepeatedField<uint>();
+            private uint motorRpm_;
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            public pbc::RepeatedField<uint> MotorRpm {
+            public uint MotorRpm {
               get { return motorRpm_; }
+              set {
+                motorRpm_ = value;
+              }
             }
 
             /// <summary>Field number for the "motor_power" field.</summary>
             public const int MotorPowerFieldNumber = 2;
-            private static readonly pb::FieldCodec<float> _repeated_motorPower_codec
-                = pb::FieldCodec.ForFloat(18);
-            private readonly pbc::RepeatedField<float> motorPower_ = new pbc::RepeatedField<float>();
+            private float motorPower_;
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            public pbc::RepeatedField<float> MotorPower {
+            public float MotorPower {
               get { return motorPower_; }
+              set {
+                motorPower_ = value;
+              }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3218,16 +3528,16 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
               if (ReferenceEquals(other, this)) {
                 return true;
               }
-              if(!motorRpm_.Equals(other.motorRpm_)) return false;
-              if(!motorPower_.Equals(other.motorPower_)) return false;
+              if (MotorRpm != other.MotorRpm) return false;
+              if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MotorPower, other.MotorPower)) return false;
               return Equals(_unknownFields, other._unknownFields);
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public override int GetHashCode() {
               int hash = 1;
-              hash ^= motorRpm_.GetHashCode();
-              hash ^= motorPower_.GetHashCode();
+              if (MotorRpm != 0) hash ^= MotorRpm.GetHashCode();
+              if (MotorPower != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MotorPower);
               if (_unknownFields != null) {
                 hash ^= _unknownFields.GetHashCode();
               }
@@ -3241,8 +3551,14 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public void WriteTo(pb::CodedOutputStream output) {
-              motorRpm_.WriteTo(output, _repeated_motorRpm_codec);
-              motorPower_.WriteTo(output, _repeated_motorPower_codec);
+              if (MotorRpm != 0) {
+                output.WriteRawTag(8);
+                output.WriteUInt32(MotorRpm);
+              }
+              if (MotorPower != 0F) {
+                output.WriteRawTag(21);
+                output.WriteFloat(MotorPower);
+              }
               if (_unknownFields != null) {
                 _unknownFields.WriteTo(output);
               }
@@ -3251,8 +3567,12 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public int CalculateSize() {
               int size = 0;
-              size += motorRpm_.CalculateSize(_repeated_motorRpm_codec);
-              size += motorPower_.CalculateSize(_repeated_motorPower_codec);
+              if (MotorRpm != 0) {
+                size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MotorRpm);
+              }
+              if (MotorPower != 0F) {
+                size += 1 + 4;
+              }
               if (_unknownFields != null) {
                 size += _unknownFields.CalculateSize();
               }
@@ -3264,8 +3584,12 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
               if (other == null) {
                 return;
               }
-              motorRpm_.Add(other.motorRpm_);
-              motorPower_.Add(other.motorPower_);
+              if (other.MotorRpm != 0) {
+                MotorRpm = other.MotorRpm;
+              }
+              if (other.MotorPower != 0F) {
+                MotorPower = other.MotorPower;
+              }
               _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
             }
 
@@ -3277,14 +3601,12 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
                   default:
                     _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                     break;
-                  case 10:
                   case 8: {
-                    motorRpm_.AddEntriesFrom(input, _repeated_motorRpm_codec);
+                    MotorRpm = input.ReadUInt32();
                     break;
                   }
-                  case 18:
                   case 21: {
-                    motorPower_.AddEntriesFrom(input, _repeated_motorPower_codec);
+                    MotorPower = input.ReadFloat();
                     break;
                   }
                 }
@@ -3318,8 +3640,8 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public Manifold_2_Auxiliar(Manifold_2_Auxiliar other) : this() {
-              hydraulicFootsPressure_ = other.hydraulicFootsPressure_.Clone();
-              solenoidPressureFoots_ = other.solenoidPressureFoots_.Clone();
+              hydraulicFootsPressure_ = other.hydraulicFootsPressure_;
+              solenoidPressureFoots_ = other.solenoidPressureFoots_;
               _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
             }
 
@@ -3330,22 +3652,24 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
             /// <summary>Field number for the "hydraulic_foots_pressure" field.</summary>
             public const int HydraulicFootsPressureFieldNumber = 1;
-            private static readonly pb::FieldCodec<float> _repeated_hydraulicFootsPressure_codec
-                = pb::FieldCodec.ForFloat(10);
-            private readonly pbc::RepeatedField<float> hydraulicFootsPressure_ = new pbc::RepeatedField<float>();
+            private float hydraulicFootsPressure_;
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            public pbc::RepeatedField<float> HydraulicFootsPressure {
+            public float HydraulicFootsPressure {
               get { return hydraulicFootsPressure_; }
+              set {
+                hydraulicFootsPressure_ = value;
+              }
             }
 
             /// <summary>Field number for the "solenoid_pressure_foots" field.</summary>
             public const int SolenoidPressureFootsFieldNumber = 2;
-            private static readonly pb::FieldCodec<global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState> _repeated_solenoidPressureFoots_codec
-                = pb::FieldCodec.ForEnum(18, x => (int) x, x => (global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState) x);
-            private readonly pbc::RepeatedField<global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState> solenoidPressureFoots_ = new pbc::RepeatedField<global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState>();
+            private global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState solenoidPressureFoots_ = 0;
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            public pbc::RepeatedField<global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState> SolenoidPressureFoots {
+            public global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState SolenoidPressureFoots {
               get { return solenoidPressureFoots_; }
+              set {
+                solenoidPressureFoots_ = value;
+              }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3361,16 +3685,16 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
               if (ReferenceEquals(other, this)) {
                 return true;
               }
-              if(!hydraulicFootsPressure_.Equals(other.hydraulicFootsPressure_)) return false;
-              if(!solenoidPressureFoots_.Equals(other.solenoidPressureFoots_)) return false;
+              if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(HydraulicFootsPressure, other.HydraulicFootsPressure)) return false;
+              if (SolenoidPressureFoots != other.SolenoidPressureFoots) return false;
               return Equals(_unknownFields, other._unknownFields);
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public override int GetHashCode() {
               int hash = 1;
-              hash ^= hydraulicFootsPressure_.GetHashCode();
-              hash ^= solenoidPressureFoots_.GetHashCode();
+              if (HydraulicFootsPressure != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(HydraulicFootsPressure);
+              if (SolenoidPressureFoots != 0) hash ^= SolenoidPressureFoots.GetHashCode();
               if (_unknownFields != null) {
                 hash ^= _unknownFields.GetHashCode();
               }
@@ -3384,8 +3708,14 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public void WriteTo(pb::CodedOutputStream output) {
-              hydraulicFootsPressure_.WriteTo(output, _repeated_hydraulicFootsPressure_codec);
-              solenoidPressureFoots_.WriteTo(output, _repeated_solenoidPressureFoots_codec);
+              if (HydraulicFootsPressure != 0F) {
+                output.WriteRawTag(13);
+                output.WriteFloat(HydraulicFootsPressure);
+              }
+              if (SolenoidPressureFoots != 0) {
+                output.WriteRawTag(16);
+                output.WriteEnum((int) SolenoidPressureFoots);
+              }
               if (_unknownFields != null) {
                 _unknownFields.WriteTo(output);
               }
@@ -3394,8 +3724,12 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public int CalculateSize() {
               int size = 0;
-              size += hydraulicFootsPressure_.CalculateSize(_repeated_hydraulicFootsPressure_codec);
-              size += solenoidPressureFoots_.CalculateSize(_repeated_solenoidPressureFoots_codec);
+              if (HydraulicFootsPressure != 0F) {
+                size += 1 + 4;
+              }
+              if (SolenoidPressureFoots != 0) {
+                size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) SolenoidPressureFoots);
+              }
               if (_unknownFields != null) {
                 size += _unknownFields.CalculateSize();
               }
@@ -3407,8 +3741,12 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
               if (other == null) {
                 return;
               }
-              hydraulicFootsPressure_.Add(other.hydraulicFootsPressure_);
-              solenoidPressureFoots_.Add(other.solenoidPressureFoots_);
+              if (other.HydraulicFootsPressure != 0F) {
+                HydraulicFootsPressure = other.HydraulicFootsPressure;
+              }
+              if (other.SolenoidPressureFoots != 0) {
+                SolenoidPressureFoots = other.SolenoidPressureFoots;
+              }
               _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
             }
 
@@ -3420,14 +3758,12 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
                   default:
                     _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                     break;
-                  case 10:
                   case 13: {
-                    hydraulicFootsPressure_.AddEntriesFrom(input, _repeated_hydraulicFootsPressure_codec);
+                    HydraulicFootsPressure = input.ReadFloat();
                     break;
                   }
-                  case 18:
                   case 16: {
-                    solenoidPressureFoots_.AddEntriesFrom(input, _repeated_solenoidPressureFoots_codec);
+                    solenoidPressureFoots_ = (global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState) input.ReadEnum();
                     break;
                   }
                 }
@@ -3461,9 +3797,9 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public MotorBombAuxiliar(MotorBombAuxiliar other) : this() {
-              temperatureSensor_ = other.temperatureSensor_.Clone();
-              motorRpm_ = other.motorRpm_.Clone();
-              motorPower_ = other.motorPower_.Clone();
+              temperatureSensor_ = other.temperatureSensor_;
+              motorRpm_ = other.motorRpm_;
+              motorPower_ = other.motorPower_;
               _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
             }
 
@@ -3474,32 +3810,35 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
             /// <summary>Field number for the "temperature_sensor" field.</summary>
             public const int TemperatureSensorFieldNumber = 1;
-            private static readonly pb::FieldCodec<float> _repeated_temperatureSensor_codec
-                = pb::FieldCodec.ForFloat(10);
-            private readonly pbc::RepeatedField<float> temperatureSensor_ = new pbc::RepeatedField<float>();
+            private float temperatureSensor_;
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            public pbc::RepeatedField<float> TemperatureSensor {
+            public float TemperatureSensor {
               get { return temperatureSensor_; }
+              set {
+                temperatureSensor_ = value;
+              }
             }
 
             /// <summary>Field number for the "motor_rpm" field.</summary>
             public const int MotorRpmFieldNumber = 2;
-            private static readonly pb::FieldCodec<uint> _repeated_motorRpm_codec
-                = pb::FieldCodec.ForUInt32(18);
-            private readonly pbc::RepeatedField<uint> motorRpm_ = new pbc::RepeatedField<uint>();
+            private uint motorRpm_;
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            public pbc::RepeatedField<uint> MotorRpm {
+            public uint MotorRpm {
               get { return motorRpm_; }
+              set {
+                motorRpm_ = value;
+              }
             }
 
             /// <summary>Field number for the "motor_power" field.</summary>
             public const int MotorPowerFieldNumber = 3;
-            private static readonly pb::FieldCodec<float> _repeated_motorPower_codec
-                = pb::FieldCodec.ForFloat(26);
-            private readonly pbc::RepeatedField<float> motorPower_ = new pbc::RepeatedField<float>();
+            private float motorPower_;
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            public pbc::RepeatedField<float> MotorPower {
+            public float MotorPower {
               get { return motorPower_; }
+              set {
+                motorPower_ = value;
+              }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3515,18 +3854,18 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
               if (ReferenceEquals(other, this)) {
                 return true;
               }
-              if(!temperatureSensor_.Equals(other.temperatureSensor_)) return false;
-              if(!motorRpm_.Equals(other.motorRpm_)) return false;
-              if(!motorPower_.Equals(other.motorPower_)) return false;
+              if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(TemperatureSensor, other.TemperatureSensor)) return false;
+              if (MotorRpm != other.MotorRpm) return false;
+              if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MotorPower, other.MotorPower)) return false;
               return Equals(_unknownFields, other._unknownFields);
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public override int GetHashCode() {
               int hash = 1;
-              hash ^= temperatureSensor_.GetHashCode();
-              hash ^= motorRpm_.GetHashCode();
-              hash ^= motorPower_.GetHashCode();
+              if (TemperatureSensor != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(TemperatureSensor);
+              if (MotorRpm != 0) hash ^= MotorRpm.GetHashCode();
+              if (MotorPower != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MotorPower);
               if (_unknownFields != null) {
                 hash ^= _unknownFields.GetHashCode();
               }
@@ -3540,9 +3879,18 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public void WriteTo(pb::CodedOutputStream output) {
-              temperatureSensor_.WriteTo(output, _repeated_temperatureSensor_codec);
-              motorRpm_.WriteTo(output, _repeated_motorRpm_codec);
-              motorPower_.WriteTo(output, _repeated_motorPower_codec);
+              if (TemperatureSensor != 0F) {
+                output.WriteRawTag(13);
+                output.WriteFloat(TemperatureSensor);
+              }
+              if (MotorRpm != 0) {
+                output.WriteRawTag(16);
+                output.WriteUInt32(MotorRpm);
+              }
+              if (MotorPower != 0F) {
+                output.WriteRawTag(29);
+                output.WriteFloat(MotorPower);
+              }
               if (_unknownFields != null) {
                 _unknownFields.WriteTo(output);
               }
@@ -3551,9 +3899,15 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public int CalculateSize() {
               int size = 0;
-              size += temperatureSensor_.CalculateSize(_repeated_temperatureSensor_codec);
-              size += motorRpm_.CalculateSize(_repeated_motorRpm_codec);
-              size += motorPower_.CalculateSize(_repeated_motorPower_codec);
+              if (TemperatureSensor != 0F) {
+                size += 1 + 4;
+              }
+              if (MotorRpm != 0) {
+                size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MotorRpm);
+              }
+              if (MotorPower != 0F) {
+                size += 1 + 4;
+              }
               if (_unknownFields != null) {
                 size += _unknownFields.CalculateSize();
               }
@@ -3565,9 +3919,15 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
               if (other == null) {
                 return;
               }
-              temperatureSensor_.Add(other.temperatureSensor_);
-              motorRpm_.Add(other.motorRpm_);
-              motorPower_.Add(other.motorPower_);
+              if (other.TemperatureSensor != 0F) {
+                TemperatureSensor = other.TemperatureSensor;
+              }
+              if (other.MotorRpm != 0) {
+                MotorRpm = other.MotorRpm;
+              }
+              if (other.MotorPower != 0F) {
+                MotorPower = other.MotorPower;
+              }
               _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
             }
 
@@ -3579,19 +3939,16 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
                   default:
                     _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                     break;
-                  case 10:
                   case 13: {
-                    temperatureSensor_.AddEntriesFrom(input, _repeated_temperatureSensor_codec);
+                    TemperatureSensor = input.ReadFloat();
                     break;
                   }
-                  case 18:
                   case 16: {
-                    motorRpm_.AddEntriesFrom(input, _repeated_motorRpm_codec);
+                    MotorRpm = input.ReadUInt32();
                     break;
                   }
-                  case 26:
                   case 29: {
-                    motorPower_.AddEntriesFrom(input, _repeated_motorPower_codec);
+                    MotorPower = input.ReadFloat();
                     break;
                   }
                 }
@@ -3625,8 +3982,8 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public Manifold_2_Main(Manifold_2_Main other) : this() {
-              hydraulicCylinderPressure_ = other.hydraulicCylinderPressure_.Clone();
-              solenoidMovePressure_ = other.solenoidMovePressure_.Clone();
+              hydraulicCylinderPressure_ = other.hydraulicCylinderPressure_;
+              solenoidMovePressure_ = other.solenoidMovePressure_;
               _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
             }
 
@@ -3637,22 +3994,24 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
             /// <summary>Field number for the "hydraulic_cylinder_pressure" field.</summary>
             public const int HydraulicCylinderPressureFieldNumber = 1;
-            private static readonly pb::FieldCodec<float> _repeated_hydraulicCylinderPressure_codec
-                = pb::FieldCodec.ForFloat(10);
-            private readonly pbc::RepeatedField<float> hydraulicCylinderPressure_ = new pbc::RepeatedField<float>();
+            private float hydraulicCylinderPressure_;
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            public pbc::RepeatedField<float> HydraulicCylinderPressure {
+            public float HydraulicCylinderPressure {
               get { return hydraulicCylinderPressure_; }
+              set {
+                hydraulicCylinderPressure_ = value;
+              }
             }
 
             /// <summary>Field number for the "solenoid_move_pressure" field.</summary>
             public const int SolenoidMovePressureFieldNumber = 2;
-            private static readonly pb::FieldCodec<global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState> _repeated_solenoidMovePressure_codec
-                = pb::FieldCodec.ForEnum(18, x => (int) x, x => (global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState) x);
-            private readonly pbc::RepeatedField<global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState> solenoidMovePressure_ = new pbc::RepeatedField<global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState>();
+            private global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState solenoidMovePressure_ = 0;
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            public pbc::RepeatedField<global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState> SolenoidMovePressure {
+            public global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState SolenoidMovePressure {
               get { return solenoidMovePressure_; }
+              set {
+                solenoidMovePressure_ = value;
+              }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3668,16 +4027,16 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
               if (ReferenceEquals(other, this)) {
                 return true;
               }
-              if(!hydraulicCylinderPressure_.Equals(other.hydraulicCylinderPressure_)) return false;
-              if(!solenoidMovePressure_.Equals(other.solenoidMovePressure_)) return false;
+              if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(HydraulicCylinderPressure, other.HydraulicCylinderPressure)) return false;
+              if (SolenoidMovePressure != other.SolenoidMovePressure) return false;
               return Equals(_unknownFields, other._unknownFields);
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public override int GetHashCode() {
               int hash = 1;
-              hash ^= hydraulicCylinderPressure_.GetHashCode();
-              hash ^= solenoidMovePressure_.GetHashCode();
+              if (HydraulicCylinderPressure != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(HydraulicCylinderPressure);
+              if (SolenoidMovePressure != 0) hash ^= SolenoidMovePressure.GetHashCode();
               if (_unknownFields != null) {
                 hash ^= _unknownFields.GetHashCode();
               }
@@ -3691,8 +4050,14 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public void WriteTo(pb::CodedOutputStream output) {
-              hydraulicCylinderPressure_.WriteTo(output, _repeated_hydraulicCylinderPressure_codec);
-              solenoidMovePressure_.WriteTo(output, _repeated_solenoidMovePressure_codec);
+              if (HydraulicCylinderPressure != 0F) {
+                output.WriteRawTag(13);
+                output.WriteFloat(HydraulicCylinderPressure);
+              }
+              if (SolenoidMovePressure != 0) {
+                output.WriteRawTag(16);
+                output.WriteEnum((int) SolenoidMovePressure);
+              }
               if (_unknownFields != null) {
                 _unknownFields.WriteTo(output);
               }
@@ -3701,8 +4066,12 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public int CalculateSize() {
               int size = 0;
-              size += hydraulicCylinderPressure_.CalculateSize(_repeated_hydraulicCylinderPressure_codec);
-              size += solenoidMovePressure_.CalculateSize(_repeated_solenoidMovePressure_codec);
+              if (HydraulicCylinderPressure != 0F) {
+                size += 1 + 4;
+              }
+              if (SolenoidMovePressure != 0) {
+                size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) SolenoidMovePressure);
+              }
               if (_unknownFields != null) {
                 size += _unknownFields.CalculateSize();
               }
@@ -3714,8 +4083,12 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
               if (other == null) {
                 return;
               }
-              hydraulicCylinderPressure_.Add(other.hydraulicCylinderPressure_);
-              solenoidMovePressure_.Add(other.solenoidMovePressure_);
+              if (other.HydraulicCylinderPressure != 0F) {
+                HydraulicCylinderPressure = other.HydraulicCylinderPressure;
+              }
+              if (other.SolenoidMovePressure != 0) {
+                SolenoidMovePressure = other.SolenoidMovePressure;
+              }
               _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
             }
 
@@ -3727,14 +4100,12 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
                   default:
                     _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                     break;
-                  case 10:
                   case 13: {
-                    hydraulicCylinderPressure_.AddEntriesFrom(input, _repeated_hydraulicCylinderPressure_codec);
+                    HydraulicCylinderPressure = input.ReadFloat();
                     break;
                   }
-                  case 18:
                   case 16: {
-                    solenoidMovePressure_.AddEntriesFrom(input, _repeated_solenoidMovePressure_codec);
+                    solenoidMovePressure_ = (global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState) input.ReadEnum();
                     break;
                   }
                 }
@@ -3768,8 +4139,8 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public MotorBomb_3(MotorBomb_3 other) : this() {
-              motorRpm_ = other.motorRpm_.Clone();
-              motorPower_ = other.motorPower_.Clone();
+              motorRpm_ = other.motorRpm_;
+              motorPower_ = other.motorPower_;
               _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
             }
 
@@ -3780,22 +4151,24 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
             /// <summary>Field number for the "motor_rpm" field.</summary>
             public const int MotorRpmFieldNumber = 1;
-            private static readonly pb::FieldCodec<float> _repeated_motorRpm_codec
-                = pb::FieldCodec.ForFloat(10);
-            private readonly pbc::RepeatedField<float> motorRpm_ = new pbc::RepeatedField<float>();
+            private float motorRpm_;
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            public pbc::RepeatedField<float> MotorRpm {
+            public float MotorRpm {
               get { return motorRpm_; }
+              set {
+                motorRpm_ = value;
+              }
             }
 
             /// <summary>Field number for the "motor_power" field.</summary>
             public const int MotorPowerFieldNumber = 2;
-            private static readonly pb::FieldCodec<float> _repeated_motorPower_codec
-                = pb::FieldCodec.ForFloat(18);
-            private readonly pbc::RepeatedField<float> motorPower_ = new pbc::RepeatedField<float>();
+            private float motorPower_;
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            public pbc::RepeatedField<float> MotorPower {
+            public float MotorPower {
               get { return motorPower_; }
+              set {
+                motorPower_ = value;
+              }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3811,16 +4184,16 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
               if (ReferenceEquals(other, this)) {
                 return true;
               }
-              if(!motorRpm_.Equals(other.motorRpm_)) return false;
-              if(!motorPower_.Equals(other.motorPower_)) return false;
+              if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MotorRpm, other.MotorRpm)) return false;
+              if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MotorPower, other.MotorPower)) return false;
               return Equals(_unknownFields, other._unknownFields);
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public override int GetHashCode() {
               int hash = 1;
-              hash ^= motorRpm_.GetHashCode();
-              hash ^= motorPower_.GetHashCode();
+              if (MotorRpm != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MotorRpm);
+              if (MotorPower != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MotorPower);
               if (_unknownFields != null) {
                 hash ^= _unknownFields.GetHashCode();
               }
@@ -3834,8 +4207,14 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public void WriteTo(pb::CodedOutputStream output) {
-              motorRpm_.WriteTo(output, _repeated_motorRpm_codec);
-              motorPower_.WriteTo(output, _repeated_motorPower_codec);
+              if (MotorRpm != 0F) {
+                output.WriteRawTag(13);
+                output.WriteFloat(MotorRpm);
+              }
+              if (MotorPower != 0F) {
+                output.WriteRawTag(21);
+                output.WriteFloat(MotorPower);
+              }
               if (_unknownFields != null) {
                 _unknownFields.WriteTo(output);
               }
@@ -3844,8 +4223,12 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public int CalculateSize() {
               int size = 0;
-              size += motorRpm_.CalculateSize(_repeated_motorRpm_codec);
-              size += motorPower_.CalculateSize(_repeated_motorPower_codec);
+              if (MotorRpm != 0F) {
+                size += 1 + 4;
+              }
+              if (MotorPower != 0F) {
+                size += 1 + 4;
+              }
               if (_unknownFields != null) {
                 size += _unknownFields.CalculateSize();
               }
@@ -3857,8 +4240,12 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
               if (other == null) {
                 return;
               }
-              motorRpm_.Add(other.motorRpm_);
-              motorPower_.Add(other.motorPower_);
+              if (other.MotorRpm != 0F) {
+                MotorRpm = other.MotorRpm;
+              }
+              if (other.MotorPower != 0F) {
+                MotorPower = other.MotorPower;
+              }
               _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
             }
 
@@ -3870,14 +4257,12 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
                   default:
                     _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                     break;
-                  case 10:
                   case 13: {
-                    motorRpm_.AddEntriesFrom(input, _repeated_motorRpm_codec);
+                    MotorRpm = input.ReadFloat();
                     break;
                   }
-                  case 18:
                   case 21: {
-                    motorPower_.AddEntriesFrom(input, _repeated_motorPower_codec);
+                    MotorPower = input.ReadFloat();
                     break;
                   }
                 }
@@ -3911,9 +4296,9 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public MotorBomb_4(MotorBomb_4 other) : this() {
-              oilTemperature_ = other.oilTemperature_.Clone();
-              motorRpm_ = other.motorRpm_.Clone();
-              motorPower_ = other.motorPower_.Clone();
+              oilTemperature_ = other.oilTemperature_;
+              motorRpm_ = other.motorRpm_;
+              motorPower_ = other.motorPower_;
               _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
             }
 
@@ -3924,32 +4309,35 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
             /// <summary>Field number for the "oil_temperature" field.</summary>
             public const int OilTemperatureFieldNumber = 1;
-            private static readonly pb::FieldCodec<float> _repeated_oilTemperature_codec
-                = pb::FieldCodec.ForFloat(10);
-            private readonly pbc::RepeatedField<float> oilTemperature_ = new pbc::RepeatedField<float>();
+            private float oilTemperature_;
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            public pbc::RepeatedField<float> OilTemperature {
+            public float OilTemperature {
               get { return oilTemperature_; }
+              set {
+                oilTemperature_ = value;
+              }
             }
 
             /// <summary>Field number for the "motor_rpm" field.</summary>
             public const int MotorRpmFieldNumber = 2;
-            private static readonly pb::FieldCodec<uint> _repeated_motorRpm_codec
-                = pb::FieldCodec.ForUInt32(18);
-            private readonly pbc::RepeatedField<uint> motorRpm_ = new pbc::RepeatedField<uint>();
+            private uint motorRpm_;
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            public pbc::RepeatedField<uint> MotorRpm {
+            public uint MotorRpm {
               get { return motorRpm_; }
+              set {
+                motorRpm_ = value;
+              }
             }
 
             /// <summary>Field number for the "motor_power" field.</summary>
             public const int MotorPowerFieldNumber = 3;
-            private static readonly pb::FieldCodec<float> _repeated_motorPower_codec
-                = pb::FieldCodec.ForFloat(26);
-            private readonly pbc::RepeatedField<float> motorPower_ = new pbc::RepeatedField<float>();
+            private float motorPower_;
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            public pbc::RepeatedField<float> MotorPower {
+            public float MotorPower {
               get { return motorPower_; }
+              set {
+                motorPower_ = value;
+              }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3965,18 +4353,18 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
               if (ReferenceEquals(other, this)) {
                 return true;
               }
-              if(!oilTemperature_.Equals(other.oilTemperature_)) return false;
-              if(!motorRpm_.Equals(other.motorRpm_)) return false;
-              if(!motorPower_.Equals(other.motorPower_)) return false;
+              if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(OilTemperature, other.OilTemperature)) return false;
+              if (MotorRpm != other.MotorRpm) return false;
+              if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MotorPower, other.MotorPower)) return false;
               return Equals(_unknownFields, other._unknownFields);
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public override int GetHashCode() {
               int hash = 1;
-              hash ^= oilTemperature_.GetHashCode();
-              hash ^= motorRpm_.GetHashCode();
-              hash ^= motorPower_.GetHashCode();
+              if (OilTemperature != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(OilTemperature);
+              if (MotorRpm != 0) hash ^= MotorRpm.GetHashCode();
+              if (MotorPower != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MotorPower);
               if (_unknownFields != null) {
                 hash ^= _unknownFields.GetHashCode();
               }
@@ -3990,9 +4378,18 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public void WriteTo(pb::CodedOutputStream output) {
-              oilTemperature_.WriteTo(output, _repeated_oilTemperature_codec);
-              motorRpm_.WriteTo(output, _repeated_motorRpm_codec);
-              motorPower_.WriteTo(output, _repeated_motorPower_codec);
+              if (OilTemperature != 0F) {
+                output.WriteRawTag(13);
+                output.WriteFloat(OilTemperature);
+              }
+              if (MotorRpm != 0) {
+                output.WriteRawTag(16);
+                output.WriteUInt32(MotorRpm);
+              }
+              if (MotorPower != 0F) {
+                output.WriteRawTag(29);
+                output.WriteFloat(MotorPower);
+              }
               if (_unknownFields != null) {
                 _unknownFields.WriteTo(output);
               }
@@ -4001,9 +4398,15 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public int CalculateSize() {
               int size = 0;
-              size += oilTemperature_.CalculateSize(_repeated_oilTemperature_codec);
-              size += motorRpm_.CalculateSize(_repeated_motorRpm_codec);
-              size += motorPower_.CalculateSize(_repeated_motorPower_codec);
+              if (OilTemperature != 0F) {
+                size += 1 + 4;
+              }
+              if (MotorRpm != 0) {
+                size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MotorRpm);
+              }
+              if (MotorPower != 0F) {
+                size += 1 + 4;
+              }
               if (_unknownFields != null) {
                 size += _unknownFields.CalculateSize();
               }
@@ -4015,9 +4418,15 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
               if (other == null) {
                 return;
               }
-              oilTemperature_.Add(other.oilTemperature_);
-              motorRpm_.Add(other.motorRpm_);
-              motorPower_.Add(other.motorPower_);
+              if (other.OilTemperature != 0F) {
+                OilTemperature = other.OilTemperature;
+              }
+              if (other.MotorRpm != 0) {
+                MotorRpm = other.MotorRpm;
+              }
+              if (other.MotorPower != 0F) {
+                MotorPower = other.MotorPower;
+              }
               _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
             }
 
@@ -4029,19 +4438,16 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
                   default:
                     _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                     break;
-                  case 10:
                   case 13: {
-                    oilTemperature_.AddEntriesFrom(input, _repeated_oilTemperature_codec);
+                    OilTemperature = input.ReadFloat();
                     break;
                   }
-                  case 18:
                   case 16: {
-                    motorRpm_.AddEntriesFrom(input, _repeated_motorRpm_codec);
+                    MotorRpm = input.ReadUInt32();
                     break;
                   }
-                  case 26:
                   case 29: {
-                    motorPower_.AddEntriesFrom(input, _repeated_motorPower_codec);
+                    MotorPower = input.ReadFloat();
                     break;
                   }
                 }
@@ -4075,7 +4481,7 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public Manifold_3_Forward(Manifold_3_Forward other) : this() {
-              solenoidActiveForward_ = other.solenoidActiveForward_.Clone();
+              solenoidActiveForward_ = other.solenoidActiveForward_;
               _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
             }
 
@@ -4086,12 +4492,13 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
             /// <summary>Field number for the "solenoid_active_forward" field.</summary>
             public const int SolenoidActiveForwardFieldNumber = 1;
-            private static readonly pb::FieldCodec<global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState> _repeated_solenoidActiveForward_codec
-                = pb::FieldCodec.ForEnum(10, x => (int) x, x => (global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState) x);
-            private readonly pbc::RepeatedField<global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState> solenoidActiveForward_ = new pbc::RepeatedField<global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState>();
+            private global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState solenoidActiveForward_ = 0;
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            public pbc::RepeatedField<global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState> SolenoidActiveForward {
+            public global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState SolenoidActiveForward {
               get { return solenoidActiveForward_; }
+              set {
+                solenoidActiveForward_ = value;
+              }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4107,14 +4514,14 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
               if (ReferenceEquals(other, this)) {
                 return true;
               }
-              if(!solenoidActiveForward_.Equals(other.solenoidActiveForward_)) return false;
+              if (SolenoidActiveForward != other.SolenoidActiveForward) return false;
               return Equals(_unknownFields, other._unknownFields);
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public override int GetHashCode() {
               int hash = 1;
-              hash ^= solenoidActiveForward_.GetHashCode();
+              if (SolenoidActiveForward != 0) hash ^= SolenoidActiveForward.GetHashCode();
               if (_unknownFields != null) {
                 hash ^= _unknownFields.GetHashCode();
               }
@@ -4128,7 +4535,10 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public void WriteTo(pb::CodedOutputStream output) {
-              solenoidActiveForward_.WriteTo(output, _repeated_solenoidActiveForward_codec);
+              if (SolenoidActiveForward != 0) {
+                output.WriteRawTag(8);
+                output.WriteEnum((int) SolenoidActiveForward);
+              }
               if (_unknownFields != null) {
                 _unknownFields.WriteTo(output);
               }
@@ -4137,7 +4547,9 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public int CalculateSize() {
               int size = 0;
-              size += solenoidActiveForward_.CalculateSize(_repeated_solenoidActiveForward_codec);
+              if (SolenoidActiveForward != 0) {
+                size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) SolenoidActiveForward);
+              }
               if (_unknownFields != null) {
                 size += _unknownFields.CalculateSize();
               }
@@ -4149,7 +4561,9 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
               if (other == null) {
                 return;
               }
-              solenoidActiveForward_.Add(other.solenoidActiveForward_);
+              if (other.SolenoidActiveForward != 0) {
+                SolenoidActiveForward = other.SolenoidActiveForward;
+              }
               _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
             }
 
@@ -4161,9 +4575,8 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
                   default:
                     _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                     break;
-                  case 10:
                   case 8: {
-                    solenoidActiveForward_.AddEntriesFrom(input, _repeated_solenoidActiveForward_codec);
+                    solenoidActiveForward_ = (global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState) input.ReadEnum();
                     break;
                   }
                 }
@@ -4197,8 +4610,8 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public Manifold_1_Forward(Manifold_1_Forward other) : this() {
-              solenoidCylinderMoveForward_ = other.solenoidCylinderMoveForward_.Clone();
-              solenoidCylinderActiveForward_ = other.solenoidCylinderActiveForward_.Clone();
+              solenoidCylinderMoveForward_ = other.solenoidCylinderMoveForward_;
+              solenoidCylinderActiveForward_ = other.solenoidCylinderActiveForward_;
               _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
             }
 
@@ -4209,22 +4622,24 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
             /// <summary>Field number for the "solenoid_cylinder_move_forward" field.</summary>
             public const int SolenoidCylinderMoveForwardFieldNumber = 1;
-            private static readonly pb::FieldCodec<global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState> _repeated_solenoidCylinderMoveForward_codec
-                = pb::FieldCodec.ForEnum(10, x => (int) x, x => (global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState) x);
-            private readonly pbc::RepeatedField<global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState> solenoidCylinderMoveForward_ = new pbc::RepeatedField<global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState>();
+            private global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState solenoidCylinderMoveForward_ = 0;
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            public pbc::RepeatedField<global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState> SolenoidCylinderMoveForward {
+            public global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState SolenoidCylinderMoveForward {
               get { return solenoidCylinderMoveForward_; }
+              set {
+                solenoidCylinderMoveForward_ = value;
+              }
             }
 
             /// <summary>Field number for the "solenoid_cylinder_active_forward" field.</summary>
             public const int SolenoidCylinderActiveForwardFieldNumber = 2;
-            private static readonly pb::FieldCodec<global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState> _repeated_solenoidCylinderActiveForward_codec
-                = pb::FieldCodec.ForEnum(18, x => (int) x, x => (global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState) x);
-            private readonly pbc::RepeatedField<global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState> solenoidCylinderActiveForward_ = new pbc::RepeatedField<global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState>();
+            private global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState solenoidCylinderActiveForward_ = 0;
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-            public pbc::RepeatedField<global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState> SolenoidCylinderActiveForward {
+            public global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState SolenoidCylinderActiveForward {
               get { return solenoidCylinderActiveForward_; }
+              set {
+                solenoidCylinderActiveForward_ = value;
+              }
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4240,16 +4655,16 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
               if (ReferenceEquals(other, this)) {
                 return true;
               }
-              if(!solenoidCylinderMoveForward_.Equals(other.solenoidCylinderMoveForward_)) return false;
-              if(!solenoidCylinderActiveForward_.Equals(other.solenoidCylinderActiveForward_)) return false;
+              if (SolenoidCylinderMoveForward != other.SolenoidCylinderMoveForward) return false;
+              if (SolenoidCylinderActiveForward != other.SolenoidCylinderActiveForward) return false;
               return Equals(_unknownFields, other._unknownFields);
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public override int GetHashCode() {
               int hash = 1;
-              hash ^= solenoidCylinderMoveForward_.GetHashCode();
-              hash ^= solenoidCylinderActiveForward_.GetHashCode();
+              if (SolenoidCylinderMoveForward != 0) hash ^= SolenoidCylinderMoveForward.GetHashCode();
+              if (SolenoidCylinderActiveForward != 0) hash ^= SolenoidCylinderActiveForward.GetHashCode();
               if (_unknownFields != null) {
                 hash ^= _unknownFields.GetHashCode();
               }
@@ -4263,8 +4678,14 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public void WriteTo(pb::CodedOutputStream output) {
-              solenoidCylinderMoveForward_.WriteTo(output, _repeated_solenoidCylinderMoveForward_codec);
-              solenoidCylinderActiveForward_.WriteTo(output, _repeated_solenoidCylinderActiveForward_codec);
+              if (SolenoidCylinderMoveForward != 0) {
+                output.WriteRawTag(8);
+                output.WriteEnum((int) SolenoidCylinderMoveForward);
+              }
+              if (SolenoidCylinderActiveForward != 0) {
+                output.WriteRawTag(16);
+                output.WriteEnum((int) SolenoidCylinderActiveForward);
+              }
               if (_unknownFields != null) {
                 _unknownFields.WriteTo(output);
               }
@@ -4273,8 +4694,12 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public int CalculateSize() {
               int size = 0;
-              size += solenoidCylinderMoveForward_.CalculateSize(_repeated_solenoidCylinderMoveForward_codec);
-              size += solenoidCylinderActiveForward_.CalculateSize(_repeated_solenoidCylinderActiveForward_codec);
+              if (SolenoidCylinderMoveForward != 0) {
+                size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) SolenoidCylinderMoveForward);
+              }
+              if (SolenoidCylinderActiveForward != 0) {
+                size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) SolenoidCylinderActiveForward);
+              }
               if (_unknownFields != null) {
                 size += _unknownFields.CalculateSize();
               }
@@ -4286,8 +4711,12 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
               if (other == null) {
                 return;
               }
-              solenoidCylinderMoveForward_.Add(other.solenoidCylinderMoveForward_);
-              solenoidCylinderActiveForward_.Add(other.solenoidCylinderActiveForward_);
+              if (other.SolenoidCylinderMoveForward != 0) {
+                SolenoidCylinderMoveForward = other.SolenoidCylinderMoveForward;
+              }
+              if (other.SolenoidCylinderActiveForward != 0) {
+                SolenoidCylinderActiveForward = other.SolenoidCylinderActiveForward;
+              }
               _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
             }
 
@@ -4299,14 +4728,12 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
                   default:
                     _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                     break;
-                  case 10:
                   case 8: {
-                    solenoidCylinderMoveForward_.AddEntriesFrom(input, _repeated_solenoidCylinderMoveForward_codec);
+                    solenoidCylinderMoveForward_ = (global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState) input.ReadEnum();
                     break;
                   }
-                  case 18:
                   case 16: {
-                    solenoidCylinderActiveForward_.AddEntriesFrom(input, _repeated_solenoidCylinderActiveForward_codec);
+                    solenoidCylinderActiveForward_ = (global::AnnelidaDispatcher.Model.DataTransmission.SolenoidState) input.ReadEnum();
                     break;
                   }
                 }
@@ -4345,9 +4772,10 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public SgnReactor(SgnReactor other) : this() {
-          sgnTemperature_ = other.sgnTemperature_.Clone();
-          obstructionDetected_ = other.obstructionDetected_.Clone();
-          reactorPressure_ = other.reactorPressure_.Clone();
+          sgnTemperature_ = other.sgnTemperature_;
+          obstructionDetected_ = other.obstructionDetected_;
+          reactorPressure_ = other.reactorPressure_;
+          flowPWM_ = other.flowPWM_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
 
@@ -4358,32 +4786,46 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
         /// <summary>Field number for the "sgn_temperature" field.</summary>
         public const int SgnTemperatureFieldNumber = 1;
-        private static readonly pb::FieldCodec<float> _repeated_sgnTemperature_codec
-            = pb::FieldCodec.ForFloat(10);
-        private readonly pbc::RepeatedField<float> sgnTemperature_ = new pbc::RepeatedField<float>();
+        private float sgnTemperature_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<float> SgnTemperature {
+        public float SgnTemperature {
           get { return sgnTemperature_; }
+          set {
+            sgnTemperature_ = value;
+          }
         }
 
         /// <summary>Field number for the "obstruction_detected" field.</summary>
         public const int ObstructionDetectedFieldNumber = 2;
-        private static readonly pb::FieldCodec<bool> _repeated_obstructionDetected_codec
-            = pb::FieldCodec.ForBool(18);
-        private readonly pbc::RepeatedField<bool> obstructionDetected_ = new pbc::RepeatedField<bool>();
+        private bool obstructionDetected_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<bool> ObstructionDetected {
+        public bool ObstructionDetected {
           get { return obstructionDetected_; }
+          set {
+            obstructionDetected_ = value;
+          }
         }
 
         /// <summary>Field number for the "reactor_pressure" field.</summary>
         public const int ReactorPressureFieldNumber = 3;
-        private static readonly pb::FieldCodec<float> _repeated_reactorPressure_codec
-            = pb::FieldCodec.ForFloat(26);
-        private readonly pbc::RepeatedField<float> reactorPressure_ = new pbc::RepeatedField<float>();
+        private float reactorPressure_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pbc::RepeatedField<float> ReactorPressure {
+        public float ReactorPressure {
           get { return reactorPressure_; }
+          set {
+            reactorPressure_ = value;
+          }
+        }
+
+        /// <summary>Field number for the "flowPWM" field.</summary>
+        public const int FlowPWMFieldNumber = 4;
+        private float flowPWM_;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public float FlowPWM {
+          get { return flowPWM_; }
+          set {
+            flowPWM_ = value;
+          }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4399,18 +4841,20 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
           if (ReferenceEquals(other, this)) {
             return true;
           }
-          if(!sgnTemperature_.Equals(other.sgnTemperature_)) return false;
-          if(!obstructionDetected_.Equals(other.obstructionDetected_)) return false;
-          if(!reactorPressure_.Equals(other.reactorPressure_)) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(SgnTemperature, other.SgnTemperature)) return false;
+          if (ObstructionDetected != other.ObstructionDetected) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(ReactorPressure, other.ReactorPressure)) return false;
+          if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(FlowPWM, other.FlowPWM)) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public override int GetHashCode() {
           int hash = 1;
-          hash ^= sgnTemperature_.GetHashCode();
-          hash ^= obstructionDetected_.GetHashCode();
-          hash ^= reactorPressure_.GetHashCode();
+          if (SgnTemperature != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(SgnTemperature);
+          if (ObstructionDetected != false) hash ^= ObstructionDetected.GetHashCode();
+          if (ReactorPressure != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(ReactorPressure);
+          if (FlowPWM != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(FlowPWM);
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
           }
@@ -4424,9 +4868,22 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public void WriteTo(pb::CodedOutputStream output) {
-          sgnTemperature_.WriteTo(output, _repeated_sgnTemperature_codec);
-          obstructionDetected_.WriteTo(output, _repeated_obstructionDetected_codec);
-          reactorPressure_.WriteTo(output, _repeated_reactorPressure_codec);
+          if (SgnTemperature != 0F) {
+            output.WriteRawTag(13);
+            output.WriteFloat(SgnTemperature);
+          }
+          if (ObstructionDetected != false) {
+            output.WriteRawTag(16);
+            output.WriteBool(ObstructionDetected);
+          }
+          if (ReactorPressure != 0F) {
+            output.WriteRawTag(29);
+            output.WriteFloat(ReactorPressure);
+          }
+          if (FlowPWM != 0F) {
+            output.WriteRawTag(37);
+            output.WriteFloat(FlowPWM);
+          }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
           }
@@ -4435,9 +4892,18 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public int CalculateSize() {
           int size = 0;
-          size += sgnTemperature_.CalculateSize(_repeated_sgnTemperature_codec);
-          size += obstructionDetected_.CalculateSize(_repeated_obstructionDetected_codec);
-          size += reactorPressure_.CalculateSize(_repeated_reactorPressure_codec);
+          if (SgnTemperature != 0F) {
+            size += 1 + 4;
+          }
+          if (ObstructionDetected != false) {
+            size += 1 + 1;
+          }
+          if (ReactorPressure != 0F) {
+            size += 1 + 4;
+          }
+          if (FlowPWM != 0F) {
+            size += 1 + 4;
+          }
           if (_unknownFields != null) {
             size += _unknownFields.CalculateSize();
           }
@@ -4449,9 +4915,18 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
           if (other == null) {
             return;
           }
-          sgnTemperature_.Add(other.sgnTemperature_);
-          obstructionDetected_.Add(other.obstructionDetected_);
-          reactorPressure_.Add(other.reactorPressure_);
+          if (other.SgnTemperature != 0F) {
+            SgnTemperature = other.SgnTemperature;
+          }
+          if (other.ObstructionDetected != false) {
+            ObstructionDetected = other.ObstructionDetected;
+          }
+          if (other.ReactorPressure != 0F) {
+            ReactorPressure = other.ReactorPressure;
+          }
+          if (other.FlowPWM != 0F) {
+            FlowPWM = other.FlowPWM;
+          }
           _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
         }
 
@@ -4463,19 +4938,20 @@ namespace AnnelidaDispatcher.Model.DataTransmission {
               default:
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                 break;
-              case 10:
               case 13: {
-                sgnTemperature_.AddEntriesFrom(input, _repeated_sgnTemperature_codec);
+                SgnTemperature = input.ReadFloat();
                 break;
               }
-              case 18:
               case 16: {
-                obstructionDetected_.AddEntriesFrom(input, _repeated_obstructionDetected_codec);
+                ObstructionDetected = input.ReadBool();
                 break;
               }
-              case 26:
               case 29: {
-                reactorPressure_.AddEntriesFrom(input, _repeated_reactorPressure_codec);
+                ReactorPressure = input.ReadFloat();
+                break;
+              }
+              case 37: {
+                FlowPWM = input.ReadFloat();
                 break;
               }
             }
